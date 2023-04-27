@@ -18,6 +18,7 @@
 		E3F2493729F8F19C00350ADE /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E3F2493629F8F19C00350ADE /* FirebaseFirestoreSwift */; };
 		E3F2493B29F9244500350ADE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F2493A29F9244500350ADE /* MainViewController.swift */; };
 		E3F2493D29F9253100350ADE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F2493C29F9253100350ADE /* TabBarController.swift */; };
+		E3F2493F29F9CBD700350ADE /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F2493E29F9CBD700350ADE /* UIColorExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		E3F2492B29F8EE8100350ADE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3F2493A29F9244500350ADE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E3F2493C29F9253100350ADE /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		E3F2493E29F9CBD700350ADE /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		F16C6C90AA33A989F8512F98 /* Pods-selflogue.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-selflogue.debug.xcconfig"; path = "Target Support Files/Pods-selflogue/Pods-selflogue.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,6 +98,7 @@
 				E3F2492B29F8EE8100350ADE /* Info.plist */,
 				E3F2493A29F9244500350ADE /* MainViewController.swift */,
 				E3F2493C29F9253100350ADE /* TabBarController.swift */,
+				E3F2493E29F9CBD700350ADE /* UIColorExtension.swift */,
 			);
 			path = selflogue;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 			files = (
 				E3F2493B29F9244500350ADE /* MainViewController.swift in Sources */,
 				E3F2493D29F9253100350ADE /* TabBarController.swift in Sources */,
+				E3F2493F29F9CBD700350ADE /* UIColorExtension.swift in Sources */,
 				E3F2491E29F8EE8000350ADE /* AppDelegate.swift in Sources */,
 				E3F2492029F8EE8000350ADE /* SceneDelegate.swift in Sources */,
 			);

@@ -33,22 +33,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g7a-3e-3Df" customClass="FSCalendar">
-                                <rect key="frame" x="20" y="123" width="353" height="400"/>
+                                <rect key="frame" x="20" y="133" width="353" height="350"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="400" id="Itk-Cn-OGc"/>
+                                    <constraint firstAttribute="height" constant="350" id="M2K-dp-vz4"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1yx-uB-Nqi"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="g7a-3e-3Df" firstAttribute="top" secondItem="1yx-uB-Nqi" secondAttribute="top" constant="30" id="BVC-uF-dC4"/>
                             <constraint firstItem="g7a-3e-3Df" firstAttribute="leading" secondItem="1yx-uB-Nqi" secondAttribute="leading" constant="20" id="NnN-aQ-l0e"/>
-                            <constraint firstItem="g7a-3e-3Df" firstAttribute="top" secondItem="1yx-uB-Nqi" secondAttribute="top" constant="20" id="Y6P-2s-WwE"/>
                             <constraint firstItem="1yx-uB-Nqi" firstAttribute="trailing" secondItem="g7a-3e-3Df" secondAttribute="trailing" constant="20" id="fjN-pq-FYZ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Home" id="1cb-Wu-mMd"/>
+                    <navigationItem key="navigationItem" id="1cb-Wu-mMd"/>
                     <connections>
                         <outlet property="calendar" destination="g7a-3e-3Df" id="OCA-r2-qBm"/>
                     </connections>
@@ -167,6 +167,7 @@
         <!--Home-->
         <scene sceneID="PzY-nH-aFY">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hmx-sM-z5l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cSU-Nm-Sry" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" selectedImage="house.fill" id="mlC-JI-vhX"/>
                     <toolbarItems/>
@@ -179,7 +180,6 @@
                         <segue destination="MK2-Qu-grH" kind="relationship" relationship="rootViewController" id="DVy-2l-dBH"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Hmx-sM-z5l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1512" y="442"/>
         </scene>
