@@ -21,5 +21,18 @@
 			</array>
 		</dict>
 	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Lato-ThinItalic.ttf</string>
+		<string>Lato-Thin.ttf</string>
+		<string>Lato-Regular.ttf</string>
+		<string>Lato-LightItalight.ttf</string>
+		<string>Lato-Light.ttf</string>
+		<string>Lato-Italic.ttf</string>
+		<string>Lato-BoldItalic.ttf</string>
+		<string>Lato-Bold.ttf</string>
+		<string>Lato-BlackItalic.ttf</string>
+		<string>Lato-Black.ttf</string>
+	</array>
 </dict>
 </plist>
