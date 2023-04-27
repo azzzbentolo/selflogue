@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3E5FFB33DDD77894C914606B /* Pods_selflogue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D1D7B2083C9745E6FCFAAAA /* Pods_selflogue.framework */; };
+		E311CBA729FA5A3E00537EA8 /* TimerSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E311CBA629FA5A3E00537EA8 /* TimerSwiftUIView.swift */; };
 		E3F2491E29F8EE8000350ADE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F2491D29F8EE8000350ADE /* AppDelegate.swift */; };
 		E3F2492029F8EE8000350ADE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F2491F29F8EE8000350ADE /* SceneDelegate.swift */; };
 		E3F2492529F8EE8000350ADE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3F2492329F8EE8000350ADE /* Main.storyboard */; };
@@ -33,6 +34,7 @@
 /* Begin PBXFileReference section */
 		4D1D7B2083C9745E6FCFAAAA /* Pods_selflogue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_selflogue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C708ED34D5956448CB01DBBE /* Pods-selflogue.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-selflogue.release.xcconfig"; path = "Target Support Files/Pods-selflogue/Pods-selflogue.release.xcconfig"; sourceTree = "<group>"; };
+		E311CBA629FA5A3E00537EA8 /* TimerSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSwiftUIView.swift; sourceTree = "<group>"; };
 		E3F2491A29F8EE8000350ADE /* selflogue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = selflogue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3F2491D29F8EE8000350ADE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3F2491F29F8EE8000350ADE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				E3F2496329FA30C500350ADE /* FeedViewController.swift */,
 				E3F2496729FA30DE00350ADE /* FocusViewController.swift */,
 				E3F2496929FA311A00350ADE /* StatsViewController.swift */,
+				E311CBA629FA5A3E00537EA8 /* TimerSwiftUIView.swift */,
 				E3F2492629F8EE8100350ADE /* Assets.xcassets */,
 				E3F2492B29F8EE8100350ADE /* Info.plist */,
 				E3F2494429FA0F7400350ADE /* GoogleService-Info.plist */,
@@ -270,6 +273,7 @@
 				E3F2496229FA308400350ADE /* HabitViewController.swift in Sources */,
 				E3F2493D29F9253100350ADE /* TabBarController.swift in Sources */,
 				E3F2493F29F9CBD700350ADE /* UIColorExtension.swift in Sources */,
+				E311CBA729FA5A3E00537EA8 /* TimerSwiftUIView.swift in Sources */,
 				E3F2491E29F8EE8000350ADE /* AppDelegate.swift in Sources */,
 				E3F2492029F8EE8000350ADE /* SceneDelegate.swift in Sources */,
 				E3F2496829FA30DE00350ADE /* FocusViewController.swift in Sources */,

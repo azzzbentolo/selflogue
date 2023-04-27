@@ -21,6 +21,7 @@ class MainViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
         
         super.viewDidLoad()
         setUpCalendar()
+        setUpLineView()
         
     }
     
@@ -87,7 +88,16 @@ class MainViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
             return nil
         }
     }
-
+    
+    
+    func setUpLineView() {
+        
+        var lineView = UIView(frame: CGRect(x: 0, y: 175, width: 500, height: 1.5))
+        lineView.layer.borderWidth = 1.0
+        lineView.layer.borderColor = UIColor(red: 130, green: 130, blue: 130).cgColor
+        self.view.addSubview(lineView)
+        
+    }
 
 
     
