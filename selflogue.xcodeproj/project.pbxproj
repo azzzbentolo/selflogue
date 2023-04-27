@@ -20,16 +20,14 @@
 		E3F2493D29F9253100350ADE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F2493C29F9253100350ADE /* TabBarController.swift */; };
 		E3F2493F29F9CBD700350ADE /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F2493E29F9CBD700350ADE /* UIColorExtension.swift */; };
 		E3F2494529FA0F7400350ADE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3F2494429FA0F7400350ADE /* GoogleService-Info.plist */; };
-		E3F2495129FA10C100350ADE /* Lato-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3F2494729FA10C000350ADE /* Lato-BoldItalic.ttf */; };
 		E3F2495229FA10C100350ADE /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3F2494829FA10C000350ADE /* Lato-Regular.ttf */; };
-		E3F2495329FA10C100350ADE /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3F2494929FA10C000350ADE /* Lato-LightItalic.ttf */; };
-		E3F2495429FA10C100350ADE /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3F2494A29FA10C000350ADE /* Lato-BlackItalic.ttf */; };
-		E3F2495529FA10C100350ADE /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3F2494B29FA10C000350ADE /* Lato-Thin.ttf */; };
 		E3F2495629FA10C100350ADE /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3F2494C29FA10C000350ADE /* Lato-Bold.ttf */; };
-		E3F2495729FA10C100350ADE /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3F2494D29FA10C000350ADE /* Lato-Black.ttf */; };
-		E3F2495829FA10C100350ADE /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3F2494E29FA10C000350ADE /* Lato-Italic.ttf */; };
-		E3F2495929FA10C100350ADE /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3F2494F29FA10C000350ADE /* Lato-ThinItalic.ttf */; };
-		E3F2495A29FA10C100350ADE /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3F2495029FA10C000350ADE /* Lato-Light.ttf */; };
+		E3F2496229FA308400350ADE /* HabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F2496129FA308400350ADE /* HabitViewController.swift */; };
+		E3F2496429FA30C500350ADE /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F2496329FA30C500350ADE /* FeedViewController.swift */; };
+		E3F2496829FA30DE00350ADE /* FocusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F2496729FA30DE00350ADE /* FocusViewController.swift */; };
+		E3F2496A29FA311A00350ADE /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F2496929FA311A00350ADE /* StatsViewController.swift */; };
+		E3F2496E29FA323200350ADE /* AdventPro-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3F2496D29FA323200350ADE /* AdventPro-SemiBold.ttf */; };
+		E3F2497029FA329C00350ADE /* AdventPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3F2496F29FA329C00350ADE /* AdventPro-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,16 +44,14 @@
 		E3F2493C29F9253100350ADE /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		E3F2493E29F9CBD700350ADE /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		E3F2494429FA0F7400350ADE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
-		E3F2494729FA10C000350ADE /* Lato-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-BoldItalic.ttf"; path = "../../../../../Downloads/Lato/Lato-BoldItalic.ttf"; sourceTree = "<group>"; };
 		E3F2494829FA10C000350ADE /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Regular.ttf"; path = "../../../../../Downloads/Lato/Lato-Regular.ttf"; sourceTree = "<group>"; };
-		E3F2494929FA10C000350ADE /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-LightItalic.ttf"; path = "../../../../../Downloads/Lato/Lato-LightItalic.ttf"; sourceTree = "<group>"; };
-		E3F2494A29FA10C000350ADE /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-BlackItalic.ttf"; path = "../../../../../Downloads/Lato/Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
-		E3F2494B29FA10C000350ADE /* Lato-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Thin.ttf"; path = "../../../../../Downloads/Lato/Lato-Thin.ttf"; sourceTree = "<group>"; };
 		E3F2494C29FA10C000350ADE /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Bold.ttf"; path = "../../../../../Downloads/Lato/Lato-Bold.ttf"; sourceTree = "<group>"; };
-		E3F2494D29FA10C000350ADE /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Black.ttf"; path = "../../../../../Downloads/Lato/Lato-Black.ttf"; sourceTree = "<group>"; };
-		E3F2494E29FA10C000350ADE /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Italic.ttf"; path = "../../../../../Downloads/Lato/Lato-Italic.ttf"; sourceTree = "<group>"; };
-		E3F2494F29FA10C000350ADE /* Lato-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-ThinItalic.ttf"; path = "../../../../../Downloads/Lato/Lato-ThinItalic.ttf"; sourceTree = "<group>"; };
-		E3F2495029FA10C000350ADE /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Light.ttf"; path = "../../../../../Downloads/Lato/Lato-Light.ttf"; sourceTree = "<group>"; };
+		E3F2496129FA308400350ADE /* HabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitViewController.swift; sourceTree = "<group>"; };
+		E3F2496329FA30C500350ADE /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		E3F2496729FA30DE00350ADE /* FocusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusViewController.swift; sourceTree = "<group>"; };
+		E3F2496929FA311A00350ADE /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
+		E3F2496D29FA323200350ADE /* AdventPro-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "AdventPro-SemiBold.ttf"; path = "../../../../../Downloads/Advent_Pro,Lato/Advent_Pro/static/AdventPro-SemiBold.ttf"; sourceTree = "<group>"; };
+		E3F2496F29FA329C00350ADE /* AdventPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "AdventPro-Bold.ttf"; path = "../../../../../Downloads/Advent_Pro,Lato/Advent_Pro/static/AdventPro-Bold.ttf"; sourceTree = "<group>"; };
 		F16C6C90AA33A989F8512F98 /* Pods-selflogue.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-selflogue.debug.xcconfig"; path = "Target Support Files/Pods-selflogue/Pods-selflogue.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,17 +108,21 @@
 		E3F2491C29F8EE8000350ADE /* selflogue */ = {
 			isa = PBXGroup;
 			children = (
-				E3F2494629FA10A100350ADE /* Font */,
-				E3F2494429FA0F7400350ADE /* GoogleService-Info.plist */,
+				E3F2492329F8EE8000350ADE /* Main.storyboard */,
+				E3F2492829F8EE8100350ADE /* LaunchScreen.storyboard */,
 				E3F2491D29F8EE8000350ADE /* AppDelegate.swift */,
 				E3F2491F29F8EE8000350ADE /* SceneDelegate.swift */,
-				E3F2492329F8EE8000350ADE /* Main.storyboard */,
-				E3F2492629F8EE8100350ADE /* Assets.xcassets */,
-				E3F2492829F8EE8100350ADE /* LaunchScreen.storyboard */,
-				E3F2492B29F8EE8100350ADE /* Info.plist */,
 				E3F2493A29F9244500350ADE /* MainViewController.swift */,
 				E3F2493C29F9253100350ADE /* TabBarController.swift */,
 				E3F2493E29F9CBD700350ADE /* UIColorExtension.swift */,
+				E3F2496129FA308400350ADE /* HabitViewController.swift */,
+				E3F2496329FA30C500350ADE /* FeedViewController.swift */,
+				E3F2496729FA30DE00350ADE /* FocusViewController.swift */,
+				E3F2496929FA311A00350ADE /* StatsViewController.swift */,
+				E3F2492629F8EE8100350ADE /* Assets.xcassets */,
+				E3F2492B29F8EE8100350ADE /* Info.plist */,
+				E3F2494429FA0F7400350ADE /* GoogleService-Info.plist */,
+				E3F2494629FA10A100350ADE /* Font */,
 			);
 			path = selflogue;
 			sourceTree = "<group>";
@@ -130,16 +130,10 @@
 		E3F2494629FA10A100350ADE /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				E3F2494D29FA10C000350ADE /* Lato-Black.ttf */,
-				E3F2494A29FA10C000350ADE /* Lato-BlackItalic.ttf */,
+				E3F2496F29FA329C00350ADE /* AdventPro-Bold.ttf */,
+				E3F2496D29FA323200350ADE /* AdventPro-SemiBold.ttf */,
 				E3F2494C29FA10C000350ADE /* Lato-Bold.ttf */,
-				E3F2494729FA10C000350ADE /* Lato-BoldItalic.ttf */,
-				E3F2494E29FA10C000350ADE /* Lato-Italic.ttf */,
-				E3F2495029FA10C000350ADE /* Lato-Light.ttf */,
-				E3F2494929FA10C000350ADE /* Lato-LightItalic.ttf */,
 				E3F2494829FA10C000350ADE /* Lato-Regular.ttf */,
-				E3F2494B29FA10C000350ADE /* Lato-Thin.ttf */,
-				E3F2494F29FA10C000350ADE /* Lato-ThinItalic.ttf */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -212,20 +206,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3F2495429FA10C100350ADE /* Lato-BlackItalic.ttf in Resources */,
 				E3F2495629FA10C100350ADE /* Lato-Bold.ttf in Resources */,
-				E3F2495529FA10C100350ADE /* Lato-Thin.ttf in Resources */,
 				E3F2492A29F8EE8100350ADE /* LaunchScreen.storyboard in Resources */,
 				E3F2495229FA10C100350ADE /* Lato-Regular.ttf in Resources */,
 				E3F2494529FA0F7400350ADE /* GoogleService-Info.plist in Resources */,
-				E3F2495729FA10C100350ADE /* Lato-Black.ttf in Resources */,
 				E3F2492729F8EE8100350ADE /* Assets.xcassets in Resources */,
 				E3F2492529F8EE8000350ADE /* Main.storyboard in Resources */,
-				E3F2495129FA10C100350ADE /* Lato-BoldItalic.ttf in Resources */,
-				E3F2495829FA10C100350ADE /* Lato-Italic.ttf in Resources */,
-				E3F2495929FA10C100350ADE /* Lato-ThinItalic.ttf in Resources */,
-				E3F2495329FA10C100350ADE /* Lato-LightItalic.ttf in Resources */,
-				E3F2495A29FA10C100350ADE /* Lato-Light.ttf in Resources */,
+				E3F2496E29FA323200350ADE /* AdventPro-SemiBold.ttf in Resources */,
+				E3F2497029FA329C00350ADE /* AdventPro-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,10 +267,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3F2493B29F9244500350ADE /* MainViewController.swift in Sources */,
+				E3F2496229FA308400350ADE /* HabitViewController.swift in Sources */,
 				E3F2493D29F9253100350ADE /* TabBarController.swift in Sources */,
 				E3F2493F29F9CBD700350ADE /* UIColorExtension.swift in Sources */,
 				E3F2491E29F8EE8000350ADE /* AppDelegate.swift in Sources */,
 				E3F2492029F8EE8000350ADE /* SceneDelegate.swift in Sources */,
+				E3F2496829FA30DE00350ADE /* FocusViewController.swift in Sources */,
+				E3F2496A29FA311A00350ADE /* StatsViewController.swift in Sources */,
+				E3F2496429FA30C500350ADE /* FeedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

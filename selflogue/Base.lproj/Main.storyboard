@@ -11,7 +11,7 @@
         <!--Habit-->
         <scene sceneID="n65-vP-FxZ">
             <objects>
-                <viewController title="Habit" id="TYg-8E-1Fx" sceneMemberID="viewController">
+                <viewController title="Habit" id="TYg-8E-1Fx" customClass="HabitViewController" customModule="selflogue" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="N1i-IA-iTZ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -33,7 +33,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g7a-3e-3Df" customClass="FSCalendar">
-                                <rect key="frame" x="20" y="133" width="353" height="350"/>
+                                <rect key="frame" x="20" y="189" width="353" height="350"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="350" id="M2K-dp-vz4"/>
@@ -76,10 +76,31 @@
         <!--Focus-->
         <scene sceneID="dmG-kh-eEe">
             <objects>
-                <viewController title="Focus" id="fKV-wg-6Hq" sceneMemberID="viewController">
+                <viewController title="Focus" id="fKV-wg-6Hq" customClass="FocusViewController" customModule="selflogue" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eeh-ma-vV2">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Timer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QDZ-m0-WMh">
+                                <rect key="frame" x="175" y="233" width="44" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4f-ku-4hS">
+                                <rect key="frame" x="146" y="311" width="102" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Start/Stop"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="thQ-Jn-N9d">
+                                <rect key="frame" x="164" y="378" width="68" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Reset"/>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="FrU-jc-1aQ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
@@ -132,9 +153,16 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UTu-mH-xcd" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Habit" image="checklist.checked.rtl" catalog="system" id="LlO-Gm-8uG"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rcv-sn-LZd">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="rcv-sn-LZd">
+                        <rect key="frame" x="0.0" y="59" width="393" height="100"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="40"/>
+                            <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -151,9 +179,12 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="r8b-MF-YOy" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Feed" image="square.text.square.fill" catalog="system" selectedImage="square.text.square.fill" id="6cz-Jm-Haq"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SEs-J6-bDL">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="SEs-J6-bDL">
+                        <rect key="frame" x="0.0" y="59" width="393" height="100"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="40"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -171,9 +202,12 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cSU-Nm-Sry" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" selectedImage="house.fill" id="mlC-JI-vhX"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fJQ-YK-KHa">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="fJQ-YK-KHa">
+                        <rect key="frame" x="0.0" y="59" width="393" height="100"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="40"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -189,9 +223,12 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AO8-tG-CO4" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Stats" image="chart.bar.fill" catalog="system" selectedImage="chart.bar.fill" id="wun-k3-pq8"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dN5-GZ-Fag">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="dN5-GZ-Fag">
+                        <rect key="frame" x="0.0" y="59" width="393" height="100"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="40"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -208,9 +245,12 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1h5-Zc-Tyj" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Focus" image="clock.fill" catalog="system" selectedImage="clock.fill" id="ugG-e3-rI3"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yYJ-MY-DLM">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="yYJ-MY-DLM">
+                        <rect key="frame" x="0.0" y="59" width="393" height="100"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="40"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
