@@ -9,17 +9,21 @@ import UIKit
 
 class FocusViewController: UIViewController {
 
+    
     var timer: Timer?
     var timeRemaining: Int = 1500 // 25 minutes in seconds
     let breakDuration: Int = 300 // 5 minutes in seconds
 
+    
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var startStopButton: UIButton!
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateTimerLabel()
     }
+    
     
     @IBAction func startStopButtonTapped(_ sender: UIButton) {
         if timer == nil {
@@ -31,6 +35,7 @@ class FocusViewController: UIViewController {
         }
     }
     
+    
     @IBAction func resetButtonTapped(_ sender: UIButton) {
         stopTimer()
         timeRemaining = 1500
@@ -38,6 +43,7 @@ class FocusViewController: UIViewController {
         startStopButton.setTitle("Start", for: .normal)
     }
 
+    
     func startTimer() {
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
             guard let self = self else { return }
@@ -54,10 +60,12 @@ class FocusViewController: UIViewController {
         }
     }
     
+    
     func stopTimer() {
         timer?.invalidate()
         timer = nil
     }
+    
     
     func updateTimerLabel() {
         let minutes = timeRemaining / 60
