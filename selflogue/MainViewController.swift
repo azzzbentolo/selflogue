@@ -13,8 +13,22 @@ import FSCalendar
 class MainViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
 
     
+    @IBOutlet weak var quote: UILabel!
     @IBOutlet weak var calendar: FSCalendar!
-    let themeColour: UIColor = UIColor(red: 84, green: 65, blue: 177)
+    let THEME_COL: UIColor = UIColor(red: 84, green: 65, blue: 177)
+
+    
+    @IBAction func refresh(_ sender: Any) {
+        
+        Task {
+            let quoteInstance = Quote()
+            await quoteInstance.requestQuote(maxLength: 150)
+            await MainActor.run {
+                self.quote.text = "\(quoteInstance.quote!)" + "\n" + "\(quoteInstance.quoteAuthor!)"
+            }
+        }
+    }
+        
     
     
     override func viewDidLoad() {
@@ -34,7 +48,7 @@ class MainViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
         print("\(string)")
         
         let cell = calendar.cell(for: date, at: monthPosition)
-        cell?.titleLabel.textColor = themeColour
+        cell?.titleLabel.textColor = THEME_COL
     
     }
 
@@ -68,7 +82,7 @@ class MainViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
     
     
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, borderSelectionColorFor date: Date) -> UIColor? {
-        return themeColour
+        return THEME_COL
     }
     
     
@@ -92,13 +106,14 @@ class MainViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
     
     func setUpLineView() {
         
-        var lineView = UIView(frame: CGRect(x: 0, y: 175, width: 500, height: 1.5))
+        let lineView = UIView(frame: CGRect(x: 0, y: 175, width: 500, height: 1.5))
         lineView.layer.borderWidth = 1.0
         lineView.layer.borderColor = UIColor(red: 130, green: 130, blue: 130).cgColor
         self.view.addSubview(lineView)
         
     }
 
+    
 
     
     

@@ -11,40 +11,16 @@ import SwiftUI
 
 class StatsViewController: UIViewController {
     
-    
-    private var hostingController: UIHostingController<TimerSwiftUIView>!
-
-    
     override func viewDidLoad() {
-        
         super.viewDidLoad()
 
-        hostingController = UIHostingController(rootView: TimerSwiftUIView())
-        addChild(hostingController)
-        view.addSubview(hostingController.view)
-
-        // Set constraint for the hosting controller
-        hostingController.view.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            hostingController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            hostingController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            hostingController.view.topAnchor.constraint(equalTo: view.topAnchor),
-            hostingController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
-
-        hostingController.didMove(toParent: self)
-        
+        // Do any additional setup after loading the view.
     }
+    
 }
 
 
-//class StatsViewController: UIViewController {
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//        // Do any additional setup after loading the view.
-//    }
+
     
 
     /*

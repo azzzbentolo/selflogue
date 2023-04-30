@@ -39,18 +39,42 @@
                                     <constraint firstAttribute="height" constant="350" id="M2K-dp-vz4"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFJ-gb-5KN">
+                                <rect key="frame" x="50" y="635" width="293" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="FFW-ap-ePa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HoeflerText-Regular" family="Hoefler Text" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EE4-89-COu">
+                                <rect key="frame" x="159" y="715" width="75" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <connections>
+                                    <action selector="refresh:" destination="MK2-Qu-grH" eventType="touchUpInside" id="cgj-4b-FP5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1yx-uB-Nqi"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="g7a-3e-3Df" firstAttribute="top" secondItem="1yx-uB-Nqi" secondAttribute="top" constant="30" id="BVC-uF-dC4"/>
-                            <constraint firstItem="g7a-3e-3Df" firstAttribute="leading" secondItem="1yx-uB-Nqi" secondAttribute="leading" constant="20" id="NnN-aQ-l0e"/>
-                            <constraint firstItem="1yx-uB-Nqi" firstAttribute="trailing" secondItem="g7a-3e-3Df" secondAttribute="trailing" constant="20" id="fjN-pq-FYZ"/>
+                            <constraint firstItem="1yx-uB-Nqi" firstAttribute="trailing" secondItem="g7a-3e-3Df" secondAttribute="trailing" constant="20" id="1kH-AL-hx3"/>
+                            <constraint firstItem="fFJ-gb-5KN" firstAttribute="leading" secondItem="1yx-uB-Nqi" secondAttribute="leading" constant="50" id="8rR-KP-VWt"/>
+                            <constraint firstItem="g7a-3e-3Df" firstAttribute="leading" secondItem="1yx-uB-Nqi" secondAttribute="leading" constant="20" id="ANq-CC-MxP"/>
+                            <constraint firstItem="fFJ-gb-5KN" firstAttribute="top" secondItem="g7a-3e-3Df" secondAttribute="bottom" constant="100" id="EXc-xZ-zdB"/>
+                            <constraint firstItem="EE4-89-COu" firstAttribute="top" secondItem="fFJ-gb-5KN" secondAttribute="bottom" constant="20" id="RmA-Bw-G3b"/>
+                            <constraint firstItem="g7a-3e-3Df" firstAttribute="top" secondItem="1yx-uB-Nqi" secondAttribute="top" constant="30" id="UiN-Cc-2zq"/>
+                            <constraint firstItem="1yx-uB-Nqi" firstAttribute="trailing" secondItem="EE4-89-COu" secondAttribute="trailing" constant="159" id="XWd-k0-Xfz"/>
+                            <constraint firstItem="EE4-89-COu" firstAttribute="leading" secondItem="1yx-uB-Nqi" secondAttribute="leading" constant="159" id="dJV-On-0Fe"/>
+                            <constraint firstItem="1yx-uB-Nqi" firstAttribute="trailing" secondItem="fFJ-gb-5KN" secondAttribute="trailing" constant="50" id="zTM-0U-mJx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Welcome!" id="1cb-Wu-mMd"/>
                     <connections>
                         <outlet property="calendar" destination="g7a-3e-3Df" id="OCA-r2-qBm"/>
+                        <outlet property="quote" destination="fFJ-gb-5KN" id="oNI-5n-Q2F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aCo-zj-5kw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -80,49 +104,10 @@
                     <view key="view" contentMode="scaleToFill" id="eeh-ma-vV2">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QDZ-m0-WMh">
-                                <rect key="frame" x="20" y="189" width="353" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4f-ku-4hS">
-                                <rect key="frame" x="20" y="240" width="353" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Start/Stop"/>
-                                <connections>
-                                    <action selector="startStopButtonTapped:" destination="fKV-wg-6Hq" eventType="touchUpInside" id="aS7-D0-Jgo"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="thQ-Jn-N9d">
-                                <rect key="frame" x="20" y="290" width="353" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Reset"/>
-                                <connections>
-                                    <action selector="resetButtonTapped:" destination="fKV-wg-6Hq" eventType="touchUpInside" id="2P4-bc-hLU"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="FrU-jc-1aQ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="thQ-Jn-N9d" firstAttribute="top" secondItem="W4f-ku-4hS" secondAttribute="bottom" constant="15" id="1gM-ao-pu3"/>
-                            <constraint firstItem="QDZ-m0-WMh" firstAttribute="leading" secondItem="FrU-jc-1aQ" secondAttribute="leading" constant="20" id="GLi-z2-x3M"/>
-                            <constraint firstItem="QDZ-m0-WMh" firstAttribute="top" secondItem="FrU-jc-1aQ" secondAttribute="top" constant="30" id="Gpa-3M-oae"/>
-                            <constraint firstItem="W4f-ku-4hS" firstAttribute="top" secondItem="QDZ-m0-WMh" secondAttribute="bottom" constant="30" id="Sap-t9-Ysy"/>
-                            <constraint firstItem="thQ-Jn-N9d" firstAttribute="leading" secondItem="FrU-jc-1aQ" secondAttribute="leading" constant="20" id="XnL-oi-dCX"/>
-                            <constraint firstItem="W4f-ku-4hS" firstAttribute="leading" secondItem="FrU-jc-1aQ" secondAttribute="leading" constant="20" id="kQl-i2-hGK"/>
-                            <constraint firstItem="FrU-jc-1aQ" firstAttribute="trailing" secondItem="W4f-ku-4hS" secondAttribute="trailing" constant="20" id="l3y-2m-off"/>
-                            <constraint firstItem="FrU-jc-1aQ" firstAttribute="trailing" secondItem="QDZ-m0-WMh" secondAttribute="trailing" constant="20" id="sNX-5B-VfU"/>
-                            <constraint firstItem="FrU-jc-1aQ" firstAttribute="trailing" secondItem="thQ-Jn-N9d" secondAttribute="trailing" constant="20" id="wK4-jF-d0K"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Focus" id="SpF-2Z-IcQ"/>
-                    <connections>
-                        <outlet property="startStopButton" destination="W4f-ku-4hS" id="mbX-bO-MSX"/>
-                        <outlet property="timerLabel" destination="QDZ-m0-WMh" id="HFZ-Zf-Uoa"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s40-7m-asT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

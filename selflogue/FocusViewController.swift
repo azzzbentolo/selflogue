@@ -6,72 +6,35 @@
 //
 
 import UIKit
+import SwiftUI
 
 class FocusViewController: UIViewController {
 
     
-    var timer: Timer?
-    var timeRemaining: Int = 1500 // 25 minutes in seconds
-    let breakDuration: Int = 300 // 5 minutes in seconds
-
-    
-    @IBOutlet weak var timerLabel: UILabel!
-    @IBOutlet weak var startStopButton: UIButton!
+    private var hostingController: UIHostingController<FocusSwiftUIView>!
 
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-        updateTimerLabel()
+        
+        hostingController = UIHostingController(rootView: FocusSwiftUIView())
+        addChild(hostingController)
+        view.addSubview(hostingController.view)
+        
+        // Set constraint for the hosting controller
+        hostingController.view.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            hostingController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            hostingController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            hostingController.view.topAnchor.constraint(equalTo: view.topAnchor),
+            hostingController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+        
+        hostingController.didMove(toParent: self)
+        
     }
     
-    
-    @IBAction func startStopButtonTapped(_ sender: UIButton) {
-        if timer == nil {
-            startTimer()
-            startStopButton.setTitle("Stop", for: .normal)
-        } else {
-            stopTimer()
-            startStopButton.setTitle("Start", for: .normal)
-        }
-    }
-    
-    
-    @IBAction func resetButtonTapped(_ sender: UIButton) {
-        stopTimer()
-        timeRemaining = 1500
-        updateTimerLabel()
-        startStopButton.setTitle("Start", for: .normal)
-    }
-
-    
-    func startTimer() {
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
-            guard let self = self else { return }
-            
-            if self.timeRemaining > 0 {
-                self.timeRemaining -= 1
-                self.updateTimerLabel()
-            } else {
-                self.timer?.invalidate()
-                self.timer = nil
-                self.timeRemaining = self.breakDuration
-                self.updateTimerLabel()
-            }
-        }
-    }
-    
-    
-    func stopTimer() {
-        timer?.invalidate()
-        timer = nil
-    }
-    
-    
-    func updateTimerLabel() {
-        let minutes = timeRemaining / 60
-        let seconds = timeRemaining % 60
-        timerLabel.text = String(format: "%02d:%02d", minutes, seconds)
-    }
 }
 
 

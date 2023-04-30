@@ -8,7 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		3E5FFB33DDD77894C914606B /* Pods_selflogue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D1D7B2083C9745E6FCFAAAA /* Pods_selflogue.framework */; };
-		E311CBA729FA5A3E00537EA8 /* TimerSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E311CBA629FA5A3E00537EA8 /* TimerSwiftUIView.swift */; };
+		E311CBA729FA5A3E00537EA8 /* FocusSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E311CBA629FA5A3E00537EA8 /* FocusSwiftUIView.swift */; };
+		E311CBAC29FD3CF700537EA8 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E311CBAB29FD3CF700537EA8 /* Alamofire */; };
+		E311CBAF29FD3D8300537EA8 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = E311CBAE29FD3D8300537EA8 /* SwiftyJSON */; };
+		E311CBB329FD4F6300537EA8 /* QuoteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E311CBB229FD4F6300537EA8 /* QuoteData.swift */; };
+		E311CBB529FD565400537EA8 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = E311CBB429FD565400537EA8 /* Quote.swift */; };
+		E3B6F99A29FD899F0000E7F8 /* keyboard.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E3B6F99629FD899F0000E7F8 /* keyboard.mp3 */; };
+		E3B6F99B29FD899F0000E7F8 /* lofi.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E3B6F99729FD899F0000E7F8 /* lofi.mp3 */; };
+		E3B6F99C29FD899F0000E7F8 /* rain.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E3B6F99829FD899F0000E7F8 /* rain.mp3 */; };
+		E3B6F99D29FD899F0000E7F8 /* river.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E3B6F99929FD899F0000E7F8 /* river.mp3 */; };
+		E3B6F9A129FDDE030000E7F8 /* BackgroundMusic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B6F9A029FDDE030000E7F8 /* BackgroundMusic.swift */; };
 		E3F2491E29F8EE8000350ADE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F2491D29F8EE8000350ADE /* AppDelegate.swift */; };
 		E3F2492029F8EE8000350ADE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F2491F29F8EE8000350ADE /* SceneDelegate.swift */; };
 		E3F2492529F8EE8000350ADE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3F2492329F8EE8000350ADE /* Main.storyboard */; };
@@ -34,7 +43,14 @@
 /* Begin PBXFileReference section */
 		4D1D7B2083C9745E6FCFAAAA /* Pods_selflogue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_selflogue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C708ED34D5956448CB01DBBE /* Pods-selflogue.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-selflogue.release.xcconfig"; path = "Target Support Files/Pods-selflogue/Pods-selflogue.release.xcconfig"; sourceTree = "<group>"; };
-		E311CBA629FA5A3E00537EA8 /* TimerSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSwiftUIView.swift; sourceTree = "<group>"; };
+		E311CBA629FA5A3E00537EA8 /* FocusSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSwiftUIView.swift; sourceTree = "<group>"; };
+		E311CBB229FD4F6300537EA8 /* QuoteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteData.swift; sourceTree = "<group>"; };
+		E311CBB429FD565400537EA8 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
+		E3B6F99629FD899F0000E7F8 /* keyboard.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = keyboard.mp3; path = ../../../../../Downloads/keyboard.mp3; sourceTree = "<group>"; };
+		E3B6F99729FD899F0000E7F8 /* lofi.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = lofi.mp3; path = ../../../../../Downloads/lofi.mp3; sourceTree = "<group>"; };
+		E3B6F99829FD899F0000E7F8 /* rain.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = rain.mp3; path = ../../../../../Downloads/rain.mp3; sourceTree = "<group>"; };
+		E3B6F99929FD899F0000E7F8 /* river.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = river.mp3; path = ../../../../../Downloads/river.mp3; sourceTree = "<group>"; };
+		E3B6F9A029FDDE030000E7F8 /* BackgroundMusic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundMusic.swift; sourceTree = "<group>"; };
 		E3F2491A29F8EE8000350ADE /* selflogue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = selflogue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3F2491D29F8EE8000350ADE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3F2491F29F8EE8000350ADE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +78,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E311CBAF29FD3D8300537EA8 /* SwiftyJSON in Frameworks */,
+				E311CBAC29FD3CF700537EA8 /* Alamofire in Frameworks */,
 				E3F2493329F8F19C00350ADE /* FirebaseAuth in Frameworks */,
 				E3F2493529F8F19C00350ADE /* FirebaseFirestore in Frameworks */,
 				E3F2493729F8F19C00350ADE /* FirebaseFirestoreSwift in Frameworks */,
@@ -89,6 +107,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E3B6F99529FD898E0000E7F8 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				E3B6F99629FD899F0000E7F8 /* keyboard.mp3 */,
+				E3B6F99729FD899F0000E7F8 /* lofi.mp3 */,
+				E3B6F99829FD899F0000E7F8 /* rain.mp3 */,
+				E3B6F99929FD899F0000E7F8 /* river.mp3 */,
+			);
+			path = Sound;
+			sourceTree = "<group>";
+		};
 		E3F2491129F8EE8000350ADE = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +139,7 @@
 		E3F2491C29F8EE8000350ADE /* selflogue */ = {
 			isa = PBXGroup;
 			children = (
+				E3B6F99529FD898E0000E7F8 /* Sound */,
 				E3F2492329F8EE8000350ADE /* Main.storyboard */,
 				E3F2492829F8EE8100350ADE /* LaunchScreen.storyboard */,
 				E3F2491D29F8EE8000350ADE /* AppDelegate.swift */,
@@ -120,8 +150,11 @@
 				E3F2496129FA308400350ADE /* HabitViewController.swift */,
 				E3F2496329FA30C500350ADE /* FeedViewController.swift */,
 				E3F2496729FA30DE00350ADE /* FocusViewController.swift */,
+				E311CBA629FA5A3E00537EA8 /* FocusSwiftUIView.swift */,
+				E3B6F9A029FDDE030000E7F8 /* BackgroundMusic.swift */,
 				E3F2496929FA311A00350ADE /* StatsViewController.swift */,
-				E311CBA629FA5A3E00537EA8 /* TimerSwiftUIView.swift */,
+				E311CBB429FD565400537EA8 /* Quote.swift */,
+				E311CBB229FD4F6300537EA8 /* QuoteData.swift */,
 				E3F2492629F8EE8100350ADE /* Assets.xcassets */,
 				E3F2492B29F8EE8100350ADE /* Info.plist */,
 				E3F2494429FA0F7400350ADE /* GoogleService-Info.plist */,
@@ -163,6 +196,8 @@
 				E3F2493229F8F19C00350ADE /* FirebaseAuth */,
 				E3F2493429F8F19C00350ADE /* FirebaseFirestore */,
 				E3F2493629F8F19C00350ADE /* FirebaseFirestoreSwift */,
+				E311CBAB29FD3CF700537EA8 /* Alamofire */,
+				E311CBAE29FD3D8300537EA8 /* SwiftyJSON */,
 			);
 			productName = selflogue;
 			productReference = E3F2491A29F8EE8000350ADE /* selflogue.app */;
@@ -194,6 +229,8 @@
 			mainGroup = E3F2491129F8EE8000350ADE;
 			packageReferences = (
 				E3F2493129F8F19C00350ADE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				E311CBAA29FD3CF700537EA8 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				E311CBAD29FD3D8200537EA8 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 			);
 			productRefGroup = E3F2491B29F8EE8000350ADE /* Products */;
 			projectDirPath = "";
@@ -209,14 +246,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3B6F99C29FD899F0000E7F8 /* rain.mp3 in Resources */,
 				E3F2495629FA10C100350ADE /* Lato-Bold.ttf in Resources */,
 				E3F2492A29F8EE8100350ADE /* LaunchScreen.storyboard in Resources */,
+				E3B6F99D29FD899F0000E7F8 /* river.mp3 in Resources */,
 				E3F2495229FA10C100350ADE /* Lato-Regular.ttf in Resources */,
 				E3F2494529FA0F7400350ADE /* GoogleService-Info.plist in Resources */,
 				E3F2492729F8EE8100350ADE /* Assets.xcassets in Resources */,
 				E3F2492529F8EE8000350ADE /* Main.storyboard in Resources */,
+				E3B6F99B29FD899F0000E7F8 /* lofi.mp3 in Resources */,
 				E3F2496E29FA323200350ADE /* AdventPro-SemiBold.ttf in Resources */,
 				E3F2497029FA329C00350ADE /* AdventPro-Bold.ttf in Resources */,
+				E3B6F99A29FD899F0000E7F8 /* keyboard.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,12 +314,15 @@
 				E3F2496229FA308400350ADE /* HabitViewController.swift in Sources */,
 				E3F2493D29F9253100350ADE /* TabBarController.swift in Sources */,
 				E3F2493F29F9CBD700350ADE /* UIColorExtension.swift in Sources */,
-				E311CBA729FA5A3E00537EA8 /* TimerSwiftUIView.swift in Sources */,
+				E311CBB329FD4F6300537EA8 /* QuoteData.swift in Sources */,
+				E311CBA729FA5A3E00537EA8 /* FocusSwiftUIView.swift in Sources */,
 				E3F2491E29F8EE8000350ADE /* AppDelegate.swift in Sources */,
 				E3F2492029F8EE8000350ADE /* SceneDelegate.swift in Sources */,
 				E3F2496829FA30DE00350ADE /* FocusViewController.swift in Sources */,
 				E3F2496A29FA311A00350ADE /* StatsViewController.swift in Sources */,
+				E311CBB529FD565400537EA8 /* Quote.swift in Sources */,
 				E3F2496429FA30C500350ADE /* FeedViewController.swift in Sources */,
+				E3B6F9A129FDDE030000E7F8 /* BackgroundMusic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,6 +542,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		E311CBAA29FD3CF700537EA8 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		E311CBAD29FD3D8200537EA8 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		E3F2493129F8F19C00350ADE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -509,6 +569,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E311CBAB29FD3CF700537EA8 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E311CBAA29FD3CF700537EA8 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		E311CBAE29FD3D8300537EA8 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E311CBAD29FD3D8200537EA8 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
 		E3F2493229F8F19C00350ADE /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E3F2493129F8F19C00350ADE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
