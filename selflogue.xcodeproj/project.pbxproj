@@ -18,6 +18,7 @@
 		E3B6F99C29FD899F0000E7F8 /* rain.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E3B6F99829FD899F0000E7F8 /* rain.mp3 */; };
 		E3B6F99D29FD899F0000E7F8 /* river.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E3B6F99929FD899F0000E7F8 /* river.mp3 */; };
 		E3B6F9A129FDDE030000E7F8 /* BackgroundMusic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B6F9A029FDDE030000E7F8 /* BackgroundMusic.swift */; };
+		E3E68C8D2A03797E00AF0638 /* DailyLogueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E68C8C2A03797E00AF0638 /* DailyLogueViewController.swift */; };
 		E3F2491E29F8EE8000350ADE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F2491D29F8EE8000350ADE /* AppDelegate.swift */; };
 		E3F2492029F8EE8000350ADE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F2491F29F8EE8000350ADE /* SceneDelegate.swift */; };
 		E3F2492529F8EE8000350ADE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3F2492329F8EE8000350ADE /* Main.storyboard */; };
@@ -51,6 +52,7 @@
 		E3B6F99829FD899F0000E7F8 /* rain.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = rain.mp3; path = ../../../../../Downloads/rain.mp3; sourceTree = "<group>"; };
 		E3B6F99929FD899F0000E7F8 /* river.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = river.mp3; path = ../../../../../Downloads/river.mp3; sourceTree = "<group>"; };
 		E3B6F9A029FDDE030000E7F8 /* BackgroundMusic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundMusic.swift; sourceTree = "<group>"; };
+		E3E68C8C2A03797E00AF0638 /* DailyLogueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyLogueViewController.swift; sourceTree = "<group>"; };
 		E3F2491A29F8EE8000350ADE /* selflogue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = selflogue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3F2491D29F8EE8000350ADE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3F2491F29F8EE8000350ADE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				E3F2496929FA311A00350ADE /* StatsViewController.swift */,
 				E311CBB429FD565400537EA8 /* Quote.swift */,
 				E311CBB229FD4F6300537EA8 /* QuoteData.swift */,
+				E3E68C8C2A03797E00AF0638 /* DailyLogueViewController.swift */,
 				E3F2492629F8EE8100350ADE /* Assets.xcassets */,
 				E3F2492B29F8EE8100350ADE /* Info.plist */,
 				E3F2494429FA0F7400350ADE /* GoogleService-Info.plist */,
@@ -323,6 +326,7 @@
 				E311CBB529FD565400537EA8 /* Quote.swift in Sources */,
 				E3F2496429FA30C500350ADE /* FeedViewController.swift in Sources */,
 				E3B6F9A129FDDE030000E7F8 /* BackgroundMusic.swift in Sources */,
+				E3E68C8D2A03797E00AF0638 /* DailyLogueViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,6 +474,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7352822PZK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = selflogue/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -477,6 +482,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -498,6 +504,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7352822PZK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = selflogue/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -505,6 +512,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

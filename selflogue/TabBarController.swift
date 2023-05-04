@@ -24,16 +24,5 @@ class TabBarController: UITabBarController {
         }
         self.tabBar.tintColor = UIColor(red: 84, green: 65, blue: 177, alpha: 0.85)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

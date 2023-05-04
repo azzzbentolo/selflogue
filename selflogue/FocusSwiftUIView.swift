@@ -103,7 +103,7 @@ struct CountdownPicker: View {
 }
 
 
-struct TimerControls: View {
+struct TimerControlView: View {
     
     @Binding var counter: Int
     @Binding var countTo: Int
@@ -186,7 +186,7 @@ struct FocusSwiftUIView: View {
                 .onTapGesture {
                     showingCountdownPicker = true
                 }
-            TimerControls(counter: $counter, countTo: $countTo, timerRunning: $timerRunning)
+            TimerControlView(counter: $counter, countTo: $countTo, timerRunning: $timerRunning)
                 .padding(.bottom, 20)
             Spacer()
             BackgroundMusicView(audioPlayer: $audioPlayer)

@@ -15,27 +15,62 @@ class MainViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
     
     @IBOutlet weak var quote: UILabel!
     @IBOutlet weak var calendar: FSCalendar!
+    @IBOutlet weak var addLogueButton: UIButton!
+  
+    
     let THEME_COL: UIColor = UIColor(red: 84, green: 65, blue: 177)
-
-    
-    @IBAction func refresh(_ sender: Any) {
         
-        Task {
-            let quoteInstance = Quote()
-            await quoteInstance.requestQuote(maxLength: 150)
-            await MainActor.run {
-                self.quote.text = "\(quoteInstance.quote!)" + "\n" + "\(quoteInstance.quoteAuthor!)"
-            }
-        }
-    }
-        
-    
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         setUpCalendar()
         setUpLineView()
+        setUpAddButton()
+        
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        self.quote.text = ""
+        fetchQuote()
+        
+    }
+    
+    
+    func fetchQuote() {
+        
+        Task {
+            let quoteInstance = Quote()
+            await quoteInstance.requestQuote(maxLength: 100)
+            
+            await MainActor.run {
+                let quoteText = "\(quoteInstance.quote!)\n"
+                let authorText = "--\(quoteInstance.quoteAuthor!)"
+                
+                let quoteAttributes: [NSAttributedString.Key: Any] = [
+                    .font: UIFont.boldSystemFont(ofSize: quote.font.pointSize + 2)]
+                let authorAttributes: [NSAttributedString.Key: Any] = [
+                    .font: UIFont.systemFont(ofSize: quote.font.pointSize)]
+                
+                let attributedQuote = NSMutableAttributedString(string: quoteText, attributes: quoteAttributes)
+                let attributedAuthor = NSAttributedString(string: authorText, attributes: authorAttributes)
+                
+                attributedQuote.append(attributedAuthor)
+                self.quote.attributedText = attributedQuote
+            }
+        }
+        
+    }
+
+    
+    func setUpAddButton() {
+        
+        addLogueButton.tintColor = .white
+        addLogueButton.backgroundColor = THEME_COL
+        addLogueButton.layer.cornerRadius = 22.5
         
     }
     

@@ -23,10 +23,7 @@ class Quote {
         let urlRequest = URLRequest(url: requestURL)
         
         do {
-            let (data, _) =
-            try await URLSession.shared.data(for: urlRequest)
-
-            
+            let (data, _) = try await URLSession.shared.data(for: urlRequest)
             do {
                 let decoder = JSONDecoder()
                 let quoteData = try decoder.decode(QuoteData.self, from: data)
@@ -35,7 +32,6 @@ class Quote {
                 }
                 if let author = quoteData.author {
                     quoteAuthor = author
-                
                 }
             }
             catch let error { print(error) }

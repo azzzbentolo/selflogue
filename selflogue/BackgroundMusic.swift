@@ -19,26 +19,26 @@ struct BackgroundMusicView: View {
     var body: some View {
         HStack(spacing: 20) {
             ForEach(symbols.indices, id: \.self) { index in
-                circularButton(forIndex: index)
-            }
-        }
-        .onAppear(perform: setupAudioPlayerObserver)
-        .onDisappear(perform: removeAudioPlayerObserver)
+                circularButton(forIndex: index)}
+        }.onAppear(perform: setupAudioPlayerObserver)
+         .onDisappear(perform: removeAudioPlayerObserver)
     }
 
     
+    // Customize the music buttons
     private func circularButton(forIndex index: Int) -> some View {
         Button(action: {
             playAudio(forIndex: index)
-        }) {
-            ZStack {
+        }){
+            ZStack{
                 Circle()
-                    .fill(RadialGradient(gradient: Gradient(colors: [Color("Color2"), Color("Color3")]),
-                        center: .center,
-                        startRadius: 0,
-                        endRadius: 20))
+                    .fill(RadialGradient(gradient: Gradient(
+                        colors: [Color("Color2"), Color("Color3")]),
+                            center: .center,
+                            startRadius: 0,
+                            endRadius: 20))
                     .frame(width: 50, height: 50)
-
+                
                 Image(systemName: symbols[index])
                     .foregroundColor(.white)
                     .font(.system(size: 20))
@@ -47,7 +47,7 @@ struct BackgroundMusicView: View {
     }
 
     
-
+    
     private func setupAudioPlayerObserver() {
         NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: nil, queue: .main) { _ in
             if let audioPlayer = audioPlayer {
@@ -64,6 +64,7 @@ struct BackgroundMusicView: View {
 
     
     private func playAudio(forIndex index: Int) {
+        
         guard let url = Bundle.main.url(forResource: audioFileName(forIndex: index), withExtension: "mp3") else {
             print("Audio file not found")
             return
@@ -74,27 +75,29 @@ struct BackgroundMusicView: View {
         } else {
             setupAndPlayAudio(url: url)
         }
+        
     }
 
     
     private func setupAndPlayAudio(url: URL) {
+        
         audioPlayer = AVPlayer(url: url)
         audioPlayer?.actionAtItemEnd = .none
         audioPlayer?.play()
+        
     }
 
     
     private func toggleAudioPlayback() {
+        
         guard let audioPlayer = audioPlayer else { return }
-        if audioPlayer.rate == 0 {
-            audioPlayer.play()
-        } else {
-            audioPlayer.pause()
-        }
+        audioPlayer.rate == 0 ? audioPlayer.play() : audioPlayer.pause()
+        
     }
 
     
     private func audioFileName(forIndex index: Int) -> String {
+        
         switch index {
             case 0: return "keyboard"
             case 1: return "river"

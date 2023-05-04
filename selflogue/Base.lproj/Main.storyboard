@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5j0-6c-6tZ">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -40,7 +41,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFJ-gb-5KN">
-                                <rect key="frame" x="50" y="635" width="293" height="60"/>
+                                <rect key="frame" x="20" y="615" width="353" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="FFW-ap-ePa"/>
                                 </constraints>
@@ -48,12 +49,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EE4-89-COu">
-                                <rect key="frame" x="159" y="715" width="75" height="35"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mn8-gl-ym5">
+                                <rect key="frame" x="174" y="714.66666666666663" width="45" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="kQd-ah-MpG"/>
+                                    <constraint firstAttribute="height" constant="45" id="vYR-LT-PXe"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system"/>
                                 <connections>
-                                    <action selector="refresh:" destination="MK2-Qu-grH" eventType="touchUpInside" id="cgj-4b-FP5"/>
+                                    <segue destination="Agc-Pp-AKw" kind="show" id="mRP-8A-rjl"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -61,25 +66,42 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="1yx-uB-Nqi" firstAttribute="trailing" secondItem="g7a-3e-3Df" secondAttribute="trailing" constant="20" id="1kH-AL-hx3"/>
-                            <constraint firstItem="fFJ-gb-5KN" firstAttribute="leading" secondItem="1yx-uB-Nqi" secondAttribute="leading" constant="50" id="8rR-KP-VWt"/>
                             <constraint firstItem="g7a-3e-3Df" firstAttribute="leading" secondItem="1yx-uB-Nqi" secondAttribute="leading" constant="20" id="ANq-CC-MxP"/>
-                            <constraint firstItem="fFJ-gb-5KN" firstAttribute="top" secondItem="g7a-3e-3Df" secondAttribute="bottom" constant="100" id="EXc-xZ-zdB"/>
-                            <constraint firstItem="EE4-89-COu" firstAttribute="top" secondItem="fFJ-gb-5KN" secondAttribute="bottom" constant="20" id="RmA-Bw-G3b"/>
+                            <constraint firstItem="Mn8-gl-ym5" firstAttribute="centerX" secondItem="fFJ-gb-5KN" secondAttribute="centerX" id="M0v-GA-gaC"/>
+                            <constraint firstItem="fFJ-gb-5KN" firstAttribute="top" secondItem="g7a-3e-3Df" secondAttribute="bottom" constant="80" id="QO6-ba-BeR"/>
                             <constraint firstItem="g7a-3e-3Df" firstAttribute="top" secondItem="1yx-uB-Nqi" secondAttribute="top" constant="30" id="UiN-Cc-2zq"/>
-                            <constraint firstItem="1yx-uB-Nqi" firstAttribute="trailing" secondItem="EE4-89-COu" secondAttribute="trailing" constant="159" id="XWd-k0-Xfz"/>
-                            <constraint firstItem="EE4-89-COu" firstAttribute="leading" secondItem="1yx-uB-Nqi" secondAttribute="leading" constant="159" id="dJV-On-0Fe"/>
-                            <constraint firstItem="1yx-uB-Nqi" firstAttribute="trailing" secondItem="fFJ-gb-5KN" secondAttribute="trailing" constant="50" id="zTM-0U-mJx"/>
+                            <constraint firstItem="Mn8-gl-ym5" firstAttribute="centerX" secondItem="jjy-Qp-EIo" secondAttribute="centerX" id="cqe-ho-5A0"/>
+                            <constraint firstItem="1yx-uB-Nqi" firstAttribute="trailing" secondItem="fFJ-gb-5KN" secondAttribute="trailing" constant="20" id="dYj-C2-2ZB"/>
+                            <constraint firstItem="fFJ-gb-5KN" firstAttribute="leading" secondItem="1yx-uB-Nqi" secondAttribute="leading" constant="20" id="oOe-a6-cUE"/>
+                            <constraint firstItem="Mn8-gl-ym5" firstAttribute="top" secondItem="fFJ-gb-5KN" secondAttribute="bottom" constant="39.666666666666515" id="ub3-Aa-MmB"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Welcome!" id="1cb-Wu-mMd"/>
                     <connections>
+                        <outlet property="addLogueButton" destination="Mn8-gl-ym5" id="QuC-Bw-zji"/>
                         <outlet property="calendar" destination="g7a-3e-3Df" id="OCA-r2-qBm"/>
                         <outlet property="quote" destination="fFJ-gb-5KN" id="oNI-5n-Q2F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aCo-zj-5kw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1512" y="1177"/>
+            <point key="canvasLocation" x="-1512.2137404580153" y="1176.7605633802818"/>
+        </scene>
+        <!--Daily Logue View Controller-->
+        <scene sceneID="DQQ-5g-2PH">
+            <objects>
+                <viewController id="Agc-Pp-AKw" customClass="DailyLogueViewController" customModule="selflogue" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HyW-mb-asb">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="R3V-dH-U1G"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="2rl-Lc-U5A"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PU5-It-9aw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1512" y="1975"/>
         </scene>
         <!--Stats-->
         <scene sceneID="et0-eo-5F0">
@@ -270,6 +292,7 @@
         <image name="checklist.checked.rtl" catalog="system" width="128" height="107"/>
         <image name="clock.fill" catalog="system" width="128" height="123"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="square.text.square.fill" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
