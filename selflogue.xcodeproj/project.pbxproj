@@ -13,6 +13,10 @@
 		E311CBAF29FD3D8300537EA8 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = E311CBAE29FD3D8300537EA8 /* SwiftyJSON */; };
 		E311CBB329FD4F6300537EA8 /* QuoteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E311CBB229FD4F6300537EA8 /* QuoteData.swift */; };
 		E311CBB529FD565400537EA8 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = E311CBB429FD565400537EA8 /* Quote.swift */; };
+		E39277182A15C285003D5605 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39277172A15C285003D5605 /* HomeView.swift */; };
+		E392771A2A15C297003D5605 /* AddHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39277192A15C297003D5605 /* AddHabitView.swift */; };
+		E392771D2A15C2AE003D5605 /* HabitStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E392771C2A15C2AE003D5605 /* HabitStore.swift */; };
+		E39277202A15C2CF003D5605 /* HabitTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E392771E2A15C2CF003D5605 /* HabitTracker.xcdatamodeld */; };
 		E3B6F99A29FD899F0000E7F8 /* keyboard.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E3B6F99629FD899F0000E7F8 /* keyboard.mp3 */; };
 		E3B6F99B29FD899F0000E7F8 /* lofi.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E3B6F99729FD899F0000E7F8 /* lofi.mp3 */; };
 		E3B6F99C29FD899F0000E7F8 /* rain.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E3B6F99829FD899F0000E7F8 /* rain.mp3 */; };
@@ -47,6 +51,10 @@
 		E311CBA629FA5A3E00537EA8 /* FocusSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSwiftUIView.swift; sourceTree = "<group>"; };
 		E311CBB229FD4F6300537EA8 /* QuoteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteData.swift; sourceTree = "<group>"; };
 		E311CBB429FD565400537EA8 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
+		E39277172A15C285003D5605 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		E39277192A15C297003D5605 /* AddHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitView.swift; sourceTree = "<group>"; };
+		E392771C2A15C2AE003D5605 /* HabitStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitStore.swift; sourceTree = "<group>"; };
+		E392771F2A15C2CF003D5605 /* HabitTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HabitTracker.xcdatamodel; sourceTree = "<group>"; };
 		E3B6F99629FD899F0000E7F8 /* keyboard.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = keyboard.mp3; path = ../../../../../Downloads/keyboard.mp3; sourceTree = "<group>"; };
 		E3B6F99729FD899F0000E7F8 /* lofi.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = lofi.mp3; path = ../../../../../Downloads/lofi.mp3; sourceTree = "<group>"; };
 		E3B6F99829FD899F0000E7F8 /* rain.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = rain.mp3; path = ../../../../../Downloads/rain.mp3; sourceTree = "<group>"; };
@@ -141,26 +149,30 @@
 		E3F2491C29F8EE8000350ADE /* selflogue */ = {
 			isa = PBXGroup;
 			children = (
-				E3B6F99529FD898E0000E7F8 /* Sound */,
 				E3F2492329F8EE8000350ADE /* Main.storyboard */,
 				E3F2492829F8EE8100350ADE /* LaunchScreen.storyboard */,
 				E3F2491D29F8EE8000350ADE /* AppDelegate.swift */,
 				E3F2491F29F8EE8000350ADE /* SceneDelegate.swift */,
-				E3F2493A29F9244500350ADE /* MainViewController.swift */,
-				E3F2493C29F9253100350ADE /* TabBarController.swift */,
-				E3F2493E29F9CBD700350ADE /* UIColorExtension.swift */,
-				E3F2496129FA308400350ADE /* HabitViewController.swift */,
-				E3F2496329FA30C500350ADE /* FeedViewController.swift */,
-				E3F2496729FA30DE00350ADE /* FocusViewController.swift */,
-				E311CBA629FA5A3E00537EA8 /* FocusSwiftUIView.swift */,
-				E3B6F9A029FDDE030000E7F8 /* BackgroundMusic.swift */,
-				E3F2496929FA311A00350ADE /* StatsViewController.swift */,
 				E311CBB429FD565400537EA8 /* Quote.swift */,
 				E311CBB229FD4F6300537EA8 /* QuoteData.swift */,
+				E392771C2A15C2AE003D5605 /* HabitStore.swift */,
+				E39277172A15C285003D5605 /* HomeView.swift */,
+				E39277192A15C297003D5605 /* AddHabitView.swift */,
+				E311CBA629FA5A3E00537EA8 /* FocusSwiftUIView.swift */,
+				E3F2493E29F9CBD700350ADE /* UIColorExtension.swift */,
+				E3B6F9A029FDDE030000E7F8 /* BackgroundMusic.swift */,
+				E3F2493C29F9253100350ADE /* TabBarController.swift */,
+				E3F2493A29F9244500350ADE /* MainViewController.swift */,
+				E3F2496329FA30C500350ADE /* FeedViewController.swift */,
+				E3F2496729FA30DE00350ADE /* FocusViewController.swift */,
+				E3F2496129FA308400350ADE /* HabitViewController.swift */,
+				E3F2496929FA311A00350ADE /* StatsViewController.swift */,
 				E3E68C8C2A03797E00AF0638 /* DailyLogueViewController.swift */,
 				E3F2492629F8EE8100350ADE /* Assets.xcassets */,
+				E392771E2A15C2CF003D5605 /* HabitTracker.xcdatamodeld */,
 				E3F2492B29F8EE8100350ADE /* Info.plist */,
 				E3F2494429FA0F7400350ADE /* GoogleService-Info.plist */,
+				E3B6F99529FD898E0000E7F8 /* Sound */,
 				E3F2494629FA10A100350ADE /* Font */,
 			);
 			path = selflogue;
@@ -320,13 +332,17 @@
 				E311CBB329FD4F6300537EA8 /* QuoteData.swift in Sources */,
 				E311CBA729FA5A3E00537EA8 /* FocusSwiftUIView.swift in Sources */,
 				E3F2491E29F8EE8000350ADE /* AppDelegate.swift in Sources */,
+				E39277202A15C2CF003D5605 /* HabitTracker.xcdatamodeld in Sources */,
 				E3F2492029F8EE8000350ADE /* SceneDelegate.swift in Sources */,
 				E3F2496829FA30DE00350ADE /* FocusViewController.swift in Sources */,
+				E392771D2A15C2AE003D5605 /* HabitStore.swift in Sources */,
 				E3F2496A29FA311A00350ADE /* StatsViewController.swift in Sources */,
 				E311CBB529FD565400537EA8 /* Quote.swift in Sources */,
 				E3F2496429FA30C500350ADE /* FeedViewController.swift in Sources */,
+				E39277182A15C285003D5605 /* HomeView.swift in Sources */,
 				E3B6F9A129FDDE030000E7F8 /* BackgroundMusic.swift in Sources */,
 				E3E68C8D2A03797E00AF0638 /* DailyLogueViewController.swift in Sources */,
+				E392771A2A15C297003D5605 /* AddHabitView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -603,6 +619,19 @@
 			productName = FirebaseFirestoreSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		E392771E2A15C2CF003D5605 /* HabitTracker.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E392771F2A15C2CF003D5605 /* HabitTracker.xcdatamodel */,
+			);
+			currentVersion = E392771F2A15C2CF003D5605 /* HabitTracker.xcdatamodel */;
+			path = HabitTracker.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E3F2491229F8EE8000350ADE /* Project object */;
 }

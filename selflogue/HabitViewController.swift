@@ -1,18 +1,19 @@
-//
-//  HabitViewController.swift
-//  selflogue
-//
-//  Created by Chew Jun Pin on 27/4/2023.
-//
-
 import UIKit
+import SwiftUI
+import CoreData
 
 class HabitViewController: UIViewController {
-
+    
     override func viewDidLoad() {
-        
         super.viewDidLoad()
-
+        
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let contentView = HomeView().environment(\.managedObjectContext, context)
+        
+        let hostVC = UIHostingController(rootView: contentView)
+        addChild(hostVC)
+        view.addSubview(hostVC.view)
+        hostVC.view.frame = view.bounds
+        hostVC.didMove(toParent: self)
     }
-
 }
