@@ -12,6 +12,7 @@ class DailyLogueViewController: UIViewController, UIImagePickerControllerDelegat
     
     
     let imageView = UIImageView()
+    let saveImageButton = UIButton(type: .system)
     
     
     override func viewDidLoad() {
@@ -43,6 +44,35 @@ class DailyLogueViewController: UIViewController, UIImagePickerControllerDelegat
             selectImageButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             selectImageButton.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
+        
+        // Customize and add constraints for the saveImageButton
+        saveImageButton.setTitle("Save Image", for: .normal)
+        saveImageButton.addTarget(self, action: #selector(saveImageTapped), for: .touchUpInside)
+        saveImageButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(saveImageButton)
+        
+        NSLayoutConstraint.activate([
+            saveImageButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            saveImageButton.topAnchor.constraint(equalTo: selectImageButton.bottomAnchor, constant: 20)
+        ])
+    }
+    
+    
+    @objc func saveImageTapped() {
+        guard let image = imageView.image, let data = image.jpegData(compressionQuality: 1) else { return }
+        let filename = getDocumentsDirectory().appendingPathComponent("\(UUID().uuidString).jpg")
+        do {
+            try data.write(to: filename)
+            print("Saved image to \(filename)")
+        } catch {
+            print("Failed to save image: \(error)")
+        }
+    }
+    
+    
+    func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
     }
     
     
