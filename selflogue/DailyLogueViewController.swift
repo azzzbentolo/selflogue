@@ -58,15 +58,51 @@ class DailyLogueViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     
+//    @objc func saveImageTapped() {
+//        guard let image = imageView.image, let data = image.jpegData(compressionQuality: 1) else { return }
+//        let filename = getDocumentsDirectory().appendingPathComponent("\(UUID().uuidString).jpg")
+//        do {
+//            try data.write(to: filename)
+//            print("Saved image to \(filename)")
+//        } catch {
+//            print("Failed to save image: \(error)")
+//        }
+//    }
+    
     @objc func saveImageTapped() {
-        guard let image = imageView.image, let data = image.jpegData(compressionQuality: 1) else { return }
-        let filename = getDocumentsDirectory().appendingPathComponent("\(UUID().uuidString).jpg")
-        do {
-            try data.write(to: filename)
-            print("Saved image to \(filename)")
-        } catch {
-            print("Failed to save image: \(error)")
+        guard let image = imageView.image else { return }
+
+        // Get user's description for the image
+        let alertController = UIAlertController(title: "Add description", message: "Enter a description for your image.", preferredStyle: .alert)
+        alertController.addTextField()
+
+        let saveAction = UIAlertAction(title: "Save", style: .default) { [weak self, weak alertController] _ in
+            guard let self = self, let description = alertController?.textFields?.first?.text else { return }
+
+            // Generate a unique name for the image
+            let imageName = UUID().uuidString + ".png"
+            let imagePath = self.getDocumentsDirectory().appendingPathComponent(imageName)
+
+            // Save the image
+            if let data = image.pngData() {
+                try? data.write(to: imagePath)
+            }
+
+            // Save the description with the same name (minus the extension)
+            let descriptionFileName = imageName.replacingOccurrences(of: ".png", with: "")
+            let descriptionFilePath = self.getDocumentsDirectory().appendingPathComponent(descriptionFileName).appendingPathExtension("txt")
+            try? description.write(to: descriptionFilePath, atomically: true, encoding: .utf8)
+            
+            // Reloading imageFiles after saving new image
+            ImagesManager.shared.loadImageFiles()
         }
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+
+        alertController.addAction(saveAction)
+        alertController.addAction(cancelAction)
+
+        present(alertController, animated: true)
     }
     
     
