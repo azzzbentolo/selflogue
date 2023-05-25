@@ -8,8 +8,6 @@ struct AddHabitView: View {
     @Environment(\.self) var env
     @ObservedObject var habitStore: HabitStore
 
-//    @State private var reminderTime = Date()
-
     var body: some View {
         
         NavigationView {
@@ -106,7 +104,6 @@ struct AddHabitView: View {
                         
                         Toggle(isOn: $habitStore.reminderIsOn) {}
                             .labelsHidden()
-    //                    .opacity(habitModel.notificationAccess ? 1 : 0)
                     }
                     
                     
@@ -135,14 +132,6 @@ struct AddHabitView: View {
                         self.showAddHabitView = false
                     }
                 )
-//                .navigationBarItems(leading:
-//                    Button("Delete") {
-//                        if let habit = self.habit {
-//                            habitStore.deleteHabit(habit: habit)
-//                        }
-//                        self.showAddHabitView = false
-//                    }
-//                )
                 .tint(.primary)
                 
             }

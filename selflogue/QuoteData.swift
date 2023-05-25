@@ -19,7 +19,6 @@ class QuoteData: NSObject, Decodable {
     
     required init(from decoder: Decoder) throws {
         
-        // Get the book container for most info
         let quoteContainer = try decoder.container(keyedBy: QuoteKeys.self)
         
         // Get the quote info

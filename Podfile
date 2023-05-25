@@ -7,5 +7,6 @@ target 'selflogue' do
 
   # Pods for selflogue
   pod 'FSCalendar'
+  pod 'TOCropViewController'
 
 end

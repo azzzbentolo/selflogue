@@ -17,11 +17,13 @@ struct BackgroundMusicView: View {
     
     
     var body: some View {
+        
         HStack(spacing: 20) {
             ForEach(symbols.indices, id: \.self) { index in
                 circularButton(forIndex: index)}
         }.onAppear(perform: setupAudioPlayerObserver)
          .onDisappear(perform: removeAudioPlayerObserver)
+        
     }
 
     
@@ -49,17 +51,21 @@ struct BackgroundMusicView: View {
     
     
     private func setupAudioPlayerObserver() {
+        
         NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: nil, queue: .main) { _ in
             if let audioPlayer = audioPlayer {
                 audioPlayer.seek(to: .zero)
                 audioPlayer.play()
             }
         }
+        
     }
 
     
     private func removeAudioPlayerObserver() {
+        
         NotificationCenter.default.removeObserver(self, name: .AVPlayerItemDidPlayToEndTime, object: nil)
+        
     }
 
     

@@ -3,9 +3,10 @@ import SwiftUI
 
 
 class ImagesManager: ObservableObject {
+    
     static let shared = ImagesManager()
 
-    @Published var imageFiles: [String] = []
+    @Published var imageFiles: [String: (UIImage, String)] = [:]  
 
     private init() {
         loadImageFiles()
@@ -16,25 +17,49 @@ class ImagesManager: ObservableObject {
         return paths[0]
     }
 
-    public func loadImageFiles() {
+    func loadImageFiles() {
         do {
             let files = try FileManager.default.contentsOfDirectory(atPath: getDocumentsDirectory().path)
-            imageFiles = files
+            var imageFilesDict: [String: (UIImage, String)] = [:] // Dictionary to store image files
+            for file in files {
+                if file.hasSuffix(".png"), let image = UIImage(contentsOfFile: getDocumentsDirectory().appendingPathComponent(file).path) {
+                    let descriptionFileName = file.replacingOccurrences(of: ".png", with: ".txt") // changed this
+                    let descriptionFilePath = getDocumentsDirectory().appendingPathComponent(descriptionFileName).path
+                    let description = (try? String(contentsOfFile: descriptionFilePath, encoding: .utf8)) ?? ""
+                    imageFilesDict[file] = (image, description)
+                }
+            }
+            // Sort the image file names (keys) in descending order
+            let sortedKeys = imageFilesDict.keys.sorted(by: >)
+            
+            // Create a new dictionary with the sorted keys
+            var sortedImageFilesDict: [String: (UIImage, String)] = [:]
+            for key in sortedKeys {
+                if let value = imageFilesDict[key] {
+                    sortedImageFilesDict[key] = value
+                }
+            }
+            
+            // Update the imageFiles property
+            imageFiles = sortedImageFilesDict
         } catch {
             print("Failed to read directory: \(error)")
         }
     }
 
+
     func deleteImage(named imageName: String) {
         let fileManager = FileManager.default
         let imagePath = getDocumentsDirectory().appendingPathComponent(imageName).path
+        let descriptionFileName = imageName.replacingOccurrences(of: ".png", with: ".txt") // changed this
+        let descriptionFilePath = getDocumentsDirectory().appendingPathComponent(descriptionFileName).path
         do {
             try fileManager.removeItem(atPath: imagePath)
-            if let index = imageFiles.firstIndex(of: imageName) {
-                imageFiles.remove(at: index)
-            }
+            try fileManager.removeItem(atPath: descriptionFilePath)
+            imageFiles.removeValue(forKey: imageName)
         } catch {
             print("Could not delete file: \(error)")
         }
     }
+
 }
