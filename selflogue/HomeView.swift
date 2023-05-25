@@ -1,6 +1,6 @@
 //
 //  Home.swift
-//  Test
+//  Selflogue
 //
 //  Created by Chew Jun Pin on 18/5/2023.
 //
@@ -12,6 +12,7 @@ struct HomeView: View {
     @Environment(\.managedObjectContext) private var context
     @State private var showAddHabitView = false
     @ObservedObject private var habitStore: HabitStore
+    @State private var showAlert = false
     
     init() {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -20,21 +21,16 @@ struct HomeView: View {
     
     var body: some View {
         VStack {
-
+            
+            // MAKING ADD BUTTON CENTER WHEN HABITS EMPTY
             ScrollView(habitStore.habits.isEmpty ? .init() : .vertical, showsIndicators: false) {
                 VStack(spacing: 15){
                     ForEach(habitStore.habits){habit in
-                        habitCardView(habit: habit)
-                    }
-                    .onDelete { indexSet in
-                        indexSet.forEach { index in
-                            let habit = habitStore.habits[index]
-                            habitStore.deleteHabit(habit: habit)
-                        }
+                        HabitCardView(habit: habit)
                     }
                 }
-                    
-                    // MARK: Add Habit Button
+                
+                // MARK: Add Habit Button
                 Button {
                     self.showAddHabitView = true
                 } label: {
@@ -56,29 +52,117 @@ struct HomeView: View {
             .padding(.vertical)
             
         }
-        .frame(maxHeight: .infinity,alignment: .top)
-//        .padding()
+        .frame(maxHeight: .infinity, alignment: .top)
     }
     
     @ViewBuilder
-    func habitCardView(habit: Habit) -> some View {
-        HStack {
-            VStack(alignment: .leading) {
+    func HabitCardView(habit: Habit)->some View{
+        VStack(spacing: 6){
+            HStack{
                 Text(habit.habitTitle ?? "")
-                    .font(.headline)
-                Text(habit.habitDescription ?? "")
-                    .font(.subheadline)
+                    .font(.callout)
+                    .fontWeight(.semibold)
+                    .lineLimit(1)
+                
+                Image(systemName: "bell.badge.fill")
+                    .font(.callout)
+                    .foregroundColor(Color(habit.habitColor ?? "Color-1"))
+                    .scaleEffect(0.9)
+                    .opacity(habit.reminderIsOn ? 1 : 0)
+                
+                Spacer()
+                
+                let count = (habit.weekDays?.count ?? 0)
+                Text(count == 7 ? "Everyday" : "\(count) times a week")
+                    .font(.caption)
                     .foregroundColor(.gray)
             }
-            Spacer()
+            .padding(.horizontal,10)
+            
+            // MARK: Displaying Current Week and Marking Active Dates of Habit
+            let calendar = Calendar.current
+            let currentWeek = calendar.dateInterval(of: .weekOfMonth, for: Date())
+            let symbols = calendar.weekdaySymbols
+            let startDate = currentWeek?.start ?? Date()
+            let activeWeekDays = habit.weekDays ?? []
+            let activePlot = symbols.indices.compactMap { index -> (String,Date) in
+                let currentDate = calendar.date(byAdding: .day, value: index, to: startDate)
+                return (symbols[index],currentDate!)
+            }
+            
+            HStack(spacing: 0){
+                ForEach(activePlot.indices,id: \.self){index in
+                    let item = activePlot[index]
+                    
+                    VStack(spacing: 6){
+                        // MARK: Limiting to First 3 letters
+                        Text(item.0.prefix(3))
+                            .font(.caption)
+                            .foregroundColor(.gray)
+                        
+                        let status = activeWeekDays.contains { day in
+                            return day == item.0
+                        }
+                        
+                        Text(getDate(date: item.1))
+                            .font(.system(size: 14))
+                            .fontWeight(.semibold)
+                            .padding(8)
+                            .foregroundColor(status ? .white : .primary)
+                            .background{
+                                Circle()
+                                    .fill(Color(habit.habitColor ?? "Card-1"))
+                                    .opacity(status ? 1 : 0)
+                            }
+                    }
+                    .frame(maxWidth: .infinity)
+                }
+            }
+            .padding(.top,15)
         }
-        .padding(.horizontal, 30)
-        .onLongPressGesture {
-            self.habitStore.deleteHabit(habit: habit)
+        .padding(.vertical)
+        .padding(.horizontal, 20)
+        .background{
+            RoundedRectangle(cornerRadius: 12, style: .continuous)
+                .fill(Color("TFBG").opacity(0.5))
+                .padding(.horizontal, 20)
+        }
+        .onTapGesture {
+            // MARK: Editing Habit
+//            self.habitStore.deleteHabit(habit: habit)
+            habitStore.editHabit = habit
+            habitStore.restoreEditData()
+            self.showAddHabitView.toggle()
+        }
+        .onLongPressGesture { // Long press gesture
+            showAlert = true
+        }
+        .alert(isPresented: $showAlert) { // Alert
+            Alert(
+                title: Text("Delete Habit"),
+                message: Text("Are you sure you want to delete this habit?"),
+                primaryButton: .destructive(Text("Delete")) {
+                    habitStore.deleteHabit(habit: habit)
+                },
+                secondaryButton: .cancel()
+            )
         }
     }
-}
     
+    
+    
+    
+    // MARK: Formatting Date
+    func getDate(date: Date)->String{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd"
+        
+        return formatter.string(from: date)
+    }
+
+    
+}
+
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {

@@ -6,5 +6,6 @@
         <attribute name="habitTitle" optional="YES" attributeType="String"/>
         <attribute name="reminderIsOn" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="reminderTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="weekDays" optional="YES" attributeType="Transformable" customClassName="[String]"/>
     </entity>
 </model>
