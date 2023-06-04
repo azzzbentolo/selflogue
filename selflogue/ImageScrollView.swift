@@ -2,16 +2,18 @@ import SwiftUI
 
 struct ImagesScrollView: View {
     
+    
     @ObservedObject var imagesManager = ImagesManager.shared
     @State private var showingAlert = false
     @State private var selectedImage: String?
 
+    
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack {
-                ForEach(Array(imagesManager.imageFiles.keys.reversed()), id: \.self) { imageName in
+                ForEach(Array(imagesManager.imageFiles.keys), id: \.self) { imageName in
                     VStack(alignment: .leading) {
-
+            
                         Image(uiImage: imagesManager.imageFiles[imageName]?.0 ?? UIImage())
                             .resizable()
                             .scaledToFit()
@@ -21,6 +23,13 @@ struct ImagesScrollView: View {
                         
                         if let imageTuple = imagesManager.imageFiles[imageName] {
                             Text(imageTuple.1)
+                                .font(.system(size: 15))
+                                .padding(.leading, 30)
+                                .padding(.trailing, 30)
+                                .padding(.top, 0)
+                                .padding(.bottom, 0)
+
+                            Text(format(date: imageTuple.2))
                                 .font(.system(size: 15))
                                 .padding(.leading, 30)
                                 .padding(.trailing, 30)
@@ -78,3 +87,4 @@ struct ImagesScrollView: View {
         }
     }
 }
+
