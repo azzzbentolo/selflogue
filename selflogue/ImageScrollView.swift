@@ -17,59 +17,67 @@ struct ImagesScrollView: View {
                         }
                         .padding(.leading, 20)
                         .padding(.top, 40)
-                        .padding(.bottom, 40)
+                        .padding(.bottom, 30)
                         
-                        ForEach(getImagesForDate(date), id: \.0) { imageName, imageTuple in
-                            ZStack(alignment: .topTrailing) {
-                                VStack(alignment: .leading) {
+                        ForEach(getImagesForDate(date).sorted(by: { $0.1.2 > $1.1.2 }), id: \.0) { imageName, imageTuple in
+                            ZStack {
+                                VStack {
+                                    Text(formatTime(date: imageTuple.2))
+                                        .font(.system(size: 15))
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                        .padding(.horizontal, 20)
+                                        .padding(.bottom, 0)
+                                    
                                     Image(uiImage: imageTuple.0)
                                         .resizable()
                                         .scaledToFit()
                                         .frame(width: 315, height: 315)
                                         .clipShape(RoundedRectangle(cornerRadius: 10))
-                                        .padding(EdgeInsets(top: 0, leading: 30, bottom: 0, trailing: 30))
+                                        .padding(.horizontal, 40)
                                     
                                     Text(imageTuple.1)
                                         .font(.system(size: 15))
-                                        .padding(.leading, 30)
-                                        .padding(.trailing, 30)
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                        .padding(.horizontal, 50)
                                         .padding(.top, 0)
                                         .padding(.bottom, 0)
-                                    
-                                    Text(formatTime(date: imageTuple.2))
-                                        .font(.system(size: 15))
-                                        .padding(.leading, 30)
-                                        .padding(.trailing, 30)
-                                        .padding(.top, 0)
-                                        .padding(.bottom, 10)
                                 }
                                 .padding(.bottom)
-                                
-                                HStack {
-                                    Spacer()
-                                    
-                                    Menu {
-                                        Button(action: {
-                                            selectedImage = imageName
-                                            showingDeleteAlert = true
-                                        }) {
-                                            Label("Delete", systemImage: "trash")
-                                        }
-                                        Button(action: {
-                                            // Action for share button
-                                        }) {
-                                            Label("Share", systemImage: "square.and.arrow.up")
-                                        }
-                                    } label: {
-                                        Image(systemName: "ellipsis")
-                                            .font(.title)
-                                            .foregroundColor(.black)
-                                            .padding(.trailing, 30)
-                                            .padding(.top, -10)
-                                    }
-                                    .padding(.top, -10)
+                                .alert(isPresented: $showingDeleteAlert) {
+                                    Alert(
+                                        title: Text("Delete"),
+                                        message: Text("Are you sure you want to delete this image?"),
+                                        primaryButton: .destructive(Text("Delete")) {
+                                            if let imageName = selectedImage {
+                                                imagesManager.deleteImage(named: imageName)
+                                            }
+                                        },
+                                        secondaryButton: .cancel()
+                                    )
                                 }
+                                
+                                Menu {
+                                    Button(action: {
+                                        selectedImage = imageName
+                                        showingDeleteAlert = true
+                                    }) {
+                                        Label("Delete", systemImage: "trash")
+                                    }
+                                    Button(action: {}) {
+                                        Label("Share", systemImage: "square.and.arrow.up")
+                                    }
+                                } label: {
+                                    Image(systemName: "ellipsis")
+                                        .font(.system(size: 18))
+                                        .foregroundColor(.white)
+                                }
+                                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
+                                .padding(.trailing, 60)
+                                .padding(.top, 40)
                             }
+                        
+
+                            .padding(.bottom)
                             .alert(isPresented: $showingDeleteAlert) {
                                 Alert(
                                     title: Text("Delete"),
@@ -83,6 +91,7 @@ struct ImagesScrollView: View {
                                 )
                             }
                         }
+
                     }
                 }
             }

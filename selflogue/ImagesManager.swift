@@ -37,7 +37,6 @@ class ImagesManager: ObservableObject {
             }
             
             imageFilesArray.sort { $0.3 > $1.3 }
-            imageFilesArray.reverse()
             print("Sorted: \(imageFilesArray)")
             
             for fileTuple in imageFilesArray {
