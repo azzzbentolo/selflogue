@@ -9,6 +9,7 @@ class ImagesManager: ObservableObject {
     @Published var imageFilesDict: [String: (UIImage, String, Date)] = [:]
     @Published var imageFiles: [String: (UIImage, String, Date)] = [:]
 
+
     
     private init() {
         loadImageFiles()
@@ -35,8 +36,13 @@ class ImagesManager: ObservableObject {
                 }
             }
             
-            imageFilesArray.sort { $0.3 > $1.3 } 
+            imageFilesArray.sort { $0.3 > $1.3 }
+            imageFilesArray.reverse()
             print("Sorted: \(imageFilesArray)")
+            
+            for fileTuple in imageFilesArray {
+                imageFiles[fileTuple.0] = (fileTuple.1, fileTuple.2, fileTuple.3)
+            }
             
         } catch {
             print("Failed to read directory: \(error)")
