@@ -11,15 +11,15 @@ import FSCalendar
 
 
 class MainViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
-
+    
     
     @IBOutlet weak var quote: UILabel!
     @IBOutlet weak var calendar: FSCalendar!
     @IBOutlet weak var addLogueButton: UIButton!
-  
+    
     
     let THEME_COL: UIColor = UIColor(red: 84, green: 65, blue: 177)
-        
+    
     
     override func viewDidLoad() {
         
@@ -27,6 +27,7 @@ class MainViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
         setUpCalendar()
         setUpLineView()
         setUpAddButton()
+        setUpProfileButton()
         
     }
     
@@ -64,7 +65,7 @@ class MainViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
         }
         
     }
-
+    
     
     func setUpAddButton() {
         
@@ -75,40 +76,65 @@ class MainViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
     }
     
     
-    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+    func setUpProfileButton() {
         
-        let formatter = DateFormatter()
-        formatter.dateFormat = "EEEE MM-dd-YYYY"
-        let string = formatter.string(from: date)
-        print("\(string)")
+        let imageSize: CGFloat = 50
         
-        let cell = calendar.cell(for: date, at: monthPosition)
-        cell?.titleLabel.textColor = THEME_COL
-    
+        let profileImageView = UIImageView(image: UIImage(systemName: "person.circle"))
+        profileImageView.frame = CGRect(x: 0, y: 0, width: imageSize, height: imageSize)
+        profileImageView.contentMode = .scaleAspectFit
+        profileImageView.tintColor = .black
+        
+        let profileButton = UIButton(type: .custom)
+        profileButton.frame = CGRect(x: 100, y: 100, width: imageSize, height: imageSize)
+        profileButton.addSubview(profileImageView)
+        profileButton.addTarget(self, action: #selector(profileButtonTapped), for: .touchUpInside)
+        
+        let containerFrame = CGRect(x: 0, y: 0, width: imageSize, height: imageSize + 15)
+        let containerView = UIView(frame: containerFrame)
+        containerView.backgroundColor = .clear
+        containerView.addSubview(profileButton)
+        
+        profileButton.center = CGPoint(x: containerView.center.x, y: containerView.center.y + 15)
+        
+        let barButtonItem = UIBarButtonItem(customView: containerView)
+        navigationItem.rightBarButtonItem = barButtonItem
     }
 
+
+
+    
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        
+        let images = imagesForDate(date)
+        if !images.isEmpty {
+            presentImageListView(for: date)
+        }
+        
+    }
+    
+    
     
     func setUpCalendar() {
-        
         calendar.dataSource = self
         calendar.delegate = self
         calendar.locale = Locale(identifier: "en_US")
         calendar.headerHeight = 60
         calendar.weekdayHeight = 40
         
-        // Customize the appearance of the month header
         let appearance = calendar.appearance
         appearance.headerTitleColor = UIColor(red: 130, green: 130, blue: 130)
         appearance.headerTitleFont = UIFont(name: "Lato-Bold", size: 20)
         
-        // Customize the appearance of the weekday text
         appearance.weekdayTextColor = UIColor.black
         appearance.weekdayFont = UIFont(name: "Lato-Regular", size: 14)
         appearance.caseOptions = FSCalendarCaseOptions.weekdayUsesUpperCase
         appearance.borderRadius = .zero
         appearance.headerMinimumDissolvedAlpha = 0
         
+        appearance.titleSelectionColor = UIColor.black
     }
+    
     
     
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillSelectionColorFor date: Date) -> UIColor? {
@@ -126,11 +152,10 @@ class MainViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
         let today = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy MM dd"
-            
+        
         let todayDateString = formatter.string(from: today)
         let currentDateString = formatter.string(from: date)
-            
-        // If the date is today's date, return the custom fill color
+        
         if todayDateString == currentDateString {
             return UIColor(red: 84, green: 65, blue: 177, alpha: 0.85)
         } else {
@@ -141,35 +166,68 @@ class MainViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
     
     func setUpLineView() {
         
-        let lineView = UIView(frame: CGRect(x: 0, y: 175, width: 500, height: 1.5))
+        let lineView = UIView(frame: CGRect(x: 0, y: 165, width: 500, height: 1.5))
         lineView.layer.borderWidth = 1.0
         lineView.layer.borderColor = UIColor(red: 130, green: 130, blue: 130).cgColor
         self.view.addSubview(lineView)
         
     }
-
-    
-
     
     
-
-
-    
-    
-
-    
-    
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func presentImageListView(for date: Date) {
+        let vc = UIHostingController(rootView: ImagesListView(selectedDate: date))
+        self.present(vc, animated: true, completion: nil)
     }
-    */
+    
+    
+    private func imagesForDate(_ date: Date) -> [(String, (UIImage, String, Date))] {
+        
+        return ImagesManager.shared.imageFiles.filter { $0.value.2.dateOnly() == date }
+        
+    }
+    
+    
+    @objc func profileButtonTapped() {
+        print("Button tapped")
+        let settingsView = SettingsView()
 
+        let vc = UIHostingController(rootView: settingsView)
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    
+    class TouchThroughView: UIView {
+        var button: UIButton?
+        
+        override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+            if let button = self.button, button.frame.contains(point) {
+                return button
+            }
+            return super.hitTest(point, with: event)
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
