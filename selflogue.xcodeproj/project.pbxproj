@@ -32,6 +32,7 @@
 		E3B6F99D29FD899F0000E7F8 /* river.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E3B6F99929FD899F0000E7F8 /* river.mp3 */; };
 		E3B6F9A129FDDE030000E7F8 /* BackgroundMusic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B6F9A029FDDE030000E7F8 /* BackgroundMusic.swift */; };
 		E3E68C8D2A03797E00AF0638 /* DailyLogueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E68C8C2A03797E00AF0638 /* DailyLogueViewController.swift */; };
+		E3EE33AD2A2EFF960002D697 /* ChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EE33AC2A2EFF960002D697 /* ChartsView.swift */; };
 		E3F2491E29F8EE8000350ADE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F2491D29F8EE8000350ADE /* AppDelegate.swift */; };
 		E3F2492029F8EE8000350ADE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F2491F29F8EE8000350ADE /* SceneDelegate.swift */; };
 		E3F2492529F8EE8000350ADE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3F2492329F8EE8000350ADE /* Main.storyboard */; };
@@ -79,6 +80,7 @@
 		E3B6F99929FD899F0000E7F8 /* river.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = river.mp3; path = ../../../../../Downloads/river.mp3; sourceTree = "<group>"; };
 		E3B6F9A029FDDE030000E7F8 /* BackgroundMusic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundMusic.swift; sourceTree = "<group>"; };
 		E3E68C8C2A03797E00AF0638 /* DailyLogueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyLogueViewController.swift; sourceTree = "<group>"; };
+		E3EE33AC2A2EFF960002D697 /* ChartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsView.swift; sourceTree = "<group>"; };
 		E3F2491A29F8EE8000350ADE /* selflogue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = selflogue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3F2491D29F8EE8000350ADE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3F2491F29F8EE8000350ADE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +148,34 @@
 			path = Sound;
 			sourceTree = "<group>";
 		};
+		E3EE33B02A2F1D6B0002D697 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				E311CBB429FD565400537EA8 /* Quote.swift */,
+				E311CBB229FD4F6300537EA8 /* QuoteData.swift */,
+				E31293D72A2DA493003D8199 /* ProfileView.swift */,
+				E31293D52A2D707D003D8199 /* SettingsView.swift */,
+				E3F2493A29F9244500350ADE /* MainViewController.swift */,
+				E3E68C8C2A03797E00AF0638 /* DailyLogueViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		E3EE33B12A2F1DB40002D697 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				E31293D12A2C2F76003D8199 /* DateUtils.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		E3EE33B22A2F1DD10002D697 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		E3F2491129F8EE8000350ADE = {
 			isa = PBXGroup;
 			children = (
@@ -167,18 +197,16 @@
 		E3F2491C29F8EE8000350ADE /* selflogue */ = {
 			isa = PBXGroup;
 			children = (
+				E3EE33B22A2F1DD10002D697 /* New Group */,
+				E3EE33B12A2F1DB40002D697 /* Feed */,
+				E3EE33B02A2F1D6B0002D697 /* Main */,
 				E3F2492329F8EE8000350ADE /* Main.storyboard */,
 				E3F2492829F8EE8100350ADE /* LaunchScreen.storyboard */,
 				E3F2491D29F8EE8000350ADE /* AppDelegate.swift */,
 				E3F2491F29F8EE8000350ADE /* SceneDelegate.swift */,
-				E311CBB429FD565400537EA8 /* Quote.swift */,
-				E311CBB229FD4F6300537EA8 /* QuoteData.swift */,
-				E31293D12A2C2F76003D8199 /* DateUtils.swift */,
 				E392771C2A15C2AE003D5605 /* HabitStore.swift */,
 				E31293D92A2DB18E003D8199 /* ImagePicker.swift */,
 				E39277172A15C285003D5605 /* HomeView.swift */,
-				E31293D72A2DA493003D8199 /* ProfileView.swift */,
-				E31293D52A2D707D003D8199 /* SettingsView.swift */,
 				E39277192A15C297003D5605 /* AddHabitView.swift */,
 				E31293D32A2D3045003D8199 /* ImageListView.swift */,
 				E31293DB2A2E14D6003D8199 /* ProfileViewModel.swift */,
@@ -189,12 +217,11 @@
 				E3B6F9A029FDDE030000E7F8 /* BackgroundMusic.swift */,
 				E3F2493C29F9253100350ADE /* TabBarController.swift */,
 				E31293DF2A2ED749003D8199 /* FocusTimeManager.swift */,
-				E3F2493A29F9244500350ADE /* MainViewController.swift */,
 				E3F2496329FA30C500350ADE /* FeedViewController.swift */,
 				E3F2496729FA30DE00350ADE /* FocusViewController.swift */,
 				E3F2496129FA308400350ADE /* HabitViewController.swift */,
 				E3F2496929FA311A00350ADE /* StatsViewController.swift */,
-				E3E68C8C2A03797E00AF0638 /* DailyLogueViewController.swift */,
+				E3EE33AC2A2EFF960002D697 /* ChartsView.swift */,
 				E3F2492629F8EE8100350ADE /* Assets.xcassets */,
 				E392771E2A15C2CF003D5605 /* HabitTracker.xcdatamodeld */,
 				E3F2492B29F8EE8100350ADE /* Info.plist */,
@@ -359,6 +386,7 @@
 				E3F2493D29F9253100350ADE /* TabBarController.swift in Sources */,
 				E334580D2A1F499D0077BE63 /* ImageScrollView.swift in Sources */,
 				E31293D42A2D3045003D8199 /* ImageListView.swift in Sources */,
+				E3EE33AD2A2EFF960002D697 /* ChartsView.swift in Sources */,
 				E31293D22A2C2F76003D8199 /* DateUtils.swift in Sources */,
 				E3F2493F29F9CBD700350ADE /* UIColorExtension.swift in Sources */,
 				E311CBB329FD4F6300537EA8 /* QuoteData.swift in Sources */,
