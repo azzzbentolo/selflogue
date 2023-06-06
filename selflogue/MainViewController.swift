@@ -37,6 +37,7 @@ class MainViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
         super.viewWillAppear(animated)
         self.quote.text = ""
         fetchQuote()
+        loadUsername()
         
     }
     
@@ -78,9 +79,9 @@ class MainViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
     
     func setUpProfileButton() {
         
-        let imageSize: CGFloat = 50
+        let imageSize: CGFloat = 30
         
-        let profileImageView = UIImageView(image: UIImage(systemName: "person.circle"))
+        let profileImageView = UIImageView(image: UIImage(systemName: "gear"))
         profileImageView.frame = CGRect(x: 0, y: 0, width: imageSize, height: imageSize)
         profileImageView.contentMode = .scaleAspectFit
         profileImageView.tintColor = .black
@@ -90,7 +91,7 @@ class MainViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
         profileButton.addSubview(profileImageView)
         profileButton.addTarget(self, action: #selector(profileButtonTapped), for: .touchUpInside)
         
-        let containerFrame = CGRect(x: 0, y: 0, width: imageSize, height: imageSize + 15)
+        let containerFrame = CGRect(x: 0, y: 0, width: imageSize, height: imageSize + 5)
         let containerView = UIView(frame: containerFrame)
         containerView.backgroundColor = .clear
         containerView.addSubview(profileButton)
@@ -166,7 +167,7 @@ class MainViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
     
     func setUpLineView() {
         
-        let lineView = UIView(frame: CGRect(x: 0, y: 165, width: 500, height: 1.5))
+        let lineView = UIView(frame: CGRect(x: 0, y: 175, width: 500, height: 1.5))
         lineView.layer.borderWidth = 1.0
         lineView.layer.borderColor = UIColor(red: 130, green: 130, blue: 130).cgColor
         self.view.addSubview(lineView)
@@ -207,6 +208,13 @@ class MainViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
         }
     }
     
+    
+    func loadUsername() {
+        let defaults = UserDefaults.standard
+        if let username = defaults.string(forKey: "username") {
+            self.navigationItem.title = "Welcome! \(username)"
+        }
+    }
     
     
     

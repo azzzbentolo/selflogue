@@ -129,7 +129,6 @@ struct HomeView: View {
         }
         .onTapGesture {
             // MARK: Editing Habit
-//            self.habitStore.deleteHabit(habit: habit)
             habitStore.editHabit = habit
             habitStore.restoreEditData()
             self.showAddHabitView.toggle()

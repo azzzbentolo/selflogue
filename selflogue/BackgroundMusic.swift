@@ -103,7 +103,6 @@ struct BackgroundMusicView: View {
 
     
     private func audioFileName(forIndex index: Int) -> String {
-        
         switch index {
             case 0: return "keyboard"
             case 1: return "river"
@@ -112,4 +111,5 @@ struct BackgroundMusicView: View {
             default: return ""
         }
     }
+
 }

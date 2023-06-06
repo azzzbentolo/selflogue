@@ -3,6 +3,11 @@ import SwiftUI
 class ProfileViewModel: ObservableObject {
     
     @Published var inputImage: UIImage?
+    @Published var name: String = UserDefaults.standard.string(forKey: "name") ?? ""
+    @Published var username: String = UserDefaults.standard.string(forKey: "username") ?? ""
+    @Published var bio: String = UserDefaults.standard.string(forKey: "bio") ?? ""
+    @Published var age: Int = 8
+    
     let imageStorageFileName = "profilePicture.png"
 
     init() {
@@ -13,7 +18,15 @@ class ProfileViewModel: ObservableObject {
     
     private func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return paths[0]
+        let profileDataPath = paths[0].appendingPathComponent("profileData", isDirectory: true)
+        
+        do {
+            try FileManager.default.createDirectory(at: profileDataPath, withIntermediateDirectories: true, attributes: nil)
+        } catch {
+            print("Couldn't create directory")
+        }
+        
+        return profileDataPath
     }
     
     func saveImage(_ image: UIImage) {

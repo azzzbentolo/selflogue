@@ -7,7 +7,11 @@ struct ProfileView: View {
     @State private var showingImagePicker = false
     @State private var showingActionSheet = false
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
-    
+    @State private var editMode = false
+    let maxNameLength = 20 // You can change this value to your preference
+    let maxUsernameLength = 10 // You can change this value to your preference
+    let maxBioLength = 50
+
     var body: some View {
         
         VStack(spacing: 20) {
@@ -62,11 +66,19 @@ struct ProfileView: View {
                     .fontWeight(.bold)
                     .padding(.horizontal, 30)
                 
-                TextField("Enter your name", text: .constant(""))
+                TextField("Enter your name", text: $viewModel.name)
                     .font(.system(size: 20))
                     .padding(.horizontal, 30)
                     .padding(.top, -10)
+                    .onChange(of: viewModel.name) { newValue in
+                        if newValue.count > maxNameLength {
+                            viewModel.name = String(newValue.prefix(maxNameLength))
+                        }
+                    }
             }.padding(.bottom, 15)
+                .onReceive(viewModel.$name) { newValue in
+                    UserDefaults.standard.set(newValue, forKey: "name")
+                }
             
             VStack(alignment: .leading) {
                 Text("Username")
@@ -74,11 +86,19 @@ struct ProfileView: View {
                     .fontWeight(.bold)
                     .padding(.horizontal, 30)
                 
-                TextField("Enter your username", text: .constant(""))
+                TextField("Enter your username", text: $viewModel.username)
                     .font(.system(size: 20))
                     .padding(.horizontal, 30)
                     .padding(.top, -10)
+                    .onChange(of: viewModel.username) { newValue in
+                        if newValue.count > maxUsernameLength {
+                            viewModel.username = String(newValue.prefix(maxUsernameLength))
+                        }
+                    }
             }.padding(.bottom, 15)
+                .onReceive(viewModel.$username) { newValue in
+                    UserDefaults.standard.set(newValue, forKey: "username")
+                }
             
             VStack(alignment: .leading) {
                 Text("Bio")
@@ -86,23 +106,44 @@ struct ProfileView: View {
                     .fontWeight(.bold)
                     .padding(.horizontal, 30)
                 
-                TextField("Enter your bio", text: .constant(""))
+                TextField("Enter your Bio", text: $viewModel.bio)
                     .font(.system(size: 20))
                     .padding(.horizontal, 30)
                     .padding(.top, -10)
+                    .onChange(of: viewModel.bio) { newValue in
+                        if newValue.count > maxBioLength {
+                            viewModel.bio = String(newValue.prefix(maxBioLength))
+                        }
+                    }
             }.padding(.bottom, 15)
+                .onReceive(viewModel.$bio) { newValue in
+                    UserDefaults.standard.set(newValue, forKey: "bio")
+                }
             
             VStack(alignment: .leading) {
                 Text("Age")
                     .font(.system(size: 25))
                     .fontWeight(.bold)
                     .padding(.horizontal, 30)
-                
-                TextField("Enter your age", text: .constant(""))
-                    .font(.system(size: 20))
-                    .padding(.horizontal, 30)
-                    .padding(.top, -10)
+
+                Picker(selection: $viewModel.age, label: Text("")) {
+                    ForEach(8...100, id: \.self) {
+                        Text("\($0)")
+                            .font(.system(size: 25))
+                            .foregroundColor(.black) 
+                    }
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .labelsHidden()
+                .padding(.horizontal, 30)
+                .padding(.top, -10)
+            }.padding(.bottom, 15)
+            .onReceive(viewModel.$age) { newValue in
+                UserDefaults.standard.set(newValue, forKey: "age")
             }
+
+
+
             
             Button(action: {
                 if let inputImage = self.viewModel.inputImage {

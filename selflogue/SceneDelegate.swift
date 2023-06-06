@@ -1,10 +1,36 @@
+////
+////  SceneDelegate.swift
+////  selflogue
+////
+////  Created by Chew Jun Pin on 26/4/2023.
+////
+//import UIKit
+//import SwiftUI
+//import CoreData
 //
-//  SceneDelegate.swift
-//  selflogue
+//class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //
-//  Created by Chew Jun Pin on 26/4/2023.
+//    var window: UIWindow?
 //
-
+//    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+//        // Get the managed context from AppDelegate
+//        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+//
+//        // Create the SwiftUI view and set the context as an environment variable
+//        let contentView = FocusSwiftUIView().environment(\.managedObjectContext, context)
+//
+//        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
+//        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
+//        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+//
+//        if let windowScene = scene as? UIWindowScene {
+//            let window = UIWindow(windowScene: windowScene)
+//            window.rootViewController = UIHostingController(rootView: contentView)
+//            self.window = window
+//            window.makeKeyAndVisible()
+//        }
+//
+//    }
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {

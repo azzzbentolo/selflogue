@@ -7,12 +7,11 @@
 
 import SwiftUI
 import AVFoundation
-
+import CoreData
 
 let timer = Timer
     .publish(every: 1, on: .main, in: .common)
     .autoconnect()
-
 
 struct Clock: View {
     var counter: Int
@@ -40,7 +39,7 @@ struct ProgressTrack: View {
             .frame(width: 250, height: 250)
             .overlay(
                 Circle().stroke(Color("Color1"), lineWidth: 20)
-        )
+            )
     }
 }
 
@@ -68,7 +67,7 @@ struct ProgressBar: View {
                                 lineCap: .round,
                                 lineJoin: .round
                             )
-                    ).rotationEffect(.degrees(-90))
+                           ).rotationEffect(.degrees(-90))
                     .animation(
                         .easeInOut(duration: 1.5)
                         ,value: 0.0)
@@ -108,11 +107,25 @@ struct TimerControlView: View {
     @Binding var counter: Int
     @Binding var countTo: Int
     @Binding var timerRunning: Bool
+    @Binding var focusPeriodStartDate: Date?
+    var focusTimeManager: FocusTimeManager?
+    var printTodayFocusTime: () -> Void
     
     var body: some View {
         HStack {
             Button(action: {
                 timerRunning.toggle()
+                if timerRunning {
+                    focusTimeManager?.startFocusSession()
+                    focusPeriodStartDate = Date()
+                } else {
+                    if let startDate = focusPeriodStartDate {
+                        let focusPeriodLength = Date().timeIntervalSince(startDate)
+                        focusTimeManager?.incrementFocusTime(by: focusPeriodLength)
+                        focusPeriodStartDate = nil
+                    }
+                }
+                printTodayFocusTime()
             }) {
                 Image(systemName: timerRunning ? "pause" : "play")
                     .resizable()
@@ -134,6 +147,8 @@ struct TimerControlView: View {
         }
     }
 }
+
+
 
 
 struct VolumeSliderView: View {
@@ -172,6 +187,9 @@ struct FocusView: View {
 
 struct FocusSwiftUIView: View {
     
+    @Environment(\.managedObjectContext) private var viewContext
+    @State private var focusTimeManager: FocusTimeManager? = nil
+    @State private var focusPeriodStartDate: Date? = nil
     @State var counter: Int = 0
     @State var countTo: Int = 30 * 60
     @State private var audioPlayer: AVPlayer?
@@ -186,8 +204,17 @@ struct FocusSwiftUIView: View {
                 .onTapGesture {
                     showingCountdownPicker = true
                 }
-            TimerControlView(counter: $counter, countTo: $countTo, timerRunning: $timerRunning)
-                .padding(.bottom, 20)
+            TimerControlView(
+                counter: $counter,
+                countTo: $countTo,
+                timerRunning: $timerRunning,
+                focusPeriodStartDate: $focusPeriodStartDate,
+                focusTimeManager: focusTimeManager,
+                printTodayFocusTime: printTodayFocusTime
+            )
+            .padding(.bottom, 20)
+
+
             Spacer()
             BackgroundMusicView(audioPlayer: $audioPlayer)
             Spacer()
@@ -196,24 +223,33 @@ struct FocusSwiftUIView: View {
         }
         .onReceive(timer, perform: handleTimer)
         .sheet(isPresented: $showingCountdownPicker, content: countdownPickerSheet)
+        .onAppear {
+            self.focusTimeManager = FocusTimeManager(context: viewContext)
+        }
     }
-    
     
     func handleTimer(_ time: Date) {
         if timerRunning && (self.counter < self.countTo) {
             self.counter += 1
+            if counter == countTo {
+                if let startDate = focusPeriodStartDate {
+                    let focusPeriodLength = Date().timeIntervalSince(startDate)
+                    focusTimeManager?.incrementFocusTime(by: focusPeriodLength)
+                    focusPeriodStartDate = nil
+                }
+            }
         }
     }
-    
+
     
     func countdownPickerSheet() -> some View {
         VStack {
             Text("Select the countdown time")
                 .font(.title2)
                 .padding()
-                
+            
             CountdownPicker(selectedTimeInterval: $selectedTimeInterval)
-                
+            
             Button(action: {
                 countTo = selectedTimeInterval * 60
                 counter = 0
@@ -230,8 +266,12 @@ struct FocusSwiftUIView: View {
             .padding()
         }
     }
+    
+    func printTodayFocusTime() {
+        let focusTime = focusTimeManager?.getFocusTime(for: Date())
+        print("Today's focus time: \(focusTime ?? 0) seconds")
+    }
 }
-
 
 struct FocusSwiftUI_Previews: PreviewProvider {
     static var previews: some View {

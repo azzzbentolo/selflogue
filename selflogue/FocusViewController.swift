@@ -1,24 +1,20 @@
-//
-//  FocusViewController.swift
-//  selflogue
-//
-//  Created by Chew Jun Pin on 27/4/2023.
-//
-
 import UIKit
 import SwiftUI
 
 class FocusViewController: UIViewController {
 
-    
-    private var hostingController: UIHostingController<FocusSwiftUIView>!
+    private var hostingController: UIHostingController<AnyView>!
 
-    
     override func viewDidLoad() {
-        
         super.viewDidLoad()
+
+        // Grab the managed object context from the AppDelegate
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
+        // Initialize your SwiftUI view with the managed object context
+        let focusSwiftUIView = FocusSwiftUIView().environment(\.managedObjectContext, context)
         
-        hostingController = UIHostingController(rootView: FocusSwiftUIView())
+        hostingController = UIHostingController(rootView: AnyView(focusSwiftUIView))
         addChild(hostingController)
         view.addSubview(hostingController.view)
         
@@ -32,9 +28,5 @@ class FocusViewController: UIViewController {
         ])
         
         hostingController.didMove(toParent: self)
-        
     }
-    
 }
-
-
