@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HomeView: View {
+struct HabitView: View {
     
     @Environment(\.managedObjectContext) private var context
     @State private var showAddHabitView = false

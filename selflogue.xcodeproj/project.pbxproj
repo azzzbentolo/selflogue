@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CF48C7D19B8EBD90D1C25EE6 /* Pods_selflogue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3CCCED005EEC271BE22490E /* Pods_selflogue.framework */; };
+		E306030F2A31366500ED05F9 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E306030E2A31366500ED05F9 /* StatsView.swift */; };
 		E311CBA729FA5A3E00537EA8 /* FocusSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E311CBA629FA5A3E00537EA8 /* FocusSwiftUIView.swift */; };
 		E311CBAC29FD3CF700537EA8 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E311CBAB29FD3CF700537EA8 /* Alamofire */; };
 		E311CBAF29FD3D8300537EA8 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = E311CBAE29FD3D8300537EA8 /* SwiftyJSON */; };
@@ -22,7 +23,7 @@
 		E31293E02A2ED749003D8199 /* FocusTimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31293DF2A2ED749003D8199 /* FocusTimeManager.swift */; };
 		E334580D2A1F499D0077BE63 /* ImageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E334580C2A1F499D0077BE63 /* ImageScrollView.swift */; };
 		E334580F2A1F4EBB0077BE63 /* ImagesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E334580E2A1F4EBB0077BE63 /* ImagesManager.swift */; };
-		E39277182A15C285003D5605 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39277172A15C285003D5605 /* HomeView.swift */; };
+		E39277182A15C285003D5605 /* HabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39277172A15C285003D5605 /* HabitView.swift */; };
 		E392771A2A15C297003D5605 /* AddHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39277192A15C297003D5605 /* AddHabitView.swift */; };
 		E392771D2A15C2AE003D5605 /* HabitStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E392771C2A15C2AE003D5605 /* HabitStore.swift */; };
 		E39277202A15C2CF003D5605 /* HabitTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E392771E2A15C2CF003D5605 /* HabitTracker.xcdatamodeld */; };
@@ -32,7 +33,6 @@
 		E3B6F99D29FD899F0000E7F8 /* river.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E3B6F99929FD899F0000E7F8 /* river.mp3 */; };
 		E3B6F9A129FDDE030000E7F8 /* BackgroundMusic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B6F9A029FDDE030000E7F8 /* BackgroundMusic.swift */; };
 		E3E68C8D2A03797E00AF0638 /* DailyLogueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E68C8C2A03797E00AF0638 /* DailyLogueViewController.swift */; };
-		E3EE33AD2A2EFF960002D697 /* ChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EE33AC2A2EFF960002D697 /* ChartsView.swift */; };
 		E3F2491E29F8EE8000350ADE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F2491D29F8EE8000350ADE /* AppDelegate.swift */; };
 		E3F2492029F8EE8000350ADE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F2491F29F8EE8000350ADE /* SceneDelegate.swift */; };
 		E3F2492529F8EE8000350ADE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3F2492329F8EE8000350ADE /* Main.storyboard */; };
@@ -58,6 +58,7 @@
 /* Begin PBXFileReference section */
 		2E202FB5B27183CAFF5AC637 /* Pods-selflogue.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-selflogue.debug.xcconfig"; path = "Target Support Files/Pods-selflogue/Pods-selflogue.debug.xcconfig"; sourceTree = "<group>"; };
 		545DE12DFB79D25CF1E37A87 /* Pods-selflogue.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-selflogue.release.xcconfig"; path = "Target Support Files/Pods-selflogue/Pods-selflogue.release.xcconfig"; sourceTree = "<group>"; };
+		E306030E2A31366500ED05F9 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		E311CBA629FA5A3E00537EA8 /* FocusSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSwiftUIView.swift; sourceTree = "<group>"; };
 		E311CBB229FD4F6300537EA8 /* QuoteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteData.swift; sourceTree = "<group>"; };
 		E311CBB429FD565400537EA8 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
@@ -70,7 +71,7 @@
 		E31293DF2A2ED749003D8199 /* FocusTimeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusTimeManager.swift; sourceTree = "<group>"; };
 		E334580C2A1F499D0077BE63 /* ImageScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScrollView.swift; sourceTree = "<group>"; };
 		E334580E2A1F4EBB0077BE63 /* ImagesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesManager.swift; sourceTree = "<group>"; };
-		E39277172A15C285003D5605 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		E39277172A15C285003D5605 /* HabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitView.swift; sourceTree = "<group>"; };
 		E39277192A15C297003D5605 /* AddHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitView.swift; sourceTree = "<group>"; };
 		E392771C2A15C2AE003D5605 /* HabitStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitStore.swift; sourceTree = "<group>"; };
 		E392771F2A15C2CF003D5605 /* HabitTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HabitTracker.xcdatamodel; sourceTree = "<group>"; };
@@ -80,7 +81,6 @@
 		E3B6F99929FD899F0000E7F8 /* river.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = river.mp3; path = ../../../../../Downloads/river.mp3; sourceTree = "<group>"; };
 		E3B6F9A029FDDE030000E7F8 /* BackgroundMusic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundMusic.swift; sourceTree = "<group>"; };
 		E3E68C8C2A03797E00AF0638 /* DailyLogueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyLogueViewController.swift; sourceTree = "<group>"; };
-		E3EE33AC2A2EFF960002D697 /* ChartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsView.swift; sourceTree = "<group>"; };
 		E3F2491A29F8EE8000350ADE /* selflogue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = selflogue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3F2491D29F8EE8000350ADE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3F2491F29F8EE8000350ADE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +137,50 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E30603132A31B95300ED05F9 /* Habit */ = {
+			isa = PBXGroup;
+			children = (
+				E39277172A15C285003D5605 /* HabitView.swift */,
+				E392771C2A15C2AE003D5605 /* HabitStore.swift */,
+				E39277192A15C297003D5605 /* AddHabitView.swift */,
+				E3F2496129FA308400350ADE /* HabitViewController.swift */,
+			);
+			path = Habit;
+			sourceTree = "<group>";
+		};
+		E30603142A31B97900ED05F9 /* Focus */ = {
+			isa = PBXGroup;
+			children = (
+				E31293DF2A2ED749003D8199 /* FocusTimeManager.swift */,
+				E3F2496729FA30DE00350ADE /* FocusViewController.swift */,
+				E311CBA629FA5A3E00537EA8 /* FocusSwiftUIView.swift */,
+				E3B6F9A029FDDE030000E7F8 /* BackgroundMusic.swift */,
+			);
+			path = Focus;
+			sourceTree = "<group>";
+		};
+		E30603152A31B98600ED05F9 /* Stats */ = {
+			isa = PBXGroup;
+			children = (
+				E3F2496929FA311A00350ADE /* StatsViewController.swift */,
+				E306030E2A31366500ED05F9 /* StatsView.swift */,
+			);
+			path = Stats;
+			sourceTree = "<group>";
+		};
+		E30603162A31B9F600ED05F9 /* Function */ = {
+			isa = PBXGroup;
+			children = (
+				E3F2492329F8EE8000350ADE /* Main.storyboard */,
+				E3F2492829F8EE8100350ADE /* LaunchScreen.storyboard */,
+				E3F2491D29F8EE8000350ADE /* AppDelegate.swift */,
+				E3F2491F29F8EE8000350ADE /* SceneDelegate.swift */,
+				E3F2493C29F9253100350ADE /* TabBarController.swift */,
+				E3F2493E29F9CBD700350ADE /* UIColorExtension.swift */,
+			);
+			path = Function;
+			sourceTree = "<group>";
+		};
 		E3B6F99529FD898E0000E7F8 /* Sound */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,32 +192,31 @@
 			path = Sound;
 			sourceTree = "<group>";
 		};
-		E3EE33B02A2F1D6B0002D697 /* Main */ = {
+		E3EE33B02A2F1D6B0002D697 /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				E311CBB429FD565400537EA8 /* Quote.swift */,
 				E311CBB229FD4F6300537EA8 /* QuoteData.swift */,
 				E31293D72A2DA493003D8199 /* ProfileView.swift */,
 				E31293D52A2D707D003D8199 /* SettingsView.swift */,
+				E31293DB2A2E14D6003D8199 /* ProfileViewModel.swift */,
 				E3F2493A29F9244500350ADE /* MainViewController.swift */,
 				E3E68C8C2A03797E00AF0638 /* DailyLogueViewController.swift */,
 			);
-			path = Main;
+			path = Home;
 			sourceTree = "<group>";
 		};
 		E3EE33B12A2F1DB40002D697 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
 				E31293D12A2C2F76003D8199 /* DateUtils.swift */,
+				E31293D92A2DB18E003D8199 /* ImagePicker.swift */,
+				E31293D32A2D3045003D8199 /* ImageListView.swift */,
+				E334580E2A1F4EBB0077BE63 /* ImagesManager.swift */,
+				E334580C2A1F499D0077BE63 /* ImageScrollView.swift */,
+				E3F2496329FA30C500350ADE /* FeedViewController.swift */,
 			);
 			path = Feed;
-			sourceTree = "<group>";
-		};
-		E3EE33B22A2F1DD10002D697 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 		E3F2491129F8EE8000350ADE = {
@@ -197,31 +240,12 @@
 		E3F2491C29F8EE8000350ADE /* selflogue */ = {
 			isa = PBXGroup;
 			children = (
-				E3EE33B22A2F1DD10002D697 /* New Group */,
+				E30603162A31B9F600ED05F9 /* Function */,
 				E3EE33B12A2F1DB40002D697 /* Feed */,
-				E3EE33B02A2F1D6B0002D697 /* Main */,
-				E3F2492329F8EE8000350ADE /* Main.storyboard */,
-				E3F2492829F8EE8100350ADE /* LaunchScreen.storyboard */,
-				E3F2491D29F8EE8000350ADE /* AppDelegate.swift */,
-				E3F2491F29F8EE8000350ADE /* SceneDelegate.swift */,
-				E392771C2A15C2AE003D5605 /* HabitStore.swift */,
-				E31293D92A2DB18E003D8199 /* ImagePicker.swift */,
-				E39277172A15C285003D5605 /* HomeView.swift */,
-				E39277192A15C297003D5605 /* AddHabitView.swift */,
-				E31293D32A2D3045003D8199 /* ImageListView.swift */,
-				E31293DB2A2E14D6003D8199 /* ProfileViewModel.swift */,
-				E311CBA629FA5A3E00537EA8 /* FocusSwiftUIView.swift */,
-				E3F2493E29F9CBD700350ADE /* UIColorExtension.swift */,
-				E334580E2A1F4EBB0077BE63 /* ImagesManager.swift */,
-				E334580C2A1F499D0077BE63 /* ImageScrollView.swift */,
-				E3B6F9A029FDDE030000E7F8 /* BackgroundMusic.swift */,
-				E3F2493C29F9253100350ADE /* TabBarController.swift */,
-				E31293DF2A2ED749003D8199 /* FocusTimeManager.swift */,
-				E3F2496329FA30C500350ADE /* FeedViewController.swift */,
-				E3F2496729FA30DE00350ADE /* FocusViewController.swift */,
-				E3F2496129FA308400350ADE /* HabitViewController.swift */,
-				E3F2496929FA311A00350ADE /* StatsViewController.swift */,
-				E3EE33AC2A2EFF960002D697 /* ChartsView.swift */,
+				E30603132A31B95300ED05F9 /* Habit */,
+				E3EE33B02A2F1D6B0002D697 /* Home */,
+				E30603152A31B98600ED05F9 /* Stats */,
+				E30603142A31B97900ED05F9 /* Focus */,
 				E3F2492629F8EE8100350ADE /* Assets.xcassets */,
 				E392771E2A15C2CF003D5605 /* HabitTracker.xcdatamodeld */,
 				E3F2492B29F8EE8100350ADE /* Info.plist */,
@@ -386,7 +410,6 @@
 				E3F2493D29F9253100350ADE /* TabBarController.swift in Sources */,
 				E334580D2A1F499D0077BE63 /* ImageScrollView.swift in Sources */,
 				E31293D42A2D3045003D8199 /* ImageListView.swift in Sources */,
-				E3EE33AD2A2EFF960002D697 /* ChartsView.swift in Sources */,
 				E31293D22A2C2F76003D8199 /* DateUtils.swift in Sources */,
 				E3F2493F29F9CBD700350ADE /* UIColorExtension.swift in Sources */,
 				E311CBB329FD4F6300537EA8 /* QuoteData.swift in Sources */,
@@ -403,8 +426,9 @@
 				E31293E02A2ED749003D8199 /* FocusTimeManager.swift in Sources */,
 				E311CBB529FD565400537EA8 /* Quote.swift in Sources */,
 				E3F2496429FA30C500350ADE /* FeedViewController.swift in Sources */,
-				E39277182A15C285003D5605 /* HomeView.swift in Sources */,
+				E39277182A15C285003D5605 /* HabitView.swift in Sources */,
 				E3B6F9A129FDDE030000E7F8 /* BackgroundMusic.swift in Sources */,
+				E306030F2A31366500ED05F9 /* StatsView.swift in Sources */,
 				E3E68C8D2A03797E00AF0638 /* DailyLogueViewController.swift in Sources */,
 				E392771A2A15C297003D5605 /* AddHabitView.swift in Sources */,
 			);

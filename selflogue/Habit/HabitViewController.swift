@@ -8,7 +8,7 @@ class HabitViewController: UIViewController {
         super.viewDidLoad()
         
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        let contentView = HomeView().environment(\.managedObjectContext, context)
+        let contentView = HabitView().environment(\.managedObjectContext, context)
         
         let hostVC = UIHostingController(rootView: contentView)
         addChild(hostVC)

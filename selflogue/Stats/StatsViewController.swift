@@ -3,12 +3,12 @@ import SwiftUI
 
 class StatsViewController: UIViewController {
     
-    private var hostingController: UIHostingController<BarChart>!
+    private var hostingController: UIHostingController<StatsView>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        hostingController = UIHostingController(rootView: BarChart())
+        hostingController = UIHostingController(rootView: StatsView())
         addChild(hostingController)
         view.addSubview(hostingController.view)
         
