@@ -152,14 +152,14 @@ struct StatsView: View {
                         x: .value("Date", item.date, unit: timing == "Week" ? .day : .month),
                         y: .value("Focus Time", item.animate ? item.focusTime : 0)
                     )
-                    .foregroundStyle(Color.blue.gradient)
+                    .foregroundStyle(Color("Color3").gradient)
                     .interpolationMethod(.catmullRom)
                 } else {
                     BarMark(
                         x: .value("Date", item.date, unit: timing == "Week" ? .day : .month),
                         y: .value("Focus Time", item.animate ? item.focusTime : 0)
                     )
-                    .foregroundStyle(Color.blue.gradient)
+                    .foregroundStyle(Color("Color3").gradient)
                 }
                 
                 if isLineChart {
@@ -167,7 +167,7 @@ struct StatsView: View {
                         x: .value("Date", item.date, unit: timing == "Week" ? .day : .month),
                         y: .value("Focus Time", item.animate ? item.focusTime : 0)
                     )
-                    .foregroundStyle(Color.blue.opacity(0.1).gradient)
+                    .foregroundStyle(Color("Color3").opacity(0.1).gradient)
                     .interpolationMethod(.catmullRom)
                 }
                 

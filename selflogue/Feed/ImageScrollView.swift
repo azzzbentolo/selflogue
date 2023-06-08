@@ -1,9 +1,12 @@
 import SwiftUI
 
 struct ImagesScrollView: View {
+    
+    
     @ObservedObject var imagesManager = ImagesManager.shared
     @State private var showingDeleteAlert = false
     @State private var selectedImage: String?
+
     
     var body: some View {
         ScrollView(showsIndicators: false) {
@@ -98,19 +101,23 @@ struct ImagesScrollView: View {
         }
     }
     
+    
     func getUniqueDates() -> [Date] {
         return Array(Set(imagesManager.imageFiles.values.map { $0.2.dateOnly() })).sorted(by: >)
     }
     
+    
     func getImagesForDate(_ date: Date) -> [(String, (UIImage, String, Date))] {
         return imagesManager.imageFiles.filter { $0.value.2.dateOnly() == date }
     }
+    
     
     func format(date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd-MM-yyyy"
         return formatter.string(from: date)
     }
+    
     
     func formatTime(date: Date) -> String {
         let formatter = DateFormatter()
@@ -119,10 +126,13 @@ struct ImagesScrollView: View {
     }
 }
 
+
 extension Date {
+    
     func dateOnly() -> Date {
         let calendar = Calendar.current
         let components = calendar.dateComponents([.year, .month, .day], from: self)
         return calendar.date(from: components) ?? self
     }
+    
 }

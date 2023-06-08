@@ -102,8 +102,6 @@ class MainViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
         navigationItem.rightBarButtonItem = barButtonItem
     }
 
-
-
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         
@@ -113,8 +111,7 @@ class MainViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
         }
         
     }
-    
-    
+
     
     func setUpCalendar() {
         calendar.dataSource = self
@@ -135,7 +132,6 @@ class MainViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
         
         appearance.titleSelectionColor = UIColor.black
     }
-    
     
     
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillSelectionColorFor date: Date) -> UIColor? {
@@ -218,16 +214,7 @@ class MainViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     /*
      // MARK: - Navigation
      

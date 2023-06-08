@@ -5,6 +5,7 @@
 //  Created by Chew Jun Pin on 18/5/2023.
 //
 
+
 import SwiftUI
 
 struct HabitView: View {
@@ -32,6 +33,7 @@ struct HabitView: View {
                 
                 // MARK: Add Habit Button
                 Button {
+                    self.habitStore.resetHabitData()
                     self.showAddHabitView = true
                 } label: {
                     Label {
@@ -52,6 +54,7 @@ struct HabitView: View {
             .padding(.vertical)
             
         }
+        .navigationBarHidden(true)
         .frame(maxHeight: .infinity, alignment: .top)
     }
     
@@ -133,22 +136,7 @@ struct HabitView: View {
             habitStore.restoreEditData()
             self.showAddHabitView.toggle()
         }
-        .onLongPressGesture { // Long press gesture
-            showAlert = true
-        }
-        .alert(isPresented: $showAlert) { // Alert
-            Alert(
-                title: Text("Delete Habit"),
-                message: Text("Are you sure you want to delete this habit?"),
-                primaryButton: .destructive(Text("Delete")) {
-                    habitStore.deleteHabit(habit: habit)
-                },
-                secondaryButton: .cancel()
-            )
-        }
     }
-    
-    
     
     
     // MARK: Formatting Date
@@ -158,14 +146,12 @@ struct HabitView: View {
         
         return formatter.string(from: date)
     }
-
-    
 }
 
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HabitView()
     }
 }
 

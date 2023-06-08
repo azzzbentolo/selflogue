@@ -8,6 +8,7 @@
         <attribute name="habitColor" optional="YES" attributeType="String"/>
         <attribute name="habitDescription" optional="YES" attributeType="String"/>
         <attribute name="habitTitle" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="reminderIsOn" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="reminderTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="weekDays" optional="YES" attributeType="Transformable" customClassName="[String]"/>

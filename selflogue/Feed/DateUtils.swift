@@ -13,7 +13,6 @@ func format(date: Date) -> String {
     return formatter.string(from: date)
 }
 
-
 func formatDay(date: Date) -> String {
     let formatter = DateFormatter()
     formatter.dateFormat = "MMMM dd"
@@ -25,5 +24,7 @@ func formatTime(date: Date) -> String {
     formatter.dateFormat = "MMMM dd"
     return formatter.string(from: date)
 }
+
+
 
 

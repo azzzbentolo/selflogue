@@ -14,7 +14,7 @@ class DailyLogueViewController: UIViewController, UIImagePickerControllerDelegat
     let recordDayLabel = UILabel()
     let THEME_COL: UIColor = UIColor(red: 84, green: 65, blue: 177)
     let lightPurpleColor: UIColor = UIColor(red: 0.90, green: 0.75, blue: 0.98, alpha: 1.00)
-
+    
     
     override func viewDidLoad() {
         
@@ -30,12 +30,15 @@ class DailyLogueViewController: UIViewController, UIImagePickerControllerDelegat
         view.addSubview(titleLabel)
         
         let subView = UIView()
-        subView.backgroundColor = .white
-        subView.layer.borderWidth = 3
-        subView.layer.borderColor = THEME_COL.cgColor
+        subView.backgroundColor = UIColor.white
         subView.layer.cornerRadius = 10
+        subView.layer.shadowColor = THEME_COL.withAlphaComponent(0.3).cgColor
+        subView.layer.shadowOpacity = 0.8 // Adjust this to change the shadow's opacity.
+        subView.layer.shadowOffset = CGSize(width: 0, height: 2) // Adjust this to change the shadow's offset.
+        subView.layer.shadowRadius = 4 // Adjust this to change the shadow's blur.
         subView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(subView)
+        
         
         NSLayoutConstraint.activate([
             
@@ -50,6 +53,7 @@ class DailyLogueViewController: UIViewController, UIImagePickerControllerDelegat
         ])
         
         recordDayLabel.text = "Record your day!"
+        recordDayLabel.font = UIFont(name: "Lato-Regular", size: 18)
         recordDayLabel.translatesAutoresizingMaskIntoConstraints = false
         subView.addSubview(recordDayLabel)
         
@@ -60,17 +64,18 @@ class DailyLogueViewController: UIViewController, UIImagePickerControllerDelegat
         
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
-        imageView.layer.borderWidth = 2.0
-        imageView.layer.borderColor = THEME_COL.cgColor
+        imageView.layer.borderWidth = 1.5
+        imageView.layer.borderColor = THEME_COL.withAlphaComponent(0.3).cgColor // Set the desired opacity value
         imageView.translatesAutoresizingMaskIntoConstraints = false
         subView.addSubview(imageView)
-        
+
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: recordDayLabel.bottomAnchor, constant: 10),
             imageView.centerXAnchor.constraint(equalTo: subView.centerXAnchor),
             imageView.widthAnchor.constraint(equalTo: subView.widthAnchor, multiplier: 0.65),
             imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor)
         ])
+
         
         cameraButton.setImage(UIImage(systemName: "camera"), for: .normal)
         cameraButton.tintColor = .black
@@ -86,6 +91,7 @@ class DailyLogueViewController: UIViewController, UIImagePickerControllerDelegat
         ])
         
         descriptionLabel.text = "Description"
+        descriptionLabel.font = UIFont(name: "Lato-Regular", size: 18)
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         subView.addSubview(descriptionLabel)
         
@@ -94,14 +100,16 @@ class DailyLogueViewController: UIViewController, UIImagePickerControllerDelegat
             descriptionLabel.topAnchor.constraint(equalTo: cameraButton.bottomAnchor, constant: 30)
         ])
         
-        descriptionTextView.layer.borderColor = UIColor.gray.cgColor
-        descriptionTextView.layer.borderWidth = 1.0
-        descriptionTextView.layer.cornerRadius = 5.0
-        descriptionTextView.isScrollEnabled = true
+        descriptionTextView.layer.borderColor = THEME_COL.withAlphaComponent(0.3).cgColor // Set the desired color and opacity
+        descriptionTextView.layer.borderWidth = 1.5
+        descriptionTextView.layer.cornerRadius = 0.0 // Set corner radius to 0 for sharp corners
         descriptionTextView.font = UIFont.systemFont(ofSize: 16)
         descriptionTextView.translatesAutoresizingMaskIntoConstraints = false
         subView.addSubview(descriptionTextView)
-        
+
+        // Set up the delegate for the descriptionTextView
+        descriptionTextView.delegate = self
+
         NSLayoutConstraint.activate([
             descriptionTextView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 10),
             descriptionTextView.centerXAnchor.constraint(equalTo: subView.centerXAnchor),
@@ -116,7 +124,7 @@ class DailyLogueViewController: UIViewController, UIImagePickerControllerDelegat
         postButton.setTitleColor(THEME_COL, for: .normal)
         postButton.translatesAutoresizingMaskIntoConstraints = false
         postButton.addTarget(self, action: #selector(postButtonTapped), for: .touchUpInside)
-
+        
         subView.addSubview(postButton)
         
         NSLayoutConstraint.activate([
@@ -163,7 +171,7 @@ class DailyLogueViewController: UIViewController, UIImagePickerControllerDelegat
         self.navigationController?.popViewController(animated: true)
         
     }
-
+    
     
     @objc func handlePinch(gesture: UIPinchGestureRecognizer) {
         
@@ -266,3 +274,13 @@ class DailyLogueViewController: UIViewController, UIImagePickerControllerDelegat
     }
 }
 
+
+extension DailyLogueViewController: UITextViewDelegate {
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+}

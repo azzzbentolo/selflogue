@@ -10,7 +10,6 @@ class ImagesManager: ObservableObject {
     @Published var imageFiles: [String: (UIImage, String, Date)] = [:]
 
 
-    
     private init() {
         loadImageFiles()
     }
@@ -20,6 +19,7 @@ class ImagesManager: ObservableObject {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]
     }
+    
     
     func loadImageFiles() {
         do {
@@ -79,8 +79,4 @@ class ImagesManager: ObservableObject {
             return Date()
         }
     }
-
-
-    
-
 }

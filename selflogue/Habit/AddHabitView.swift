@@ -7,7 +7,8 @@ struct AddHabitView: View {
     @Binding var showAddHabitView: Bool
     @Environment(\.self) var env
     @ObservedObject var habitStore: HabitStore
-
+    @State private var showAlert = false
+    
     var body: some View {
         
         NavigationView {
@@ -117,20 +118,37 @@ struct AddHabitView: View {
                 
                 Button("Save Habit") {
                     Task{
-                        if await habitStore.addHabit(
+                        if let habit = await habitStore.addHabit(
                             context: env.managedObjectContext){
-                                env.dismiss()
+                            if self.habitStore.reminderIsOn {
+                                self.scheduleNotification(for: habit)
+                            }
+                            env.dismiss()
                         }
-                    }
-                    if self.habitStore.reminderIsOn {
-                        self.scheduleNotification()
                     }
                     self.showAddHabitView = false
                 }
-                .navigationBarItems(trailing:
-                    Button("Cancel") {
-                        self.showAddHabitView = false
-                    }
+                .navigationBarItems(leading: // Add this leading block
+                                    Button("Delete") {
+                    showAlert = true // set alert state to true
+                }.alert(isPresented: $showAlert) { // Alert
+                    Alert(
+                        title: Text("Delete Habit"),
+                        message: Text("Are you sure you want to delete this habit?"),
+                        primaryButton: .destructive(Text("Delete")) {
+                            if let habitToDelete = habitStore.editHabit {
+                                habitStore.deleteNotification(for: habitToDelete)
+                                habitStore.deleteHabit(habit: habitToDelete)
+                            } // call the delete function
+                            showAddHabitView = false // dismiss the view
+                        },
+                        secondaryButton: .cancel()
+                    )
+                },
+                                    trailing:
+                                        Button("Cancel") {
+                    self.showAddHabitView = false
+                }
                 )
                 .tint(.primary)
                 
@@ -139,24 +157,26 @@ struct AddHabitView: View {
             .padding()
         }
     }
-
     
-    func scheduleNotification() {
+    
+    func scheduleNotification(for habit: Habit) {
         let content = UNMutableNotificationContent()
         content.title = "Habit reminder"
-        content.body = "It's time to \(habitStore.habitTitle)"
+        content.body = "It's time to \(habit.habitTitle ?? "")"
         content.sound = .default
         
-        let components = Calendar.current.dateComponents([.hour, .minute], from: habitStore.reminderTime)
-        let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
-        
-        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        let components = Calendar.current.dateComponents([.hour, .minute], from: habit.reminderTime!)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
+
+        // Use the habit's id as the identifier of the notification request
+        let request = UNNotificationRequest(identifier: habit.id!.uuidString, content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request)
     }
+
 }
 
 
 
 
 
-    
+

@@ -1,14 +1,19 @@
 import SwiftUI
 
+
 struct ImagesListView: View {
     
+    
     @ObservedObject var imagesManager = ImagesManager.shared
-    var selectedDate: Date
     @State private var selectedImageIndex = 0
+    var selectedDate: Date
+    
+    
     private var imagesForDate: [(String, (UIImage, String, Date))] {
         return imagesManager.imageFiles.filter { $0.value.2.dateOnly() == selectedDate }
     }
 
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text("Logue")
@@ -32,7 +37,7 @@ struct ImagesListView: View {
                                 .resizable()
                                 .scaledToFit()
                                 .cornerRadius(15)
-                                .padding(.top, -130) // Negative top padding
+                                .padding(.top, -130) 
 
                             Text(imagesForDate[index].1.1)
                                 .font(.body)
@@ -50,6 +55,7 @@ struct ImagesListView: View {
         .padding(.horizontal, 30)
     }
 
+    
     func format(date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd MMMM, yyyy"

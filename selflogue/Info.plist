@@ -2,10 +2,13 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Allow users to choose pictures form device gallery to be uploaded</string>
-	<key>NSCameraUsageDescription</key>
-	<string>Allow users to take their own picture from device camera to be uploaded</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>AdventPro-Bold.ttf</string>
+		<string>AdventPro-SemiBold.ttf</string>
+		<string>Lato-Regular.ttf</string>
+		<string>Lato-Bold.ttf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -25,12 +28,5 @@
 			</array>
 		</dict>
 	</dict>
-	<key>UIAppFonts</key>
-	<array>
-		<string>AdventPro-Bold.ttf</string>
-		<string>AdventPro-SemiBold.ttf</string>
-		<string>Lato-Regular.ttf</string>
-		<string>Lato-Bold.ttf</string>
-	</array>
 </dict>
 </plist>
