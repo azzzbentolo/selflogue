@@ -9,9 +9,25 @@ import SwiftUI
 import AVFoundation
 import CoreData
 
+
+/// `FocusSwiftUIView` is a SwiftUI view that represents the focus timer screen.
+/// It follows the MVVM (Model-View-ViewModel) architecture and utilizes the `FocusTimeManager` as the ViewModel.
+///
+/// The view is responsible for rendering the UI components, handling user interactions, and integrating with the `FocusTimeManager` to manage focus time sessions.
+/// It displays the countdown timer, progress bar, control buttons, and allows the user to select the countdown time.
+///
+/// `FocusSwiftUIView` communicates with the `FocusTimeManager` to start/end focus sessions, track the progress, and retrieve focus time data.
+/// It uses the `@State` and `@Binding` property wrappers to manage the state and enable two-way data binding with its child views.
+///
+/// By adhering to the MVVM architecture, `FocusSwiftUIView` separates the concerns of the view and the ViewModel, promoting better testability and maintainability of the codebase.
+///
+/// As for the OOP part, `FocusSwiftUIView` abstracts the underlying implementation details of the focus timer, exposing a clean interface for interacting with the timer and integrating with the `FocusTimeManager` for managing focus time data.
+
+
 let timer = Timer
     .publish(every: 1, on: .main, in: .common)
     .autoconnect()
+
 
 struct Clock: View {
     var counter: Int
@@ -147,8 +163,6 @@ struct TimerControlView: View {
         }
     }
 }
-
-
 
 
 struct VolumeSliderView: View {

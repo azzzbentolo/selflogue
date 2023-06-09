@@ -16,6 +16,7 @@ struct ImagesListView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
+            
             Text("Logue")
                 .font(.custom("Lato-Bold", size: 34))
                 .fontWeight(.bold)
@@ -24,7 +25,7 @@ struct ImagesListView: View {
                 .padding(.bottom, 50)
             
             Text(format(date: selectedDate))
-                .font(.title)
+                .font(.custom("Lato-Bold", size: 25))
                 .fontWeight(.bold)
                 .padding(.leading, 10)
                 .padding(.bottom, -130) 
@@ -33,6 +34,7 @@ struct ImagesListView: View {
                 TabView(selection: $selectedImageIndex) {
                     ForEach(0..<imagesForDate.count, id: \.self) { index in
                         VStack {
+                            
                             Image(uiImage: imagesForDate[index].1.0)
                                 .resizable()
                                 .scaledToFit()
@@ -40,7 +42,7 @@ struct ImagesListView: View {
                                 .padding(.top, -130) 
 
                             Text(imagesForDate[index].1.1)
-                                .font(.body)
+                                .font(.custom("Lato-Regular", size: 19))
                                 .padding(.top, 10)
                                 .font(.system(size: 18))
                         }

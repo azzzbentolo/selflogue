@@ -1,29 +1,40 @@
-//
-//  Home.swift
-//  Selflogue
-//
-//  Created by Chew Jun Pin on 18/5/2023.
-//
-
-
 import SwiftUI
 
+
+/// `HabitView` is a SwiftUI View struct that represents the main view of habits.
+/// It displays a list of habit cards and provides the interface for adding new habits.
+///
+/// The `HabitView` follows the Model-View-ViewModel (MVVM) architecture, where it acts as both the View and the Controller.
+///
+/// As a View, it renders the habit cards using the `HabitCardView` subview for each habit in the `habitStore`.
+/// It also includes a button to add new habits, which triggers the presentation of the `AddHabitView`.
+///
+/// The `HabitView` utilizes the `habitStore`, an instance of the `HabitStore` class, as its ViewModel.
+/// The `habitStore` manages the habit data and provides methods for manipulating the habits.
+///
+/// Although the `HabitView` doesn't directly communicate with the `HabitStore` to delete habits, it indirectly interacts with it by setting the `editHabit` property of the `habitStore` to trigger the presentation of the `AddHabitView` for editing.
+///
+/// Overall, the `HabitView` plays a crucial role in displaying and managing the list of habits, and serves as the primary user interface for viewing and adding habits in the application.
+
+
 struct HabitView: View {
+    
     
     @Environment(\.managedObjectContext) private var context
     @State private var showAddHabitView = false
     @ObservedObject private var habitStore: HabitStore
     @State private var showAlert = false
     
+    
     init() {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         habitStore = HabitStore(context: context)
     }
     
+    
     var body: some View {
+        
         VStack {
-            
-            // MAKING ADD BUTTON CENTER WHEN HABITS EMPTY
             ScrollView(habitStore.habits.isEmpty ? .init() : .vertical, showsIndicators: false) {
                 VStack(spacing: 15){
                     ForEach(habitStore.habits){habit in
@@ -31,7 +42,6 @@ struct HabitView: View {
                     }
                 }
                 
-                // MARK: Add Habit Button
                 Button {
                     self.habitStore.resetHabitData()
                     self.showAddHabitView = true
@@ -50,18 +60,20 @@ struct HabitView: View {
                     AddHabitView(showAddHabitView: self.$showAddHabitView, habitStore: self.habitStore)
                         .preferredColorScheme(.light)
                 }
-            }
+             }
             .padding(.vertical)
-            
         }
         .navigationBarHidden(true)
         .frame(maxHeight: .infinity, alignment: .top)
     }
     
+    
     @ViewBuilder
-    func HabitCardView(habit: Habit)->some View{
+    func HabitCardView(habit: Habit)->some View {
+        
         VStack(spacing: 6){
             HStack{
+                
                 Text(habit.habitTitle ?? "")
                     .font(.callout)
                     .fontWeight(.semibold)
@@ -98,7 +110,7 @@ struct HabitView: View {
                     let item = activePlot[index]
                     
                     VStack(spacing: 6){
-                        // MARK: Limiting to First 3 letters
+
                         Text(item.0.prefix(3))
                             .font(.caption)
                             .foregroundColor(.gray)
@@ -131,7 +143,6 @@ struct HabitView: View {
                 .padding(.horizontal, 20)
         }
         .onTapGesture {
-            // MARK: Editing Habit
             habitStore.editHabit = habit
             habitStore.restoreEditData()
             self.showAddHabitView.toggle()
@@ -139,12 +150,12 @@ struct HabitView: View {
     }
     
     
-    // MARK: Formatting Date
-    func getDate(date: Date)->String{
+    func getDate(date: Date)->String {
+        
         let formatter = DateFormatter()
         formatter.dateFormat = "dd"
-        
         return formatter.string(from: date)
+        
     }
 }
 

@@ -1,6 +1,20 @@
 import Foundation
 import CoreData
 
+
+/// `FocusTimeManager` is responsible for managing the focus time sessions and persisting the focus time data using Core Data.
+/// It follows the MVVM (Model-View-ViewModel) architecture in SwiftUI.
+///
+/// It acts as the ViewModel, encapsulating the business logic related to focus time management.
+/// The class communicates with the Core Data stack and provides methods to start/end focus sessions, increment focus time, and retrieve focus time data.
+///
+/// `FocusTimeManager` interacts with the Core Data context to fetch and update the focus time data stored in the persistent store.
+///
+/// Overall, `FocusTimeManager` plays a crucial role in managing and tracking the focus time sessions and providing data to the FocusSwiftUIView.
+///
+/// `FocusTimeManager` encapsulates the functionality related to managing focus time data and hides the internal implementation details, which makes use of good OOP.
+
+
 class FocusTimeManager: ObservableObject {
 
     
@@ -42,6 +56,7 @@ class FocusTimeManager: ObservableObject {
             }
             
             try context.save()
+            
         } catch {
             print("Failed to increment focus time: \(error)")
         }
@@ -71,12 +86,14 @@ class FocusTimeManager: ObservableObject {
         calendar.timeZone = NSTimeZone.local
 
         let components = calendar.dateComponents([.year, .month], from: date)
-        guard let startOfMonth = calendar.date(from: components) else { return 0 }
+        guard let startOfMonth = calendar.date(from: components)
+        else { return 0 }
 
         var addComponents = DateComponents()
         addComponents.month = 1
         addComponents.day = -1
-        guard let endOfMonth = calendar.date(byAdding: addComponents, to: startOfMonth) else { return 0 }
+        guard let endOfMonth = calendar.date(byAdding: addComponents, to: startOfMonth)
+        else { return 0 }
 
         let request: NSFetchRequest<FocusTime> = FocusTime.fetchRequest()
         request.predicate = NSPredicate(format: "(date >= %@) AND (date < %@)", startOfMonth as NSDate, endOfMonth as NSDate)

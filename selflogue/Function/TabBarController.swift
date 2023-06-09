@@ -9,13 +9,17 @@ import UIKit
 
 class TabBarController: UITabBarController {
     
+    
     var isInitialTabSet = false
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
+    
     override func viewDidAppear(_ animated: Bool) {
+        
         super.viewDidAppear(animated)
         if !isInitialTabSet {
             selectedIndex = 2

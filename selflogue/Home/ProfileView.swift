@@ -2,16 +2,18 @@ import SwiftUI
 
 struct ProfileView: View {
     
+    
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var viewModel: ProfileViewModel
     @State private var showingImagePicker = false
     @State private var showingActionSheet = false
-    @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @State private var editMode = false
-    let maxNameLength = 20 // You can change this value to your preference
-    let maxUsernameLength = 10 // You can change this value to your preference
+    @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
+    let maxNameLength = 20
+    let maxUsernameLength = 10
     let maxBioLength = 50
 
+    
     var body: some View {
         
         VStack(spacing: 20) {
@@ -39,7 +41,7 @@ struct ProfileView: View {
                         Image(systemName: "person.circle")
                             .resizable()
                             .scaledToFit()
-                            .foregroundColor(.gray)
+                            .foregroundColor(Color(UIColor.systemGray3))
                             .frame(width: 150, height: 150)
                     }
                 }
@@ -81,6 +83,7 @@ struct ProfileView: View {
                 }
             
             VStack(alignment: .leading) {
+                
                 Text("Username")
                     .font(.system(size: 25))
                     .fontWeight(.bold)
@@ -95,12 +98,14 @@ struct ProfileView: View {
                             viewModel.username = String(newValue.prefix(maxUsernameLength))
                         }
                     }
+                
             }.padding(.bottom, 15)
                 .onReceive(viewModel.$username) { newValue in
                     UserDefaults.standard.set(newValue, forKey: "username")
                 }
             
             VStack(alignment: .leading) {
+                
                 Text("Bio")
                     .font(.system(size: 25))
                     .fontWeight(.bold)
@@ -121,6 +126,7 @@ struct ProfileView: View {
                 }
             
             VStack(alignment: .leading) {
+                
                 Text("Age")
                     .font(.system(size: 25))
                     .fontWeight(.bold)
@@ -141,9 +147,6 @@ struct ProfileView: View {
             .onReceive(viewModel.$age) { newValue in
                 UserDefaults.standard.set(newValue, forKey: "age")
             }
-
-
-
             
             Button(action: {
                 if let inputImage = self.viewModel.inputImage {

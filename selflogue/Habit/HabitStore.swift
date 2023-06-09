@@ -3,12 +3,30 @@ import SwiftUI
 import CoreData
 
 
+/// `HabitStore` is a class that represents the Model in the Model-View-ViewModel (MVVM) architecture.
+/// It encapsulates the habit data and provides methods for manipulating the data.
+///
+/// The `HabitStore` serves as the only source for the habit data in the application.
+/// It interacts with the underlying Core Data storage and performs CRUD (Create, Read, Update, Delete) operations on the habit objects.
+///
+/// This class demonstrates the principles of Object-Oriented Programming (OOP) by encapsulating the habit data and related functionality.
+/// It exposes properties to access and modify the habit data, and uses the `@Published` property wrapper to notify observers of changes.
+///
+/// The `HabitStore` is used by the `HabitView` to fetch and delete habits, and by the `AddHabitView` to add or update habits.
+/// It acts as the bridge between the View and the persistent storage, ensuring consistency and integrity of the habit data.
+
+
 class HabitStore: ObservableObject {
+    
     
     @Published var habits: [Habit] = []
     @Published var habitTitle: String = ""
     @Published var habitDescription: String = ""
     @Published var habitColor: String = "Color-1"
+    @Published var addNewHabit: Bool = false
+    @Published var weekDays: [String] = []
+    @Published var notificationAccess: Bool = false
+    @Published var editHabit: Habit?
     @Published var reminderIsOn: Bool = false {
         didSet {
             if let editHabit = editHabit {
@@ -20,7 +38,6 @@ class HabitStore: ObservableObject {
             }
         }
     }
-
     @Published var reminderTime: Date = Date() {
         didSet {
             if reminderIsOn, let habitId = editHabit?.id?.uuidString {
@@ -29,20 +46,15 @@ class HabitStore: ObservableObject {
         }
     }
 
-    @Published var addNewHabit: Bool = false
-    @Published var weekDays: [String] = []
     
-    @Published var notificationAccess: Bool = false
-    
-    // MARK: Editing Habit
-    @Published var editHabit: Habit?
-
     private var managedObjectContext: NSManagedObjectContext
+    
     
     init(context: NSManagedObjectContext) {
         self.managedObjectContext = context
         fetchHabits()
     }
+    
     
     private func fetchHabits() {
         DispatchQueue.main.async {
@@ -55,6 +67,7 @@ class HabitStore: ObservableObject {
             }
         }
     }
+    
     
     func addHabit(context: NSManagedObjectContext) async -> Bool {
         var habit: Habit!
@@ -94,8 +107,8 @@ class HabitStore: ObservableObject {
     }
 
     
-    // MARK: Restoring Edit Data
-    func restoreEditData(){
+    func restoreEditData() {
+        
         if let editHabit = editHabit {
             habitTitle = editHabit.habitTitle ?? ""
             habitDescription = editHabit.habitDescription ?? ""
@@ -104,10 +117,12 @@ class HabitStore: ObservableObject {
             reminderIsOn = editHabit.reminderIsOn
             reminderTime = editHabit.reminderTime ?? Date()
         }
+        
     }
     
     
     func resetHabitData() {
+        
         self.habitTitle = ""
         self.habitDescription = ""
         self.habitColor = "Color-1"
@@ -116,17 +131,20 @@ class HabitStore: ObservableObject {
         self.addNewHabit = false
         self.weekDays = []
         self.editHabit = nil
+        
     }
     
     
     func addHabit(context: NSManagedObjectContext) async -> Habit? {
+        
         var habit: Habit!
         if let editHabit = editHabit {
             habit = editHabit
         } else {
             habit = Habit(context: managedObjectContext)
-            habit.id = UUID()  // Assign a new UUID when creating a new habit
+            habit.id = UUID()
         }
+        
         habit.habitTitle = habitTitle
         habit.habitDescription = habitDescription
         habit.habitColor = habitColor
@@ -137,24 +155,23 @@ class HabitStore: ObservableObject {
         do {
             try managedObjectContext.save()
             fetchHabits()
-
-            // Update reminder after habit is saved
             updateReminder(habitId: habit.id!.uuidString)
-
             return habit
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
+        
         return nil
     }
-    
+
     
     func updateReminder(habitId: String) {
+        
         if reminderIsOn {
-            // Schedule notification
+            
             let content = UNMutableNotificationContent()
             content.title = "Habit reminder"
-            content.body = "It's time to \(habitTitle)"
+            content.body = "It's time to \(habitTitle)!"
             content.sound = .default
             
             let components = Calendar.current.dateComponents([.hour, .minute], from: reminderTime)
@@ -162,8 +179,8 @@ class HabitStore: ObservableObject {
             
             let request = UNNotificationRequest(identifier: habitId, content: content, trigger: trigger)
             UNUserNotificationCenter.current().add(request)
+            
         } else {
-            // Cancel notification
             UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [habitId])
         }
     }
@@ -171,18 +188,13 @@ class HabitStore: ObservableObject {
     
     
     func deleteNotification(for habit: Habit) {
-        // Safely unwrap habit's id
+
         guard let habitId = habit.id else {
             print("Error: Habit's id is nil")
             return
         }
 
-        // Use the habit's id to delete the corresponding notification
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [habitId.uuidString])
     }
-
-
-
-
 
 }

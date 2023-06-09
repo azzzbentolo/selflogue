@@ -17,57 +17,6 @@ struct FocusTimeData: Identifiable {
 }
 
 
-private func fetchFocusTimeDataForWeek() -> [FocusTimeData] {
-    
-    var focusTimeData = [FocusTimeData]()
-    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-        return focusTimeData
-    }
-    
-    let context = appDelegate.persistentContainer.viewContext
-    let focusTimeManager = FocusTimeManager(context: context)
-    
-    var calendar = Calendar.current
-    calendar.firstWeekday = 2 // Start from Monday
-    guard let startOfWeek = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: Date())) else {
-        return focusTimeData
-    }
-    
-    for index in 0..<7 {
-        let date = calendar.date(byAdding: .day, value: index, to: startOfWeek)!
-        let focusTime = focusTimeManager.getFocusTime(for: date)
-        focusTimeData.append(FocusTimeData(date: date, focusTime: Double(focusTime)))
-    }
-    
-    return focusTimeData
-}
-
-
-private func fetchFocusTimeDataForMonth() -> [FocusTimeData] {
-    
-    var focusTimeData = [FocusTimeData]()
-    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-        return focusTimeData
-    }
-    
-    let context = appDelegate.persistentContainer.viewContext
-    let focusTimeManager = FocusTimeManager(context: context)
-    
-    let calendar = Calendar.current
-    let year = calendar.component(.year, from: Date())
-    
-    for month in 1...12 {
-        let dateComponents = DateComponents(year: year, month: month)
-        guard let date = calendar.date(from: dateComponents) else { continue }
-        let focusTime = focusTimeManager.getFocusTimeForMonth(for: date)
-        focusTimeData.append(FocusTimeData(date: date, focusTime: Double(focusTime)))
-    }
-    
-    return focusTimeData
-}
-
-
-
 struct StatsView: View {
     
     //MARK: State Chart Data For Animation Changes
@@ -82,8 +31,10 @@ struct StatsView: View {
     
     
     var body: some View {
+        
         VStack{
             VStack(alignment: .leading, spacing: 12) {
+                
                 HStack {
                     Text("Time Focused")
                         .fontWeight(.semibold)
@@ -104,17 +55,18 @@ struct StatsView: View {
                         item.focusTime + partialResult
                     }
                     
-                    Text(String(totalValue))
+                    Text(String(Int32(totalValue)) + " s")
                         .font(.largeTitle.bold())
                     
                     AnimatedChart(time: "Week", focusTimeData: $focusTimeDataWeek, currentActiveItem: $currentActiveItemWeek)
                     
                 } else if currentTab == "Month" {
+                    
                     let totalValue = focusTimeDataMonth.reduce(0.0) { partialResult, item in
                         item.focusTime + partialResult
                     }
                     
-                    Text(String(totalValue))
+                    Text(String(Int32(totalValue)) + " s")
                         .font(.largeTitle.bold())
                     
                     AnimatedChart(time: "Month", focusTimeData: $focusTimeDataMonth, currentActiveItem: $currentActiveItemMonth)
@@ -144,9 +96,9 @@ struct StatsView: View {
         let timing: String = time
         
         Chart {
+            
             ForEach(focusTimeData.wrappedValue) { item in
                 
-                // MARK: Line and bar charts
                 if isLineChart {
                     LineMark(
                         x: .value("Date", item.date, unit: timing == "Week" ? .day : .month),
@@ -223,17 +175,20 @@ struct StatsView: View {
         })
         .frame(height: 300)
         .onAppear {
+            
             if timing == "Week" {
                 focusTimeData.wrappedValue = fetchFocusTimeDataForWeek()
             } else {
                 focusTimeData.wrappedValue = fetchFocusTimeDataForMonth()
             }
+            
             animateGraph(fromChange: true, focusTimeData: focusTimeData)
         }
     }
     
     // MARK: Animating Graph
     func animateGraph(fromChange: Bool = false, focusTimeData: Binding<[FocusTimeData]>) {
+        
         for (index, _) in focusTimeData.wrappedValue.enumerated() {
             DispatchQueue.main.asyncAfter(deadline: .now() + Double(index) * (fromChange ? 0.03 : 0.05)) {
                 withAnimation(fromChange ? .easeInOut(duration: 0.8) : .interactiveSpring(response: 0.8, dampingFraction: 0.8, blendDuration: 0.8)) {
@@ -241,8 +196,59 @@ struct StatsView: View {
                 }
             }
         }
+        
     }
     
+}
+
+
+private func fetchFocusTimeDataForWeek() -> [FocusTimeData] {
+    
+    var focusTimeData = [FocusTimeData]()
+    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+        return focusTimeData
+    }
+    
+    let context = appDelegate.persistentContainer.viewContext
+    let focusTimeManager = FocusTimeManager(context: context)
+    
+    var calendar = Calendar.current
+    calendar.firstWeekday = 2 // Start from Monday
+    guard let startOfWeek = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: Date())) else {
+        return focusTimeData
+    }
+    
+    for index in 0..<7 {
+        let date = calendar.date(byAdding: .day, value: index, to: startOfWeek)!
+        let focusTime = focusTimeManager.getFocusTime(for: date)
+        focusTimeData.append(FocusTimeData(date: date, focusTime: Double(focusTime)))
+    }
+    
+    return focusTimeData
+}
+
+
+private func fetchFocusTimeDataForMonth() -> [FocusTimeData] {
+    
+    var focusTimeData = [FocusTimeData]()
+    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+        return focusTimeData
+    }
+    
+    let context = appDelegate.persistentContainer.viewContext
+    let focusTimeManager = FocusTimeManager(context: context)
+    
+    let calendar = Calendar.current
+    let year = calendar.component(.year, from: Date())
+    
+    for month in 1...12 {
+        let dateComponents = DateComponents(year: year, month: month)
+        guard let date = calendar.date(from: dateComponents) else { continue }
+        let focusTime = focusTimeManager.getFocusTimeForMonth(for: date)
+        focusTimeData.append(FocusTimeData(date: date, focusTime: Double(focusTime)))
+    }
+    
+    return focusTimeData
 }
 
 

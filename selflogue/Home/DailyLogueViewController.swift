@@ -24,7 +24,7 @@ class DailyLogueViewController: UIViewController, UIImagePickerControllerDelegat
         
         let titleLabel = UILabel()
         titleLabel.text = "What's Up?"
-        titleLabel.font = UIFont.systemFont(ofSize: 28, weight: .bold)
+        titleLabel.font = UIFont(name: "Lato-Regular", size: 25)
         titleLabel.textAlignment = .center
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(titleLabel)
@@ -33,9 +33,9 @@ class DailyLogueViewController: UIViewController, UIImagePickerControllerDelegat
         subView.backgroundColor = UIColor.white
         subView.layer.cornerRadius = 10
         subView.layer.shadowColor = THEME_COL.withAlphaComponent(0.3).cgColor
-        subView.layer.shadowOpacity = 0.8 // Adjust this to change the shadow's opacity.
-        subView.layer.shadowOffset = CGSize(width: 0, height: 2) // Adjust this to change the shadow's offset.
-        subView.layer.shadowRadius = 4 // Adjust this to change the shadow's blur.
+        subView.layer.shadowOpacity = 0.8
+        subView.layer.shadowOffset = CGSize(width: 0, height: 2)
+        subView.layer.shadowRadius = 4
         subView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(subView)
         
@@ -52,6 +52,36 @@ class DailyLogueViewController: UIViewController, UIImagePickerControllerDelegat
             
         ])
         
+        
+        descriptionLabel.text = "Description"
+        descriptionLabel.font = UIFont(name: "Lato-Regular", size: 18)
+        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        subView.addSubview(descriptionLabel)
+        
+        NSLayoutConstraint.activate([
+            descriptionLabel.leadingAnchor.constraint(equalTo: subView.leadingAnchor, constant: 30),
+            descriptionLabel.topAnchor.constraint(equalTo: subView.topAnchor, constant: 30) // Attach to top of subView.
+        ])
+
+        // Setup descriptionTextView.
+        descriptionTextView.layer.borderColor = THEME_COL.withAlphaComponent(0.3).cgColor
+        descriptionTextView.layer.borderWidth = 1.5
+        descriptionTextView.layer.cornerRadius = 0.0
+        descriptionTextView.font = UIFont.systemFont(ofSize: 16)
+        descriptionTextView.translatesAutoresizingMaskIntoConstraints = false
+        subView.addSubview(descriptionTextView)
+
+        descriptionTextView.delegate = self
+
+        NSLayoutConstraint.activate([
+            descriptionTextView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 10),
+            descriptionTextView.centerXAnchor.constraint(equalTo: subView.centerXAnchor),
+            descriptionTextView.widthAnchor.constraint(equalTo: subView.widthAnchor, multiplier: 0.65),
+            descriptionTextView.heightAnchor.constraint(equalToConstant: 130)
+        ])
+        
+        
+        // Setup recordDayLabel.
         recordDayLabel.text = "Record your day!"
         recordDayLabel.font = UIFont(name: "Lato-Regular", size: 18)
         recordDayLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -59,13 +89,13 @@ class DailyLogueViewController: UIViewController, UIImagePickerControllerDelegat
         
         NSLayoutConstraint.activate([
             recordDayLabel.leadingAnchor.constraint(equalTo: subView.leadingAnchor, constant: 30),
-            recordDayLabel.topAnchor.constraint(equalTo: subView.topAnchor, constant: 30)
+            recordDayLabel.topAnchor.constraint(equalTo: descriptionTextView.bottomAnchor, constant: 30) // Attach to bottom of descriptionTextView.
         ])
         
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
         imageView.layer.borderWidth = 1.5
-        imageView.layer.borderColor = THEME_COL.withAlphaComponent(0.3).cgColor // Set the desired opacity value
+        imageView.layer.borderColor = THEME_COL.withAlphaComponent(0.3).cgColor
         imageView.translatesAutoresizingMaskIntoConstraints = false
         subView.addSubview(imageView)
 
@@ -90,35 +120,8 @@ class DailyLogueViewController: UIViewController, UIImagePickerControllerDelegat
             cameraButton.heightAnchor.constraint(equalTo: cameraButton.widthAnchor)
         ])
         
-        descriptionLabel.text = "Description"
-        descriptionLabel.font = UIFont(name: "Lato-Regular", size: 18)
-        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        subView.addSubview(descriptionLabel)
-        
-        NSLayoutConstraint.activate([
-            descriptionLabel.leadingAnchor.constraint(equalTo: subView.leadingAnchor, constant: 30), // Left-aligned
-            descriptionLabel.topAnchor.constraint(equalTo: cameraButton.bottomAnchor, constant: 30)
-        ])
-        
-        descriptionTextView.layer.borderColor = THEME_COL.withAlphaComponent(0.3).cgColor // Set the desired color and opacity
-        descriptionTextView.layer.borderWidth = 1.5
-        descriptionTextView.layer.cornerRadius = 0.0 // Set corner radius to 0 for sharp corners
-        descriptionTextView.font = UIFont.systemFont(ofSize: 16)
-        descriptionTextView.translatesAutoresizingMaskIntoConstraints = false
-        subView.addSubview(descriptionTextView)
-
-        // Set up the delegate for the descriptionTextView
-        descriptionTextView.delegate = self
-
-        NSLayoutConstraint.activate([
-            descriptionTextView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 10),
-            descriptionTextView.centerXAnchor.constraint(equalTo: subView.centerXAnchor),
-            descriptionTextView.widthAnchor.constraint(equalTo: imageView.widthAnchor),
-            descriptionTextView.heightAnchor.constraint(equalToConstant: 130)
-        ])
-        
         postButton.setTitle("POST", for: .normal)
-        postButton.backgroundColor = lightPurpleColor
+        postButton.backgroundColor = THEME_COL.withAlphaComponent(0.3)
         postButton.layer.cornerRadius = 5
         postButton.titleLabel?.font = UIFont.systemFont(ofSize: 13)
         postButton.setTitleColor(THEME_COL, for: .normal)
@@ -129,7 +132,7 @@ class DailyLogueViewController: UIViewController, UIImagePickerControllerDelegat
         
         NSLayoutConstraint.activate([
             postButton.centerXAnchor.constraint(equalTo: subView.centerXAnchor),
-            postButton.topAnchor.constraint(equalTo: descriptionTextView.bottomAnchor, constant: 30),
+            postButton.topAnchor.constraint(equalTo: cameraButton.bottomAnchor, constant: 30),
             postButton.widthAnchor.constraint(equalTo: subView.widthAnchor, multiplier: 0.2),
             postButton.heightAnchor.constraint(equalToConstant: 25)
         ])
@@ -166,10 +169,25 @@ class DailyLogueViewController: UIViewController, UIImagePickerControllerDelegat
     
     
     @objc func postButtonTapped() {
+            
+        // Check if the text view is empty.
+        if descriptionTextView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            let alert = UIAlertController(title: "Missing Description", message: "Please enter a description.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
         
+        // Check if the image view has no image.
+        if imageView.image == nil {
+            let alert = UIAlertController(title: "Missing Image", message: "Please upload an image.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+            
         saveImageTapped()
         self.navigationController?.popViewController(animated: true)
-        
     }
     
     
@@ -242,21 +260,25 @@ class DailyLogueViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        
+
         picker.dismiss(animated: true) {
             if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
                 let cropViewController = TOCropViewController(image: pickedImage)
                 cropViewController.delegate = self
                 cropViewController.customAspectRatio = CGSize(width: 1, height: 1)
+
                 cropViewController.aspectRatioLockEnabled = true
-                cropViewController.resetAspectRatioEnabled = false
+                cropViewController.resetAspectRatioEnabled = true
+
                 cropViewController.cropView.cropBoxResizeEnabled = true
+
                 self.present(cropViewController, animated: true, completion: nil)
             }
         }
     }
-    
+
     
     func cropViewController(_ cropViewController: TOCropViewController, didCropTo image: UIImage, with cropRect: CGRect, angle: Int) {
         imageView.image = image

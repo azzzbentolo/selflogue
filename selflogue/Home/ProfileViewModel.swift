@@ -1,6 +1,8 @@
 import SwiftUI
 
+
 class ProfileViewModel: ObservableObject {
+    
     
     @Published var inputImage: UIImage?
     @Published var name: String = UserDefaults.standard.string(forKey: "name") ?? ""
@@ -8,13 +10,16 @@ class ProfileViewModel: ObservableObject {
     @Published var bio: String = UserDefaults.standard.string(forKey: "bio") ?? ""
     @Published var age: Int = 8
     
+    
     let imageStorageFileName = "profilePicture.png"
 
+    
     init() {
         if let savedImage = loadImage() {
             self.inputImage = savedImage
         }
     }
+    
     
     private func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
@@ -29,6 +34,7 @@ class ProfileViewModel: ObservableObject {
         return profileDataPath
     }
     
+    
     func saveImage(_ image: UIImage) {
         if let pngData = image.pngData() {
             let filePath = getDocumentsDirectory().appendingPathComponent(imageStorageFileName)
@@ -39,6 +45,7 @@ class ProfileViewModel: ObservableObject {
             }
         }
     }
+    
     
     func loadImage() -> UIImage? {
         let filePath = getDocumentsDirectory().appendingPathComponent(imageStorageFileName)

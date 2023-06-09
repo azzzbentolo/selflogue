@@ -199,6 +199,7 @@
 				E311CBB229FD4F6300537EA8 /* QuoteData.swift */,
 				E31293D72A2DA493003D8199 /* ProfileView.swift */,
 				E31293D52A2D707D003D8199 /* SettingsView.swift */,
+				E31293D32A2D3045003D8199 /* ImageListView.swift */,
 				E31293DB2A2E14D6003D8199 /* ProfileViewModel.swift */,
 				E3F2493A29F9244500350ADE /* MainViewController.swift */,
 				E3E68C8C2A03797E00AF0638 /* DailyLogueViewController.swift */,
@@ -211,7 +212,6 @@
 			children = (
 				E31293D12A2C2F76003D8199 /* DateUtils.swift */,
 				E31293D92A2DB18E003D8199 /* ImagePicker.swift */,
-				E31293D32A2D3045003D8199 /* ImageListView.swift */,
 				E334580E2A1F4EBB0077BE63 /* ImagesManager.swift */,
 				E334580C2A1F499D0077BE63 /* ImageScrollView.swift */,
 				E3F2496329FA30C500350ADE /* FeedViewController.swift */,

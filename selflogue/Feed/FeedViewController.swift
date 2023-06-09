@@ -20,18 +20,18 @@ class FeedViewController: UIViewController {
     func addImagesScrollView() {
         
         let imagesScrollView = ImagesScrollView()
-        let hostVC = UIHostingController(rootView: imagesScrollView)
-        addChild(hostVC)
-        hostVC.view.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(hostVC.view)
+        let hostingController = UIHostingController(rootView: imagesScrollView)
+        addChild(hostingController)
+        hostingController.view.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(hostingController.view)
             
         NSLayoutConstraint.activate([
-            hostVC.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            hostVC.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            hostVC.view.topAnchor.constraint(equalTo: view.topAnchor),
-            hostVC.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            hostingController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            hostingController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            hostingController.view.topAnchor.constraint(equalTo: view.topAnchor),
+            hostingController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
-        hostVC.didMove(toParent: self)
+        hostingController.didMove(toParent: self)
     }
 }

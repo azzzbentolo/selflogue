@@ -10,6 +10,22 @@ import SwiftUI
 import FSCalendar
 
 
+/// MainViewController is a UIViewController subclass that serves as the main view controller of the application.
+/// It manages the main user interface, including the quote label, calendar view, and add logue button.
+///
+/// MainViewController follows the MVC (Model-View-Controller) architecture.
+/// It acts as the controller, responsible for handling user interactions and managing the data flow between the model and the view.
+///
+/// The view hierarchy of MainViewController consists of several UI elements, including a UILabel, FSCalendar, and UIButton.
+/// It sets up the calendar, quote, and button appearances, and handles calendar delegate methods.
+///
+/// It communicates with the Quote class to fetch a random quote from the quotable API and display it on the quote label.
+/// It also interacts with ImagesManager to retrieve images for a selected date and present the image list view.
+/// Additionally, it uses UserDefaults to load and display the username in the navigation title.
+///
+/// Overall, MainViewController serves as the entry point of the application and manages the main user interface and interactions.
+
+
 class MainViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
     
     
@@ -114,6 +130,7 @@ class MainViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
 
     
     func setUpCalendar() {
+        
         calendar.dataSource = self
         calendar.delegate = self
         calendar.locale = Locale(identifier: "en_US")
@@ -131,6 +148,7 @@ class MainViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
         appearance.headerMinimumDissolvedAlpha = 0
         
         appearance.titleSelectionColor = UIColor.black
+        
     }
     
     
@@ -163,7 +181,7 @@ class MainViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
     
     func setUpLineView() {
         
-        let lineView = UIView(frame: CGRect(x: 0, y: 175, width: 500, height: 1.5))
+        let lineView = UIView(frame: CGRect(x: 0, y: 158, width: 500, height: 1.5))
         lineView.layer.borderWidth = 1.0
         lineView.layer.borderColor = UIColor(red: 130, green: 130, blue: 130).cgColor
         self.view.addSubview(lineView)
