@@ -1,7 +1,3 @@
-import Combine
-import SwiftUI
-import CoreData
-
 
 /// `HabitStore` is a class that represents the Model in the Model-View-ViewModel (MVVM) architecture.
 /// It encapsulates the habit data and provides methods for manipulating the data.
@@ -17,6 +13,11 @@ import CoreData
 ///
 /// Code implementation inspired by "SwiftUI 3.0 - Habit Tracker App + Core Data - Complex UI - MVVM - CRUD - Xcode 13 - SwiftUI Tutorial" by Kavsoft (2021)
 /// Video URL: https://youtu.be/oSF7fSPGmNo
+
+
+import Combine
+import SwiftUI
+import CoreData
 
 
 class HabitStore: ObservableObject {

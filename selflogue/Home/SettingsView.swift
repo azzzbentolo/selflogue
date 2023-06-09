@@ -1,12 +1,11 @@
-import SwiftUI
-
-
 /// `SettingsView` is a SwiftUI view responsible for displaying the settings screen. It utilizes the `ProfileViewModel` class to manage the user's profile information and updates.
 ///
 /// The view utilizes the StateObject property wrapper to manage the lifecycle of the `profileViewModel` instance.
 ///
 /// The class follows the OOP as it encapsulates the logic for displaying the settings screen and navigating to the profile editing view. It utilizes the ProfileViewModel to handle the user's profile data.
-///
+
+
+import SwiftUI
 
 
 // This view presents the settings of the application, including a link to the ProfileView

@@ -1,10 +1,11 @@
-import SwiftUI
-
 
 ///  `ProfileView` is a SwiftUI `View` that represents the profile screen in the application.
 ///  It uses the `ProfileViewModel` to bind its data to the view.
 ///  It follows the Model-View-ViewModel (MVVM) architecture pattern, where `ProfileViewModel` is the ViewModel.
 ///  This design leverages OOP principles by encapsulating related data and behavior (like image loading and saving, and user profile details management) within the `ProfileViewModel` class.
+
+
+import SwiftUI
 
 
 struct ProfileView: View {

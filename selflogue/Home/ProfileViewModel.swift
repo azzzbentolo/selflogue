@@ -1,5 +1,3 @@
-import SwiftUI
-
 
 /// `ProfileViewModel` is a view model class responsible for managing the profile information of a user in the application.
 ///
@@ -11,6 +9,8 @@ import SwiftUI
 ///
 /// `ProfileViewModel` effectively handles the data and behavior related to the user's profile, allowing for easy integration with SwiftUI views and enabling seamless two-way data binding.
 
+
+import SwiftUI
 
 
 class ProfileViewModel: ObservableObject {

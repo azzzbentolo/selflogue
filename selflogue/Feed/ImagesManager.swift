@@ -1,6 +1,3 @@
-import Foundation
-import SwiftUI
-
 
 /// `ImagesManager` is a singleton class that manages images and their associated data within the application.
 /// This class serves as a central repository for images, following the Singleton design pattern in OOP to provide a global access point to this resource.
@@ -13,6 +10,10 @@ import SwiftUI
 /// The use of SwiftUI's `@Published` property wrapper for `imageFilesDict` and `imageFiles` allows `ImagesManager` to provide observable data that can be used to update the UI when changes occur, following the principles of the Observer design pattern in OOP.
 ///
 /// By providing methods to load and delete images, `ImagesManager` encapsulates the image management functionality and hides the complexity of file management operations from the rest of the application.
+
+
+import Foundation
+import SwiftUI
 
 
 // ImagesManager class which is an ObservableObject, allowing its published properties to be observed by SwiftUI views

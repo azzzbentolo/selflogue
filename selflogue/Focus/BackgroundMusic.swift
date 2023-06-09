@@ -1,13 +1,3 @@
-//
-//  BackgroundMusic.swift
-//  selflogue
-//
-//  Created by Chew Jun Pin on 30/4/2023.
-//
-
-import AVFoundation
-import SwiftUI
-
 
 /// `BackgroundMusicView` is a SwiftUI view that displays buttons for background music playback during the focus timer session.
 /// It allows the user to select different background music options to play while focusing.
@@ -20,11 +10,14 @@ import SwiftUI
 ///
 /// `BackgroundMusicView` communicates with the AVPlayer instance through a binding (`audioPlayer`).
 /// It handles the setup and play/pause functionality for the selected background music.
-/// 
+///
 /// For the OOP part, `BackgroundMusicView` utilizes polymorphism by dynamically rendering circular buttons based on the provided symbols, allowing for extensibility and flexibility in adding more background music options.
 ///
 /// The audio playback logic and UI rendering are encapsulated within `BackgroundMusicView`, providing a clean interface for interacting with background music options.
 
+
+import AVFoundation
+import SwiftUI
 
 
 struct BackgroundMusicView: View {

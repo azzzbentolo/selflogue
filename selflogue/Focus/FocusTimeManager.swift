@@ -1,6 +1,3 @@
-import Foundation
-import CoreData
-
 
 /// `FocusTimeManager` is responsible for managing the focus time sessions and persisting the focus time data using Core Data.
 /// It follows the MVVM (Model-View-ViewModel) architecture in SwiftUI.
@@ -13,6 +10,10 @@ import CoreData
 /// Overall, `FocusTimeManager` plays a crucial role in managing and tracking the focus time sessions and providing data to the FocusSwiftUIView.
 ///
 /// `FocusTimeManager` encapsulates the functionality related to managing focus time data and hides the internal implementation details, which makes use of good OOP.
+///
+///
+import Foundation
+import CoreData
 
 
 class FocusTimeManager: ObservableObject {

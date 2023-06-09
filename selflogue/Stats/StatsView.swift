@@ -1,6 +1,3 @@
-import SwiftUI
-import Charts
-
 
 /// `StatsView` is the View component in the MVVM architecture. It's responsibility is to present the data to the user in a meaningful and interactive manner. It primarily focuses on UI and user interactions, devoid of any business logic.
 ///
@@ -15,6 +12,10 @@ import Charts
 ///
 /// Code implementation inspired by "SwiftUI 4.0 - New Swift Charts API - Customisation, Animations & Gestures - Xcode 14 - WWDC 2022" by Kavsoft (2022)
 /// Video URL: https://youtu.be/xS-fGYDD0qk
+
+
+import SwiftUI
+import Charts
 
 
 // `FocusTimeData` is a data structure that encapsulates focus time information.

@@ -1,7 +1,3 @@
-import UIKit
-import SwiftUI
-import FSCalendar
-
 
 /// `MainViewController` is a UIViewController subclass that serves as the main view controller of the application.
 /// It manages the main user interface, including the quote label, calendar view, and add logue button.
@@ -19,6 +15,11 @@ import FSCalendar
 ///
 /// This view controller serves as the entry point of the application and manages the main user interface and interactions.
 ///
+
+
+import UIKit
+import SwiftUI
+import FSCalendar
 
 
 class MainViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {

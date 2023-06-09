@@ -1,7 +1,3 @@
-import UIKit
-import SwiftUI
-import CoreData
-
 
 /// `HabitViewController` is a UIKit View Controller that hosts a SwiftUI `HabitView`.
 /// It serves as the entry point of the application and manages the lifecycle of the View Controller.
@@ -13,6 +9,11 @@ import CoreData
 /// It manages the presentation of the SwiftUI view hierarchy and handles any necessary UIKit-specific interactions.
 ///
 /// The `HabitViewController` establishes a connection between the UIKit-based app and the SwiftUI-based `HabitView`, allowing for a seamless integration of the SwiftUI View into the UIKit app's navigation and lifecycle.
+
+
+import UIKit
+import SwiftUI
+import CoreData
 
 
 // This class represents the view controller of the Habit.

@@ -1,9 +1,22 @@
+
+/// `AboutView` is a SwiftUI `View` which presents a list of third-party libraries used in the application.
+/// It follows the Model-View-ViewModel (MVVM) architecture, where it acts as the View component in the architecture.
+/// It is responsible for presenting data to the user and capturing user interactions.
+/// This View does not interact directly with the Model. Instead, it communicates with the ViewModel which then handles any necessary Model interactions.
+/// `AboutView` employs principles of Object-Oriented Programming (OOP), including encapsulation by defining properties and methods within the struct,
+/// and abstraction by simplifying complex implementations into easy-to-understand interfaces.
+
+
 import SwiftUI
+
 
 struct AboutView: View {
     var body: some View {
+        
+        // A List view is used to present a number of rows in a single column, representing the acknowledgements in this case.
         List {
             
+            // Each VStack contains Text and Link views representing details about a library, grouped together vertically.
             VStack(alignment: .leading) {
                 Text("ToCropViewController")
                     .padding(.bottom, 10)

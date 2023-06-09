@@ -1,7 +1,3 @@
-import Foundation
-import TOCropViewController
-import UIKit
-
 
 /// `DailyLogueViewController` is a UIKit view controller responsible for creating and posting a daily log. It integrates various UI elements and manages their interactions.
 ///
@@ -14,7 +10,11 @@ import UIKit
 /// This class also abstracts away the complexity of handling user interactions and managing image picking and cropping functionality. It provides a simplified interface for users to create and post a daily log.
 ///
 /// DailyLogueViewController effectively integrates UIKit components and functionality to provide a seamless and user-friendly experience for creating and posting daily logs.
-///
+
+
+import Foundation
+import TOCropViewController
+import UIKit
 
 
 // The ViewController where users can create and post a daily log

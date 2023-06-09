@@ -1,5 +1,3 @@
-import SwiftUI
-
 
 /// `ImagesListView` is a SwiftUI view responsible for displaying a list of images associated with a selected date. It integrates with the ImagesManager class to fetch and filter the images for the selected date.
 ///
@@ -8,6 +6,9 @@ import SwiftUI
 ///
 /// The class encapsulates the logic for filtering and displaying images for a specific date. It utilizes private methods to handle the image filtering and formatting of the selected date. Hence, we can say that it follows OOP principle.
 ///
+
+
+import SwiftUI
 
 
 // This view is responsible for displaying images associated with a specific date.

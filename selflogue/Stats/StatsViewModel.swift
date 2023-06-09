@@ -1,7 +1,3 @@
-import Foundation
-import SwiftUI
-import Charts
-
 
 /// `StatsViewModel` is the ViewModel in the MVVM (Model-View-ViewModel) architecture, in accordance with SwiftUI's design patterns.
 ///
@@ -14,6 +10,11 @@ import Charts
 /// As an implementation of MVVM, `StatsViewModel` provides a clear separation of concerns. It ensures that the `StatsView` remains clean and free of business logic, instead focusing on presenting the data to the user.
 ///
 /// In addition, `StatsViewModel` represents good OOP (Object-Oriented Programming) design. It encapsulates data and methods related to managing focus time statistics, and hides the internal implementation details. This leads to increased modularity and a clear, intuitive structure, with each class and method having a single, well-defined responsibility.
+
+
+import Foundation
+import SwiftUI
+import Charts
 
 
 // StatsViewModel is the model responsible for handling the logic related to the data displayed on the StatsView.

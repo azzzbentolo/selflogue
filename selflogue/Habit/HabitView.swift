@@ -1,5 +1,3 @@
-import SwiftUI
-
 
 /// `HabitView` is a SwiftUI View struct that represents the main view of habits.
 /// It displays a list of habit cards and provides the interface for adding new habits.
@@ -18,7 +16,9 @@ import SwiftUI
 ///
 /// Code implementation inspired by "SwiftUI 3.0 - Habit Tracker App + Core Data - Complex UI - MVVM - CRUD - Xcode 13 - SwiftUI Tutorial" by Kavsoft (2021)
 /// Video URL: https://youtu.be/oSF7fSPGmNo
-///
+
+
+import SwiftUI
 
 
 // This struct represents the SwiftUI view of Habit.

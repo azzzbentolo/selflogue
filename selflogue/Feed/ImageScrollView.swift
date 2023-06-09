@@ -1,5 +1,3 @@
-import SwiftUI
-
 
 /// `ImagesScrollView` is a SwiftUI View that presents a scrollable list of images along with their associated data (time of capture and description).
 /// This struct acts as the View in the MVVM architecture, displaying images and their data from the ImagesManager, and also capturing user inputs (deleting an image).
@@ -11,6 +9,9 @@ import SwiftUI
 /// The use of SwiftUI's `ForEach` to iterate over and display images adheres to the MVVM architecture by decoupling the data (images and their details) from the way they are presented in the UI.
 ///
 /// Also, `ImagesScrollView` encapsulates the user interaction of deleting an image within an alert dialog, further demonstrating the encapsulation principle of OOP.
+
+
+import SwiftUI
 
 
 // ImagesScrollView is a View struct that displays images

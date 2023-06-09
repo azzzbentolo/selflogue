@@ -1,6 +1,3 @@
-import UIKit
-import SwiftUI
-
 
 /// `StatsViewController` is a UIKit view controller that integrates the `StatsView`into a UIKit-based application.
 ///
@@ -9,6 +6,10 @@ import SwiftUI
 /// The view controller interacts with the underlying data model (`FocusTimeManager`) to fetch focus time data for the week and month periods.
 ///
 /// `StatsViewController` inherits from `UIViewController`, a UIKit base class, to utilize its functionality and lifecycle management, showing good use of OOP
+
+
+import UIKit
+import SwiftUI
 
 
 // StatsViewController is the UIViewController that contains and manages the StatsView.

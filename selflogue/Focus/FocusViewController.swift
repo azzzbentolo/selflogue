@@ -1,6 +1,3 @@
-import UIKit
-import SwiftUI
-
 
 /// `FocusViewController` is a UIViewController subclass that hosts the SwiftUI-based `FocusSwiftUIView`.
 /// It acts as the controller in the MVC (Model-View-Controller) architecture.
@@ -14,6 +11,10 @@ import SwiftUI
 /// By following the MVC architecture, `FocusViewController` separates the responsibilities of managing the view hierarchy and interacting with the model, resulting in a more modular and maintainable codebase.
 ///
 ///`FocusViewController` inherits from `UIViewController`, providing the basic infrastructure for managing the view hierarchy and handling lifecycle events, showing good use of OOP.
+
+
+import UIKit
+import SwiftUI
 
 
 // Called after the controller's view is loaded into memory.

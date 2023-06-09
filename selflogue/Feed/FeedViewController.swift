@@ -1,6 +1,3 @@
-import UIKit
-import SwiftUI
-
 
 /// `FeedViewController` is a UIKit view controller that embeds the SwiftUI `ImagesScrollView` view.
 /// As a UIViewController, it fits into the MVC architecture as the Controller, bridging between the Model (`ImagesManager` and the images it manages) and the View (`ImagesScrollView`).
@@ -10,7 +7,10 @@ import SwiftUI
 /// `FeedViewController`'s primary responsibility is adding `ImagesScrollView` to its view hierarchy and setting up constraints for it.
 /// This follows the principles of OOP by encapsulating the functionality related to integrating a SwiftUI view within a UIKit context.
 ///
-/// The way `FeedViewController` adds `ImagesScrollView` into its view hierarchy and manages its layout encapsulates the details of integrating SwiftUI with UIKit, thus providing an object-oriented solution to this cross-framework scenario.
+
+
+import UIKit
+import SwiftUI
 
 
 // FeedViewController is a UIViewController that displays an ImagesScrollView

@@ -1,5 +1,3 @@
-import UIKit
-
 
 /// `QuoteData` is a model class that represents the structure of a quote received from the quotable API.
 ///
@@ -10,6 +8,9 @@ import UIKit
 /// `QuoteData` adheres to the OOP principles by encapsulating the quote data and providing a clear representation of the data structure.
 ///
 /// `QuoteData` is used by the `Quote` class to decode the JSON response received from the API and extract the relevant quote information.
+
+
+import UIKit
 
 
 // This class represents the quote data fetched from the API.

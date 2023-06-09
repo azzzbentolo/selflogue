@@ -1,6 +1,3 @@
-import SwiftUI
-import CoreData
-
 
 /// `AddHabitView` is a SwiftUI View struct that allow users to add new habits or edit existing ones.
 ///
@@ -23,6 +20,10 @@ import CoreData
 /// This allows it to control the presentation of the `AddHabitView` and communicate changes back to the parent view.
 ///
 /// Overall, the `AddHabitView` demonstrates the principles of the MVVM architecture by separating the concerns of data management (ViewModel) and user interface (View).
+
+
+import SwiftUI
+import CoreData
 
 
 struct AddHabitView: View {

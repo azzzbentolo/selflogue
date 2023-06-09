@@ -1,7 +1,3 @@
-import SwiftUI
-import AVFoundation
-import CoreData
-
 
 /// `FocusSwiftUIView` is a SwiftUI view that represents the focus timer screen.
 /// It follows the MVVM (Model-View-ViewModel) architecture and utilizes the `FocusTimeManager` as the ViewModel.
@@ -15,6 +11,11 @@ import CoreData
 /// By adhering to the MVVM architecture, `FocusSwiftUIView` separates the concerns of the view and the ViewModel, promoting better testability and maintainability of the codebase.
 ///
 /// As for the OOP part, `FocusSwiftUIView` abstracts the underlying implementation details of the focus timer, exposing a clean interface for interacting with the timer and integrating with the `FocusTimeManager` for managing focus time data.
+
+
+import SwiftUI
+import AVFoundation
+import CoreData
 
 
 // Timer that emits a value every second.

@@ -1,5 +1,3 @@
-import SwiftUI
-
 
 /// `ImagePicker` is a struct that conforms to UIViewControllerRepresentable, making it a bridge between SwiftUI and UIKit.
 ///
@@ -12,6 +10,9 @@ import SwiftUI
 /// Also, it handles the user's image selection and cancel actions, and reflecting those changes in a @Binding variable selectedImage.
 ///
 /// `ImagePicker` plays an essential role in integrating UIKit's functionality within a SwiftUI context. It hides the internal details of bridging SwiftUI and UIKit, thereby adhering to the encapsulation aspect of Object-Oriented Programming (OOP).
+
+
+import SwiftUI
 
 
 // ImagePicker is a struct conforming to UIViewControllerRepresentable
