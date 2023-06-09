@@ -20,14 +20,17 @@
 		E31293E02A2ED749003D8199 /* FocusTimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31293DF2A2ED749003D8199 /* FocusTimeManager.swift */; };
 		E334580D2A1F499D0077BE63 /* ImageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E334580C2A1F499D0077BE63 /* ImageScrollView.swift */; };
 		E334580F2A1F4EBB0077BE63 /* ImagesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E334580E2A1F4EBB0077BE63 /* ImagesManager.swift */; };
+		E386BCC42A332C3300828369 /* AdventPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E386BCC32A332C3300828369 /* AdventPro-Bold.ttf */; };
+		E386BCC62A332C5600828369 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E386BCC52A332C5600828369 /* Lato-Bold.ttf */; };
+		E386BCC82A332C6C00828369 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E386BCC72A332C6C00828369 /* Lato-Regular.ttf */; };
 		E39277182A15C285003D5605 /* HabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39277172A15C285003D5605 /* HabitView.swift */; };
 		E392771A2A15C297003D5605 /* AddHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39277192A15C297003D5605 /* AddHabitView.swift */; };
 		E392771D2A15C2AE003D5605 /* HabitStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E392771C2A15C2AE003D5605 /* HabitStore.swift */; };
 		E39277202A15C2CF003D5605 /* HabitTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E392771E2A15C2CF003D5605 /* HabitTracker.xcdatamodeld */; };
-		E3B6F99A29FD899F0000E7F8 /* keyboard.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E3B6F99629FD899F0000E7F8 /* keyboard.mp3 */; };
-		E3B6F99B29FD899F0000E7F8 /* lofi.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E3B6F99729FD899F0000E7F8 /* lofi.mp3 */; };
-		E3B6F99C29FD899F0000E7F8 /* rain.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E3B6F99829FD899F0000E7F8 /* rain.mp3 */; };
-		E3B6F99D29FD899F0000E7F8 /* river.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E3B6F99929FD899F0000E7F8 /* river.mp3 */; };
+		E3B6C7D02A332E76006D2BE6 /* lofi.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E3B6C7CC2A332E76006D2BE6 /* lofi.mp3 */; };
+		E3B6C7D12A332E76006D2BE6 /* keyboard.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E3B6C7CD2A332E76006D2BE6 /* keyboard.mp3 */; };
+		E3B6C7D22A332E76006D2BE6 /* river.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E3B6C7CE2A332E76006D2BE6 /* river.mp3 */; };
+		E3B6C7D32A332E76006D2BE6 /* rain.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E3B6C7CF2A332E76006D2BE6 /* rain.mp3 */; };
 		E3B6F9A129FDDE030000E7F8 /* BackgroundMusic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B6F9A029FDDE030000E7F8 /* BackgroundMusic.swift */; };
 		E3E68C8D2A03797E00AF0638 /* DailyLogueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E68C8C2A03797E00AF0638 /* DailyLogueViewController.swift */; };
 		E3F2491E29F8EE8000350ADE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F2491D29F8EE8000350ADE /* AppDelegate.swift */; };
@@ -38,15 +41,10 @@
 		E3F2493B29F9244500350ADE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F2493A29F9244500350ADE /* MainViewController.swift */; };
 		E3F2493D29F9253100350ADE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F2493C29F9253100350ADE /* TabBarController.swift */; };
 		E3F2493F29F9CBD700350ADE /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F2493E29F9CBD700350ADE /* UIColorExtension.swift */; };
-		E3F2494529FA0F7400350ADE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3F2494429FA0F7400350ADE /* GoogleService-Info.plist */; };
-		E3F2495229FA10C100350ADE /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3F2494829FA10C000350ADE /* Lato-Regular.ttf */; };
-		E3F2495629FA10C100350ADE /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3F2494C29FA10C000350ADE /* Lato-Bold.ttf */; };
 		E3F2496229FA308400350ADE /* HabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F2496129FA308400350ADE /* HabitViewController.swift */; };
 		E3F2496429FA30C500350ADE /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F2496329FA30C500350ADE /* FeedViewController.swift */; };
 		E3F2496829FA30DE00350ADE /* FocusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F2496729FA30DE00350ADE /* FocusViewController.swift */; };
 		E3F2496A29FA311A00350ADE /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F2496929FA311A00350ADE /* StatsViewController.swift */; };
-		E3F2496E29FA323200350ADE /* AdventPro-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3F2496D29FA323200350ADE /* AdventPro-SemiBold.ttf */; };
-		E3F2497029FA329C00350ADE /* AdventPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3F2496F29FA329C00350ADE /* AdventPro-Bold.ttf */; };
 		E3F929D12A32C70100D3D35C /* StatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F929D02A32C70100D3D35C /* StatsViewModel.swift */; };
 		E3F929D32A32F2A100D3D35C /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F929D22A32F2A100D3D35C /* AboutView.swift */; };
 /* End PBXBuildFile section */
@@ -66,14 +64,17 @@
 		E31293DF2A2ED749003D8199 /* FocusTimeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusTimeManager.swift; sourceTree = "<group>"; };
 		E334580C2A1F499D0077BE63 /* ImageScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScrollView.swift; sourceTree = "<group>"; };
 		E334580E2A1F4EBB0077BE63 /* ImagesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesManager.swift; sourceTree = "<group>"; };
+		E386BCC32A332C3300828369 /* AdventPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AdventPro-Bold.ttf"; sourceTree = "<group>"; };
+		E386BCC52A332C5600828369 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
+		E386BCC72A332C6C00828369 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		E39277172A15C285003D5605 /* HabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitView.swift; sourceTree = "<group>"; };
 		E39277192A15C297003D5605 /* AddHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitView.swift; sourceTree = "<group>"; };
 		E392771C2A15C2AE003D5605 /* HabitStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitStore.swift; sourceTree = "<group>"; };
 		E392771F2A15C2CF003D5605 /* HabitTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HabitTracker.xcdatamodel; sourceTree = "<group>"; };
-		E3B6F99629FD899F0000E7F8 /* keyboard.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = keyboard.mp3; path = ../../../../../Downloads/keyboard.mp3; sourceTree = "<group>"; };
-		E3B6F99729FD899F0000E7F8 /* lofi.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = lofi.mp3; path = ../../../../../Downloads/lofi.mp3; sourceTree = "<group>"; };
-		E3B6F99829FD899F0000E7F8 /* rain.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = rain.mp3; path = ../../../../../Downloads/rain.mp3; sourceTree = "<group>"; };
-		E3B6F99929FD899F0000E7F8 /* river.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = river.mp3; path = ../../../../../Downloads/river.mp3; sourceTree = "<group>"; };
+		E3B6C7CC2A332E76006D2BE6 /* lofi.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = lofi.mp3; sourceTree = "<group>"; };
+		E3B6C7CD2A332E76006D2BE6 /* keyboard.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = keyboard.mp3; sourceTree = "<group>"; };
+		E3B6C7CE2A332E76006D2BE6 /* river.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = river.mp3; sourceTree = "<group>"; };
+		E3B6C7CF2A332E76006D2BE6 /* rain.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rain.mp3; sourceTree = "<group>"; };
 		E3B6F9A029FDDE030000E7F8 /* BackgroundMusic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundMusic.swift; sourceTree = "<group>"; };
 		E3E68C8C2A03797E00AF0638 /* DailyLogueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyLogueViewController.swift; sourceTree = "<group>"; };
 		E3F2491A29F8EE8000350ADE /* selflogue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = selflogue.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,15 +87,10 @@
 		E3F2493A29F9244500350ADE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E3F2493C29F9253100350ADE /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		E3F2493E29F9CBD700350ADE /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
-		E3F2494429FA0F7400350ADE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
-		E3F2494829FA10C000350ADE /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Regular.ttf"; path = "../../../../../Downloads/Lato/Lato-Regular.ttf"; sourceTree = "<group>"; };
-		E3F2494C29FA10C000350ADE /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Bold.ttf"; path = "../../../../../Downloads/Lato/Lato-Bold.ttf"; sourceTree = "<group>"; };
 		E3F2496129FA308400350ADE /* HabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitViewController.swift; sourceTree = "<group>"; };
 		E3F2496329FA30C500350ADE /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		E3F2496729FA30DE00350ADE /* FocusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusViewController.swift; sourceTree = "<group>"; };
 		E3F2496929FA311A00350ADE /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
-		E3F2496D29FA323200350ADE /* AdventPro-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "AdventPro-SemiBold.ttf"; path = "../../../../../Downloads/Advent_Pro,Lato/Advent_Pro/static/AdventPro-SemiBold.ttf"; sourceTree = "<group>"; };
-		E3F2496F29FA329C00350ADE /* AdventPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "AdventPro-Bold.ttf"; path = "../../../../../Downloads/Advent_Pro,Lato/Advent_Pro/static/AdventPro-Bold.ttf"; sourceTree = "<group>"; };
 		E3F929D02A32C70100D3D35C /* StatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewModel.swift; sourceTree = "<group>"; };
 		E3F929D22A32F2A100D3D35C /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		F3CCCED005EEC271BE22490E /* Pods_selflogue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_selflogue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,13 +170,23 @@
 			path = Function;
 			sourceTree = "<group>";
 		};
-		E3B6F99529FD898E0000E7F8 /* Sound */ = {
+		E386BCC22A332C1800828369 /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				E3B6F99629FD899F0000E7F8 /* keyboard.mp3 */,
-				E3B6F99729FD899F0000E7F8 /* lofi.mp3 */,
-				E3B6F99829FD899F0000E7F8 /* rain.mp3 */,
-				E3B6F99929FD899F0000E7F8 /* river.mp3 */,
+				E386BCC72A332C6C00828369 /* Lato-Regular.ttf */,
+				E386BCC52A332C5600828369 /* Lato-Bold.ttf */,
+				E386BCC32A332C3300828369 /* AdventPro-Bold.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		E3B6C7CB2A332E57006D2BE6 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				E3B6C7CD2A332E76006D2BE6 /* keyboard.mp3 */,
+				E3B6C7CC2A332E76006D2BE6 /* lofi.mp3 */,
+				E3B6C7CF2A332E76006D2BE6 /* rain.mp3 */,
+				E3B6C7CE2A332E76006D2BE6 /* river.mp3 */,
 			);
 			path = Sound;
 			sourceTree = "<group>";
@@ -239,25 +245,13 @@
 				E3EE33B02A2F1D6B0002D697 /* Home */,
 				E30603152A31B98600ED05F9 /* Stats */,
 				E30603142A31B97900ED05F9 /* Focus */,
+				E386BCC22A332C1800828369 /* Font */,
+				E3B6C7CB2A332E57006D2BE6 /* Sound */,
 				E3F2492629F8EE8100350ADE /* Assets.xcassets */,
 				E392771E2A15C2CF003D5605 /* HabitTracker.xcdatamodeld */,
 				E3F2492B29F8EE8100350ADE /* Info.plist */,
-				E3F2494429FA0F7400350ADE /* GoogleService-Info.plist */,
-				E3B6F99529FD898E0000E7F8 /* Sound */,
-				E3F2494629FA10A100350ADE /* Font */,
 			);
 			path = selflogue;
-			sourceTree = "<group>";
-		};
-		E3F2494629FA10A100350ADE /* Font */ = {
-			isa = PBXGroup;
-			children = (
-				E3F2496F29FA329C00350ADE /* AdventPro-Bold.ttf */,
-				E3F2496D29FA323200350ADE /* AdventPro-SemiBold.ttf */,
-				E3F2494C29FA10C000350ADE /* Lato-Bold.ttf */,
-				E3F2494829FA10C000350ADE /* Lato-Regular.ttf */,
-			);
-			path = Font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,18 +318,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3B6F99C29FD899F0000E7F8 /* rain.mp3 in Resources */,
-				E3F2495629FA10C100350ADE /* Lato-Bold.ttf in Resources */,
 				E3F2492A29F8EE8100350ADE /* LaunchScreen.storyboard in Resources */,
-				E3B6F99D29FD899F0000E7F8 /* river.mp3 in Resources */,
-				E3F2495229FA10C100350ADE /* Lato-Regular.ttf in Resources */,
-				E3F2494529FA0F7400350ADE /* GoogleService-Info.plist in Resources */,
+				E386BCC82A332C6C00828369 /* Lato-Regular.ttf in Resources */,
+				E386BCC62A332C5600828369 /* Lato-Bold.ttf in Resources */,
+				E3B6C7D22A332E76006D2BE6 /* river.mp3 in Resources */,
+				E3B6C7D12A332E76006D2BE6 /* keyboard.mp3 in Resources */,
 				E3F2492729F8EE8100350ADE /* Assets.xcassets in Resources */,
+				E3B6C7D32A332E76006D2BE6 /* rain.mp3 in Resources */,
 				E3F2492529F8EE8000350ADE /* Main.storyboard in Resources */,
-				E3B6F99B29FD899F0000E7F8 /* lofi.mp3 in Resources */,
-				E3F2496E29FA323200350ADE /* AdventPro-SemiBold.ttf in Resources */,
-				E3F2497029FA329C00350ADE /* AdventPro-Bold.ttf in Resources */,
-				E3B6F99A29FD899F0000E7F8 /* keyboard.mp3 in Resources */,
+				E3B6C7D02A332E76006D2BE6 /* lofi.mp3 in Resources */,
+				E386BCC42A332C3300828369 /* AdventPro-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
