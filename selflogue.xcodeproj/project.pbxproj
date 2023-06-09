@@ -10,8 +10,6 @@
 		CF48C7D19B8EBD90D1C25EE6 /* Pods_selflogue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3CCCED005EEC271BE22490E /* Pods_selflogue.framework */; };
 		E306030F2A31366500ED05F9 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E306030E2A31366500ED05F9 /* StatsView.swift */; };
 		E311CBA729FA5A3E00537EA8 /* FocusSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E311CBA629FA5A3E00537EA8 /* FocusSwiftUIView.swift */; };
-		E311CBAC29FD3CF700537EA8 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E311CBAB29FD3CF700537EA8 /* Alamofire */; };
-		E311CBAF29FD3D8300537EA8 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = E311CBAE29FD3D8300537EA8 /* SwiftyJSON */; };
 		E311CBB329FD4F6300537EA8 /* QuoteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E311CBB229FD4F6300537EA8 /* QuoteData.swift */; };
 		E311CBB529FD565400537EA8 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = E311CBB429FD565400537EA8 /* Quote.swift */; };
 		E31293D42A2D3045003D8199 /* ImageListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31293D32A2D3045003D8199 /* ImageListView.swift */; };
@@ -37,9 +35,6 @@
 		E3F2492529F8EE8000350ADE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3F2492329F8EE8000350ADE /* Main.storyboard */; };
 		E3F2492729F8EE8100350ADE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3F2492629F8EE8100350ADE /* Assets.xcassets */; };
 		E3F2492A29F8EE8100350ADE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3F2492829F8EE8100350ADE /* LaunchScreen.storyboard */; };
-		E3F2493329F8F19C00350ADE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = E3F2493229F8F19C00350ADE /* FirebaseAuth */; };
-		E3F2493529F8F19C00350ADE /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = E3F2493429F8F19C00350ADE /* FirebaseFirestore */; };
-		E3F2493729F8F19C00350ADE /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E3F2493629F8F19C00350ADE /* FirebaseFirestoreSwift */; };
 		E3F2493B29F9244500350ADE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F2493A29F9244500350ADE /* MainViewController.swift */; };
 		E3F2493D29F9253100350ADE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F2493C29F9253100350ADE /* TabBarController.swift */; };
 		E3F2493F29F9CBD700350ADE /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F2493E29F9CBD700350ADE /* UIColorExtension.swift */; };
@@ -110,11 +105,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E311CBAF29FD3D8300537EA8 /* SwiftyJSON in Frameworks */,
-				E311CBAC29FD3CF700537EA8 /* Alamofire in Frameworks */,
-				E3F2493329F8F19C00350ADE /* FirebaseAuth in Frameworks */,
-				E3F2493529F8F19C00350ADE /* FirebaseFirestore in Frameworks */,
-				E3F2493729F8F19C00350ADE /* FirebaseFirestoreSwift in Frameworks */,
 				CF48C7D19B8EBD90D1C25EE6 /* Pods_selflogue.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,11 +279,6 @@
 			);
 			name = selflogue;
 			packageProductDependencies = (
-				E3F2493229F8F19C00350ADE /* FirebaseAuth */,
-				E3F2493429F8F19C00350ADE /* FirebaseFirestore */,
-				E3F2493629F8F19C00350ADE /* FirebaseFirestoreSwift */,
-				E311CBAB29FD3CF700537EA8 /* Alamofire */,
-				E311CBAE29FD3D8300537EA8 /* SwiftyJSON */,
 			);
 			productName = selflogue;
 			productReference = E3F2491A29F8EE8000350ADE /* selflogue.app */;
@@ -324,9 +309,6 @@
 			);
 			mainGroup = E3F2491129F8EE8000350ADE;
 			packageReferences = (
-				E3F2493129F8F19C00350ADE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				E311CBAA29FD3CF700537EA8 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				E311CBAD29FD3D8200537EA8 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 			);
 			productRefGroup = E3F2491B29F8EE8000350ADE /* Products */;
 			projectDirPath = "";
@@ -666,61 +648,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		E311CBAA29FD3CF700537EA8 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
-		E311CBAD29FD3D8200537EA8 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
-		E3F2493129F8F19C00350ADE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 9.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		E311CBAB29FD3CF700537EA8 /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E311CBAA29FD3CF700537EA8 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
-		E311CBAE29FD3D8300537EA8 /* SwiftyJSON */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E311CBAD29FD3D8200537EA8 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
-			productName = SwiftyJSON;
-		};
-		E3F2493229F8F19C00350ADE /* FirebaseAuth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E3F2493129F8F19C00350ADE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAuth;
-		};
-		E3F2493429F8F19C00350ADE /* FirebaseFirestore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E3F2493129F8F19C00350ADE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestore;
-		};
-		E3F2493629F8F19C00350ADE /* FirebaseFirestoreSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E3F2493129F8F19C00350ADE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestoreSwift;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		E392771E2A15C2CF003D5605 /* HabitTracker.xcdatamodeld */ = {

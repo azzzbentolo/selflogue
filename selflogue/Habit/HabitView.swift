@@ -15,6 +15,10 @@ import SwiftUI
 /// Although the `HabitView` doesn't directly communicate with the `HabitStore` to delete habits, it indirectly interacts with it by setting the `editHabit` property of the `habitStore` to trigger the presentation of the `AddHabitView` for editing.
 ///
 /// Overall, the `HabitView` plays a crucial role in displaying and managing the list of habits, and serves as the primary user interface for viewing and adding habits in the application.
+///
+/// Code implementation inspired by "SwiftUI 3.0 - Habit Tracker App + Core Data - Complex UI - MVVM - CRUD - Xcode 13 - SwiftUI Tutorial" by Kavsoft (2021)
+/// Video URL: https://youtu.be/oSF7fSPGmNo
+///
 
 
 // This struct represents the SwiftUI view of Habit.

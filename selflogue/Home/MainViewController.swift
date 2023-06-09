@@ -109,16 +109,16 @@ class MainViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
         updateProfileImageViewTintColor()
         
         let profileButton = UIButton(type: .custom)
-        profileButton.frame = CGRect(x: 100, y: 100, width: imageSize, height: imageSize)
+        profileButton.frame = CGRect(x: 80, y: 80, width: imageSize, height: imageSize)
         profileButton.addSubview(profileImageView)
         profileButton.addTarget(self, action: #selector(profileButtonTapped), for: .touchUpInside)
         
-        let containerFrame = CGRect(x: 0, y: 0, width: imageSize, height: imageSize + 5)
+        let containerFrame = CGRect(x: 0, y: 0, width: imageSize, height: imageSize)
         let containerView = UIView(frame: containerFrame)
         containerView.backgroundColor = .clear
         containerView.addSubview(profileButton)
         
-        profileButton.center = CGPoint(x: containerView.center.x, y: containerView.center.y + 15)
+        profileButton.center = CGPoint(x: containerView.center.x, y: containerView.center.y )
         
         let barButtonItem = UIBarButtonItem(customView: containerView)
         navigationItem.rightBarButtonItem = barButtonItem
@@ -160,16 +160,7 @@ class MainViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
         appearance.borderRadius = .zero
         appearance.headerMinimumDissolvedAlpha = 0
         appearance.titleSelectionColor = UIColor.black
-        
-        // Customize appearance for dark mode
-        if traitCollection.userInterfaceStyle == .dark {
-            appearance.titleDefaultColor = .white
-            appearance.titleWeekendColor = .white
-            appearance.titlePlaceholderColor = .white
-            appearance.weekdayTextColor = .white
-            appearance.eventDefaultColor = .white
-            appearance.selectionColor = THEME_COL
-        }
+ 
         
     }
     
@@ -230,7 +221,6 @@ class MainViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
     
     // Handles the tapping of the profile button, presenting the settings view.
     @objc func profileButtonTapped() {
-        print("Button tapped")
         let settingsView = SettingsView()
         
         let vc = UIHostingController(rootView: settingsView)

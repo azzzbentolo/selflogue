@@ -40,7 +40,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFJ-gb-5KN">
-                                <rect key="frame" x="20" y="615" width="353" height="60"/>
+                                <rect key="frame" x="20" y="575" width="353" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="FFW-ap-ePa"/>
                                 </constraints>
@@ -49,10 +49,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mn8-gl-ym5">
-                                <rect key="frame" x="174" y="714.66666666666663" width="45" height="45"/>
+                                <rect key="frame" x="174" y="665" width="45" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="kQd-ah-MpG"/>
-                                    <constraint firstAttribute="height" constant="45" id="vYR-LT-PXe"/>
+                                    <constraint firstAttribute="height" constant="45" id="pQ0-1d-WkN"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system"/>
@@ -66,13 +66,15 @@
                         <constraints>
                             <constraint firstItem="1yx-uB-Nqi" firstAttribute="trailing" secondItem="g7a-3e-3Df" secondAttribute="trailing" constant="20" id="1kH-AL-hx3"/>
                             <constraint firstItem="g7a-3e-3Df" firstAttribute="leading" secondItem="1yx-uB-Nqi" secondAttribute="leading" constant="20" id="ANq-CC-MxP"/>
-                            <constraint firstItem="Mn8-gl-ym5" firstAttribute="centerX" secondItem="fFJ-gb-5KN" secondAttribute="centerX" id="M0v-GA-gaC"/>
-                            <constraint firstItem="fFJ-gb-5KN" firstAttribute="top" secondItem="g7a-3e-3Df" secondAttribute="bottom" constant="80" id="QO6-ba-BeR"/>
+                            <constraint firstItem="Mn8-gl-ym5" firstAttribute="top" secondItem="fFJ-gb-5KN" secondAttribute="bottom" constant="30" id="L19-jl-Gma"/>
+                            <constraint firstItem="fFJ-gb-5KN" firstAttribute="top" secondItem="g7a-3e-3Df" secondAttribute="bottom" constant="40" id="T3P-d9-ufC"/>
                             <constraint firstItem="g7a-3e-3Df" firstAttribute="top" secondItem="1yx-uB-Nqi" secondAttribute="top" constant="30" id="UiN-Cc-2zq"/>
+                            <constraint firstItem="Mn8-gl-ym5" firstAttribute="leading" secondItem="1yx-uB-Nqi" secondAttribute="leading" constant="174" id="ag7-N3-oFY"/>
                             <constraint firstItem="Mn8-gl-ym5" firstAttribute="centerX" secondItem="jjy-Qp-EIo" secondAttribute="centerX" id="cqe-ho-5A0"/>
                             <constraint firstItem="1yx-uB-Nqi" firstAttribute="trailing" secondItem="fFJ-gb-5KN" secondAttribute="trailing" constant="20" id="dYj-C2-2ZB"/>
+                            <constraint firstItem="1yx-uB-Nqi" firstAttribute="trailing" secondItem="Mn8-gl-ym5" secondAttribute="trailing" constant="174" id="dqf-J3-zVW"/>
                             <constraint firstItem="fFJ-gb-5KN" firstAttribute="leading" secondItem="1yx-uB-Nqi" secondAttribute="leading" constant="20" id="oOe-a6-cUE"/>
-                            <constraint firstItem="Mn8-gl-ym5" firstAttribute="top" secondItem="fFJ-gb-5KN" secondAttribute="bottom" constant="39.666666666666515" id="ub3-Aa-MmB"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="Mn8-gl-ym5" secondAttribute="bottom" constant="59" id="tWp-nP-XdZ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Welcome!" id="1cb-Wu-mMd"/>

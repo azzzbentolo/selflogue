@@ -69,7 +69,6 @@ class ImagesManager: ObservableObject {
         }
     }
 
-    
     // Function to delete an image file with a given name
     func deleteImage(named imageName: String) {
         
@@ -89,7 +88,6 @@ class ImagesManager: ObservableObject {
     }
     
     
-    // Function to convert a date string back to a Date object
     func formatBack(dateString: String) -> Date {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm"

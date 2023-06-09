@@ -14,6 +14,9 @@ import CoreData
 ///
 /// The `HabitStore` is used by the `HabitView` to fetch and delete habits, and by the `AddHabitView` to add or update habits.
 /// It acts as the bridge between the View and the persistent storage, ensuring consistency and integrity of the habit data.
+///
+/// Code implementation inspired by "SwiftUI 3.0 - Habit Tracker App + Core Data - Complex UI - MVVM - CRUD - Xcode 13 - SwiftUI Tutorial" by Kavsoft (2021)
+/// Video URL: https://youtu.be/oSF7fSPGmNo
 
 
 class HabitStore: ObservableObject {
@@ -77,33 +80,6 @@ class HabitStore: ObservableObject {
         }
     }
     
-    
-    // Adds or updates a habit in Core Data.
-    func addHabit(context: NSManagedObjectContext) async -> Bool {
-        var habit: Habit!
-        if let editHabit = editHabit {
-            habit = editHabit
-        } else {
-            habit = Habit(context: managedObjectContext)
-            habit.id = UUID()  // Assign a new UUID when creating a new habit
-        }
-        habit.habitTitle = habitTitle
-        habit.habitDescription = habitDescription
-        habit.habitColor = habitColor
-        habit.reminderIsOn = reminderIsOn
-        habit.reminderTime = reminderTime
-        habit.weekDays = weekDays
-
-        do {
-            try managedObjectContext.save()
-            fetchHabits()
-            return true
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
-        }
-        return false
-    }
-
     
     // Deletes a habit from Core Data.
     func deleteHabit(habit: Habit) {

@@ -174,10 +174,11 @@ class DailyLogueViewController: UIViewController, UIImagePickerControllerDelegat
         
         NSLayoutConstraint.activate([
             postButton.centerXAnchor.constraint(equalTo: subView.centerXAnchor),
-            postButton.topAnchor.constraint(equalTo: cameraButton.bottomAnchor, constant: 30),
+            postButton.bottomAnchor.constraint(equalTo: subView.bottomAnchor, constant: -30),
             postButton.widthAnchor.constraint(equalTo: subView.widthAnchor, multiplier: 0.2),
             postButton.heightAnchor.constraint(equalToConstant: 25)
         ])
+
         
         let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(handlePinch))
         imageView.isUserInteractionEnabled = true

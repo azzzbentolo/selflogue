@@ -12,6 +12,9 @@ import Charts
 /// Overall, `StatsView` plays a critical role in representing the data provided by the `StatsViewModel` to the user in a visually pleasing and intuitive manner.
 ///
 /// `StatsView` adheres to principles of good OOP design, maintaining single responsibility and a clean separation of concerns.
+///
+/// Code implementation inspired by "SwiftUI 4.0 - New Swift Charts API - Customisation, Animations & Gestures - Xcode 14 - WWDC 2022" by Kavsoft (2022)
+/// Video URL: https://youtu.be/xS-fGYDD0qk
 
 
 // `FocusTimeData` is a data structure that encapsulates focus time information.
@@ -108,13 +111,13 @@ struct StatsView: View {
             }
             Toggle("Line Chart", isOn: $isLineChart)
                 .padding(.top)
+                .padding(.horizontal, 20)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .padding()
     }
     
     
-    // A helper function that creates an animated chart based on the given time (week or month) and focus time data.
     // A helper function that creates an animated chart based on the given time (week or month) and focus time data.
     @ViewBuilder
     func AnimatedChart(time: String, focusTimeData: Binding<[FocusTimeData]>, currentActiveItem: Binding<FocusTimeData?>) -> some View {
