@@ -1,14 +1,21 @@
-//
-//  SwiftUIView.swift
-//  selflogue
-//
-//  Created by Chew Jun Pin on 8/6/2023.
-//
-
 import SwiftUI
 import Charts
 
 
+/// `StatsView` is the View component in the MVVM architecture. It's responsibility is to present the data to the user in a meaningful and interactive manner. It primarily focuses on UI and user interactions, devoid of any business logic.
+///
+/// `StatsView` interacts with `StatsViewModel` to get the data it needs to display. This includes data for weekly and monthly focus times. It observes the data changes from `StatsViewModel` and updates the UI accordingly.
+///
+/// The UI contains charts (either line or bar, toggled by user interaction) to represent the user's focus time over a specific period
+/// (a week or a month), along with the total focus time for the selected period.
+///
+/// Overall, `StatsView` plays a critical role in representing the data provided by the `StatsViewModel` to the user in a visually pleasing and intuitive manner.
+///
+/// `StatsView` adheres to principles of good OOP design, maintaining single responsibility and a clean separation of concerns.
+
+
+// `FocusTimeData` is a data structure that encapsulates focus time information.
+// It conforms to the `Identifiable` protocol to be easily used in SwiftUI Lists and ForEach constructs.
 struct FocusTimeData: Identifiable {
     let id = UUID()
     var date: Date
@@ -17,19 +24,37 @@ struct FocusTimeData: Identifiable {
 }
 
 
+// StatsView is a view that displays statistical data to the user.
 struct StatsView: View {
     
     //MARK: State Chart Data For Animation Changes
+    
+    // State variables to hold and respond to changes in focus time data for the week and month.
     @State var focusTimeDataWeek = [FocusTimeData]()
     @State var focusTimeDataMonth = [FocusTimeData]()
+    
+    // State variables to hold the currently active items for the week and month view.
     @State var currentActiveItemWeek: FocusTimeData?
     @State var currentActiveItemMonth: FocusTimeData?
+    
+    // State variable to hold the current tab view ("Week" or "Month").
     @State var currentTab: String = "Week"
+    
+    // State variable to hold the currently active item.
     @State var currentActiveItem: FocusTimeData? = nil
+    
+    // State variable to hold the width of the plot.
     @State var plotWidth: CGFloat = 0
+    
+    // State variable to determine if the chart is line chart or not.
     @State var isLineChart: Bool = false
     
+    // ViewModel that provides data and handles logic.
+    @ObservedObject var viewModel = StatsViewModel()
+    @Environment(\.colorScheme) var colorScheme
     
+    
+    // The body of the StatsView.
     var body: some View {
         
         VStack{
@@ -38,6 +63,7 @@ struct StatsView: View {
                 HStack {
                     Text("Time Focused")
                         .fontWeight(.semibold)
+                        .foregroundColor(colorScheme == .dark ? .white : .black)
                     
                     Spacer()
                     
@@ -57,6 +83,8 @@ struct StatsView: View {
                     
                     Text(String(Int32(totalValue)) + " s")
                         .font(.largeTitle.bold())
+                        .foregroundColor(colorScheme == .dark ? .white : .black)
+                    
                     
                     AnimatedChart(time: "Week", focusTimeData: $focusTimeDataWeek, currentActiveItem: $currentActiveItemWeek)
                     
@@ -75,18 +103,19 @@ struct StatsView: View {
             .padding()
             .background {
                 RoundedRectangle(cornerRadius: 10, style: .continuous)
-                    .fill(.white.shadow(.drop(radius: 2)))
+                // This will change the background color based on the color scheme
+                    .fill(colorScheme == .dark ? Color.black : Color.white)
             }
             Toggle("Line Chart", isOn: $isLineChart)
-                                .padding(.top)
+                .padding(.top)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .padding()
     }
-
     
     
-    // MARK: Create animated chart
+    // A helper function that creates an animated chart based on the given time (week or month) and focus time data.
+    // A helper function that creates an animated chart based on the given time (week or month) and focus time data.
     @ViewBuilder
     func AnimatedChart(time: String, focusTimeData: Binding<[FocusTimeData]>, currentActiveItem: Binding<FocusTimeData?>) -> some View {
         
@@ -122,133 +151,22 @@ struct StatsView: View {
                     .foregroundStyle(Color("Color3").opacity(0.1).gradient)
                     .interpolationMethod(.catmullRom)
                 }
-                
-                if let currentActiveItem = currentActiveItem.wrappedValue, currentActiveItem.id == item.id {
-                    RuleMark(x: .value("Date", currentActiveItem.date))
-                    
-                        .lineStyle(.init(lineWidth: 2, miterLimit: 2, dash: [2], dashPhase: 5))
-                        .annotation(position: .top) {
-                            VStack(alignment: .leading, spacing: 6) {
-                                Text("Focus Time")
-                                    .font(.caption)
-                                    .foregroundColor(.gray)
-                                
-                                Text(String(currentActiveItem.focusTime))
-                                    .font(.title3.bold())
-                            }
-                            .padding(.horizontal, 10)
-                            .padding(.vertical, 4)
-                            .background {
-                                RoundedRectangle(cornerRadius: 6, style: .continuous)
-                                    .fill(.white.shadow(.drop(radius: 2)))
-                            }
-                        }
-                }
             }
         }
         .chartYScale(domain: 0...(max + 80))
-        .chartOverlay(content: {proxy in
-            GeometryReader { innerProxy in
-                Rectangle()
-                    .fill(Color.clear)
-                    .contentShape(Rectangle())
-                    .gesture(
-                        DragGesture()
-                            .onChanged { value in
-                                let location = value.location
-                                if let date: Date = proxy.value(atX: location.x) {
-                                    let calendar = Calendar.current
-                                    let day = calendar.component(.day, from: date)
-                                    if let currentItem = focusTimeData.wrappedValue.first(where: { item in
-                                        calendar.component(.day, from: item.date) == day
-                                    }) {
-                                        currentActiveItem.wrappedValue = currentItem
-                                    }
-                                }
-                            }
-                            .onEnded { value in
-                                currentActiveItem.wrappedValue = nil
-                            }
-                    )
-            }
-            
-        })
         .frame(height: 300)
         .onAppear {
             
             if timing == "Week" {
-                focusTimeData.wrappedValue = fetchFocusTimeDataForWeek()
+                focusTimeData.wrappedValue = viewModel.fetchDataForWeek()
             } else {
-                focusTimeData.wrappedValue = fetchFocusTimeDataForMonth()
+                focusTimeData.wrappedValue = viewModel.fetchDataForMonth()
             }
             
-            animateGraph(fromChange: true, focusTimeData: focusTimeData)
+            viewModel.animateGraph(fromChange: true, focusTimeData: focusTimeData)
         }
     }
-    
-    // MARK: Animating Graph
-    func animateGraph(fromChange: Bool = false, focusTimeData: Binding<[FocusTimeData]>) {
-        
-        for (index, _) in focusTimeData.wrappedValue.enumerated() {
-            DispatchQueue.main.asyncAfter(deadline: .now() + Double(index) * (fromChange ? 0.03 : 0.05)) {
-                withAnimation(fromChange ? .easeInOut(duration: 0.8) : .interactiveSpring(response: 0.8, dampingFraction: 0.8, blendDuration: 0.8)) {
-                    focusTimeData.wrappedValue[index].animate = true
-                }
-            }
-        }
-        
-    }
-    
-}
 
-
-private func fetchFocusTimeDataForWeek() -> [FocusTimeData] {
-    
-    var focusTimeData = [FocusTimeData]()
-    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-        return focusTimeData
-    }
-    
-    let context = appDelegate.persistentContainer.viewContext
-    let focusTimeManager = FocusTimeManager(context: context)
-    
-    var calendar = Calendar.current
-    calendar.firstWeekday = 2 // Start from Monday
-    guard let startOfWeek = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: Date())) else {
-        return focusTimeData
-    }
-    
-    for index in 0..<7 {
-        let date = calendar.date(byAdding: .day, value: index, to: startOfWeek)!
-        let focusTime = focusTimeManager.getFocusTime(for: date)
-        focusTimeData.append(FocusTimeData(date: date, focusTime: Double(focusTime)))
-    }
-    
-    return focusTimeData
-}
-
-
-private func fetchFocusTimeDataForMonth() -> [FocusTimeData] {
-    
-    var focusTimeData = [FocusTimeData]()
-    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-        return focusTimeData
-    }
-    
-    let context = appDelegate.persistentContainer.viewContext
-    let focusTimeManager = FocusTimeManager(context: context)
-    
-    let calendar = Calendar.current
-    let year = calendar.component(.year, from: Date())
-    
-    for month in 1...12 {
-        let dateComponents = DateComponents(year: year, month: month)
-        guard let date = calendar.date(from: dateComponents) else { continue }
-        let focusTime = focusTimeManager.getFocusTimeForMonth(for: date)
-        focusTimeData.append(FocusTimeData(date: date, focusTime: Double(focusTime)))
-    }
-    
-    return focusTimeData
 }
 
 

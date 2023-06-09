@@ -17,21 +17,32 @@ import SwiftUI
 /// Overall, the `HabitView` plays a crucial role in displaying and managing the list of habits, and serves as the primary user interface for viewing and adding habits in the application.
 
 
+// This struct represents the SwiftUI view of Habit.
 struct HabitView: View {
     
-    
+    // The managed object context provided by the environment.
     @Environment(\.managedObjectContext) private var context
+    
+    // Whether to show the add habit view or not.
     @State private var showAddHabitView = false
+    
+    // The observed object to manage the habit store.
     @ObservedObject private var habitStore: HabitStore
+    
+    // Whether to show an alert or not.
     @State private var showAlert = false
     
-    
+    // Initializes the HabitView.
     init() {
+        // Fetching the managed object context from the AppDelegate.
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        // Initializing the habit store with the context.
         habitStore = HabitStore(context: context)
     }
     
     
+    // The body of the view.
     var body: some View {
         
         VStack {
@@ -52,7 +63,7 @@ struct HabitView: View {
                         Image(systemName: "plus.circle")
                     }
                     .font(.callout.bold())
-                    .foregroundColor(.black)
+                    .tint(.primary)
                 }
                 .padding(.top,15)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
@@ -69,16 +80,19 @@ struct HabitView: View {
     
     
     @ViewBuilder
+    // HabitCardView represents a single habit card.
     func HabitCardView(habit: Habit)->some View {
         
         VStack(spacing: 6){
             HStack{
                 
+                // Displaying the habit title.
                 Text(habit.habitTitle ?? "")
                     .font(.callout)
                     .fontWeight(.semibold)
                     .lineLimit(1)
                 
+                // Displaying a bell icon if the reminder is on.
                 Image(systemName: "bell.badge.fill")
                     .font(.callout)
                     .foregroundColor(Color(habit.habitColor ?? "Color-1"))
@@ -87,6 +101,7 @@ struct HabitView: View {
                 
                 Spacer()
                 
+                // Displaying the frequency of the habit.
                 let count = (habit.weekDays?.count ?? 0)
                 Text(count == 7 ? "Everyday" : "\(count) times a week")
                     .font(.caption)
@@ -94,7 +109,7 @@ struct HabitView: View {
             }
             .padding(.horizontal,10)
             
-            // MARK: Displaying Current Week and Marking Active Dates of Habit
+            // Displaying the current week and marking active dates of the habit.
             let calendar = Calendar.current
             let currentWeek = calendar.dateInterval(of: .weekOfMonth, for: Date())
             let symbols = calendar.weekdaySymbols
@@ -111,10 +126,12 @@ struct HabitView: View {
                     
                     VStack(spacing: 6){
 
+                        // Displaying the weekday abbreviation.
                         Text(item.0.prefix(3))
                             .font(.caption)
                             .foregroundColor(.gray)
                         
+                        // Displaying the date and marking it as active if it matches the habit's active weekdays.
                         let status = activeWeekDays.contains { day in
                             return day == item.0
                         }
@@ -143,6 +160,7 @@ struct HabitView: View {
                 .padding(.horizontal, 20)
         }
         .onTapGesture {
+            // Set the selected habit to the habit store's editHabit property and show the add habit view.
             habitStore.editHabit = habit
             habitStore.restoreEditData()
             self.showAddHabitView.toggle()
@@ -150,6 +168,7 @@ struct HabitView: View {
     }
     
     
+    // Formats a date into a string representation.
     func getDate(date: Date)->String {
         
         let formatter = DateFormatter()

@@ -14,7 +14,6 @@
 		E311CBAF29FD3D8300537EA8 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = E311CBAE29FD3D8300537EA8 /* SwiftyJSON */; };
 		E311CBB329FD4F6300537EA8 /* QuoteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E311CBB229FD4F6300537EA8 /* QuoteData.swift */; };
 		E311CBB529FD565400537EA8 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = E311CBB429FD565400537EA8 /* Quote.swift */; };
-		E31293D22A2C2F76003D8199 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31293D12A2C2F76003D8199 /* DateUtils.swift */; };
 		E31293D42A2D3045003D8199 /* ImageListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31293D32A2D3045003D8199 /* ImageListView.swift */; };
 		E31293D62A2D707D003D8199 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31293D52A2D707D003D8199 /* SettingsView.swift */; };
 		E31293D82A2DA493003D8199 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31293D72A2DA493003D8199 /* ProfileView.swift */; };
@@ -53,6 +52,8 @@
 		E3F2496A29FA311A00350ADE /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F2496929FA311A00350ADE /* StatsViewController.swift */; };
 		E3F2496E29FA323200350ADE /* AdventPro-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3F2496D29FA323200350ADE /* AdventPro-SemiBold.ttf */; };
 		E3F2497029FA329C00350ADE /* AdventPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3F2496F29FA329C00350ADE /* AdventPro-Bold.ttf */; };
+		E3F929D12A32C70100D3D35C /* StatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F929D02A32C70100D3D35C /* StatsViewModel.swift */; };
+		E3F929D32A32F2A100D3D35C /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F929D22A32F2A100D3D35C /* AboutView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,7 +63,6 @@
 		E311CBA629FA5A3E00537EA8 /* FocusSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSwiftUIView.swift; sourceTree = "<group>"; };
 		E311CBB229FD4F6300537EA8 /* QuoteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteData.swift; sourceTree = "<group>"; };
 		E311CBB429FD565400537EA8 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
-		E31293D12A2C2F76003D8199 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		E31293D32A2D3045003D8199 /* ImageListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListView.swift; sourceTree = "<group>"; };
 		E31293D52A2D707D003D8199 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		E31293D72A2DA493003D8199 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -100,6 +100,8 @@
 		E3F2496929FA311A00350ADE /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		E3F2496D29FA323200350ADE /* AdventPro-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "AdventPro-SemiBold.ttf"; path = "../../../../../Downloads/Advent_Pro,Lato/Advent_Pro/static/AdventPro-SemiBold.ttf"; sourceTree = "<group>"; };
 		E3F2496F29FA329C00350ADE /* AdventPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "AdventPro-Bold.ttf"; path = "../../../../../Downloads/Advent_Pro,Lato/Advent_Pro/static/AdventPro-Bold.ttf"; sourceTree = "<group>"; };
+		E3F929D02A32C70100D3D35C /* StatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewModel.swift; sourceTree = "<group>"; };
+		E3F929D22A32F2A100D3D35C /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		F3CCCED005EEC271BE22490E /* Pods_selflogue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_selflogue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -164,6 +166,7 @@
 			children = (
 				E3F2496929FA311A00350ADE /* StatsViewController.swift */,
 				E306030E2A31366500ED05F9 /* StatsView.swift */,
+				E3F929D02A32C70100D3D35C /* StatsViewModel.swift */,
 			);
 			path = Stats;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 			children = (
 				E311CBB429FD565400537EA8 /* Quote.swift */,
 				E311CBB229FD4F6300537EA8 /* QuoteData.swift */,
+				E3F929D22A32F2A100D3D35C /* AboutView.swift */,
 				E31293D72A2DA493003D8199 /* ProfileView.swift */,
 				E31293D52A2D707D003D8199 /* SettingsView.swift */,
 				E31293D32A2D3045003D8199 /* ImageListView.swift */,
@@ -210,7 +214,6 @@
 		E3EE33B12A2F1DB40002D697 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
-				E31293D12A2C2F76003D8199 /* DateUtils.swift */,
 				E31293D92A2DB18E003D8199 /* ImagePicker.swift */,
 				E334580E2A1F4EBB0077BE63 /* ImagesManager.swift */,
 				E334580C2A1F499D0077BE63 /* ImageScrollView.swift */,
@@ -406,11 +409,12 @@
 				E3F2493B29F9244500350ADE /* MainViewController.swift in Sources */,
 				E31293D62A2D707D003D8199 /* SettingsView.swift in Sources */,
 				E31293DA2A2DB18E003D8199 /* ImagePicker.swift in Sources */,
+				E3F929D32A32F2A100D3D35C /* AboutView.swift in Sources */,
 				E3F2496229FA308400350ADE /* HabitViewController.swift in Sources */,
 				E3F2493D29F9253100350ADE /* TabBarController.swift in Sources */,
 				E334580D2A1F499D0077BE63 /* ImageScrollView.swift in Sources */,
 				E31293D42A2D3045003D8199 /* ImageListView.swift in Sources */,
-				E31293D22A2C2F76003D8199 /* DateUtils.swift in Sources */,
+				E3F929D12A32C70100D3D35C /* StatsViewModel.swift in Sources */,
 				E3F2493F29F9CBD700350ADE /* UIColorExtension.swift in Sources */,
 				E311CBB329FD4F6300537EA8 /* QuoteData.swift in Sources */,
 				E31293DC2A2E14D6003D8199 /* ProfileViewModel.swift in Sources */,

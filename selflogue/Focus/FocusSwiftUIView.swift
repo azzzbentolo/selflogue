@@ -1,10 +1,3 @@
-//
-//  TimerSwiftUIView.swift
-//  selflogue
-//
-//  Created by Chew Jun Pin on 27/4/2023.
-//
-
 import SwiftUI
 import AVFoundation
 import CoreData
@@ -24,11 +17,13 @@ import CoreData
 /// As for the OOP part, `FocusSwiftUIView` abstracts the underlying implementation details of the focus timer, exposing a clean interface for interacting with the timer and integrating with the `FocusTimeManager` for managing focus time data.
 
 
+// Timer that emits a value every second.
 let timer = Timer
     .publish(every: 1, on: .main, in: .common)
     .autoconnect()
 
 
+// View that displays a clock representation of the remaining time.
 struct Clock: View {
     var counter: Int
     var countTo: Int
@@ -39,6 +34,9 @@ struct Clock: View {
                 .fontWeight(.black)
         }
     }
+    
+    
+    // Converts the counter value to minutes and seconds format.
     func counterToMinutes() -> String {
         let currentTime = countTo - counter
         let seconds = currentTime % 60
@@ -48,6 +46,7 @@ struct Clock: View {
 }
 
 
+// View that represents the track of the progress bar.
 struct ProgressTrack: View {
     var body: some View {
         Circle()
@@ -60,6 +59,7 @@ struct ProgressTrack: View {
 }
 
 
+// View that represents the progress bar indicating the progress of the focus session.
 struct ProgressBar: View {
     
     var counter: Int
@@ -94,12 +94,14 @@ struct ProgressBar: View {
         return progress() == 1
     }
     
+    // Calculates the progress of the focus session as a value between 0 and 1.
     func progress() -> CGFloat {
         return (CGFloat(countTo - counter) / CGFloat(countTo))
     }
 }
 
 
+// View that allows selecting the countdown time in minutes.
 struct CountdownPicker: View {
     
     @Binding var selectedTimeInterval: Int
@@ -118,6 +120,7 @@ struct CountdownPicker: View {
 }
 
 
+// View that provides controls for starting, pausing, and resetting the focus session timer.
 struct TimerControlView: View {
     
     @Binding var counter: Int
@@ -165,6 +168,7 @@ struct TimerControlView: View {
 }
 
 
+// View that displays a volume slider to control the audio player's volume.
 struct VolumeSliderView: View {
     
     @Binding var audioPlayer: AVPlayer?
@@ -184,6 +188,7 @@ struct VolumeSliderView: View {
 }
 
 
+// View that represents the entire focus session view, including the progress track, progress bar, and clock.
 struct FocusView: View {
     
     @Binding var counter: Int
@@ -199,6 +204,7 @@ struct FocusView: View {
 }
 
 
+// Main SwiftUI view representing the focus session screen.
 struct FocusSwiftUIView: View {
     
     @Environment(\.managedObjectContext) private var viewContext
@@ -242,6 +248,8 @@ struct FocusSwiftUIView: View {
         }
     }
     
+    
+    // Handles the timer tick, incrementing the counter and updating focus time accordingly.
     func handleTimer(_ time: Date) {
         if timerRunning && (self.counter < self.countTo) {
             self.counter += 1
@@ -256,6 +264,7 @@ struct FocusSwiftUIView: View {
     }
 
     
+    // View presenting the countdown picker as a sheet.
     func countdownPickerSheet() -> some View {
         VStack {
             Text("Select the countdown time")
@@ -281,6 +290,8 @@ struct FocusSwiftUIView: View {
         }
     }
     
+    
+    // Prints today's focus time. (For debugging)
     func printTodayFocusTime() {
         let focusTime = focusTimeManager?.getFocusTime(for: Date())
         print("Today's focus time: \(focusTime ?? 0) seconds")

@@ -30,7 +30,10 @@ import SwiftUI
 struct BackgroundMusicView: View {
     
     
+    // Symbols representing the music options
     let symbols = ["keyboard", "wave.3.right", "cloud.rain", "music.note"]
+    
+    // Binding to the AVPlayer instance
     @Binding var audioPlayer: AVPlayer?
     
     
@@ -45,7 +48,7 @@ struct BackgroundMusicView: View {
     }
 
     
-    // Customize the music buttons
+    // Creates a circular button for the specified index
     private func circularButton(forIndex index: Int) -> some View {
         
         Button(action: {
@@ -66,7 +69,7 @@ struct BackgroundMusicView: View {
     }
 
     
-    
+    // Sets up an observer to restart audio playback when it reaches the end
     private func setupAudioPlayerObserver() {
         
         NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: nil, queue: .main) { _ in
@@ -79,6 +82,7 @@ struct BackgroundMusicView: View {
     }
 
     
+    // Removes the observer for AVPlayerItemDidPlayToEndTime
     private func removeAudioPlayerObserver() {
         
         NotificationCenter.default.removeObserver(self, name: .AVPlayerItemDidPlayToEndTime, object: nil)
@@ -86,13 +90,16 @@ struct BackgroundMusicView: View {
     }
 
     
+    // Plays the audio for the specified index
     private func playAudio(forIndex index: Int) {
         
+        // Retrieve the URL for the audio file
         guard let url = Bundle.main.url(forResource: audioFileName(forIndex: index), withExtension: "mp3") else {
             print("Audio file not found")
             return
         }
 
+        // Check if the current audio player is already playing the selected audio
         if let currentItemURL = (audioPlayer?.currentItem?.asset as? AVURLAsset)?.url, currentItemURL == url {
             toggleAudioPlayback()
         } else {
@@ -102,6 +109,7 @@ struct BackgroundMusicView: View {
     }
 
     
+    // Sets up and plays the audio from the specified URL
     private func setupAndPlayAudio(url: URL) {
         
         audioPlayer = AVPlayer(url: url)
@@ -111,6 +119,7 @@ struct BackgroundMusicView: View {
     }
 
     
+    // Toggles the playback state of the audio
     private func toggleAudioPlayback() {
         
         guard let audioPlayer = audioPlayer else { return }
@@ -119,6 +128,7 @@ struct BackgroundMusicView: View {
     }
 
     
+    // Returns the audio file name for the specified index
     private func audioFileName(forIndex index: Int) -> String {
         
         switch index {

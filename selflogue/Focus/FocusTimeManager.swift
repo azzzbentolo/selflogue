@@ -27,11 +27,15 @@ class FocusTimeManager: ObservableObject {
     }
     
     
+    // Start a focus session by setting the session start date.
     func startFocusSession() {
         sessionStartDate = Date()
     }
     
     
+    // End a focus session and calculate the elapsed time.
+    // Increment the focus time with the elapsed time.
+    // Returns the elapsed time of the focus session.
     func endFocusSession() -> TimeInterval? {
         guard let start = sessionStartDate else { return nil }
         let elapsedTime = Date().timeIntervalSince(start)
@@ -40,6 +44,7 @@ class FocusTimeManager: ObservableObject {
     }
     
 
+    // Increment the focus time for the current day.
     func incrementFocusTime(by elapsedTime: TimeInterval) {
         let today = Calendar.current.startOfDay(for: Date())
         let request: NSFetchRequest<FocusTime> = FocusTime.fetchRequest()
@@ -63,6 +68,7 @@ class FocusTimeManager: ObservableObject {
     }
 
 
+    // Get the total focus time for a specific date.
     func getFocusTime(for date: Date) -> Int {
         
         let day = Calendar.current.startOfDay(for: date)
@@ -80,6 +86,7 @@ class FocusTimeManager: ObservableObject {
     }
     
     
+    // Get the total focus time for a specific month.
     func getFocusTimeForMonth(for date: Date) -> Int {
         
         var calendar = Calendar.current

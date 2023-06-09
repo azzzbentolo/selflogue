@@ -16,6 +16,7 @@ import SwiftUI
 ///`FocusViewController` inherits from `UIViewController`, providing the basic infrastructure for managing the view hierarchy and handling lifecycle events, showing good use of OOP.
 
 
+// Called after the controller's view is loaded into memory.
 class FocusViewController: UIViewController {
 
     
@@ -26,13 +27,22 @@ class FocusViewController: UIViewController {
         
         super.viewDidLoad()
 
+        // Obtain the Core Data managed object context.
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        // Create an instance of the SwiftUI view and provide the managed object context via the environment.
         let focusSwiftUIView = FocusSwiftUIView().environment(\.managedObjectContext, context)
         
+        // Create a UIHostingController with the SwiftUI view as the root view.
         hostingController = UIHostingController(rootView: AnyView(focusSwiftUIView))
+        
+        // Add the hosting controller as a child view controller.
         addChild(hostingController)
+        
+        // Add the hosting controller's view as a subview of the view controller's view.
         view.addSubview(hostingController.view)
         
+        // Configure the constraints for the hosting controller's view to match the parent view controller's view.
         hostingController.view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             hostingController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -41,6 +51,7 @@ class FocusViewController: UIViewController {
             hostingController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
+        // Notify the hosting controller that it has been added as a child view controller.
         hostingController.didMove(toParent: self)
     }
 }

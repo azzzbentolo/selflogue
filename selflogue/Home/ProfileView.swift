@@ -1,19 +1,31 @@
 import SwiftUI
 
+
+///  `ProfileView` is a SwiftUI `View` that represents the profile screen in the application.
+///  It uses the `ProfileViewModel` to bind its data to the view.
+///  It follows the Model-View-ViewModel (MVVM) architecture pattern, where `ProfileViewModel` is the ViewModel.
+///  This design leverages OOP principles by encapsulating related data and behavior (like image loading and saving, and user profile details management) within the `ProfileViewModel` class.
+
+
 struct ProfileView: View {
     
     
+    // Environment variables and observed objects
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var viewModel: ProfileViewModel
+    
+    // State variables
     @State private var showingImagePicker = false
     @State private var showingActionSheet = false
     @State private var editMode = false
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
+    
+    // Constants for max length of the text fields
     let maxNameLength = 20
     let maxUsernameLength = 10
     let maxBioLength = 50
 
-    
+    // The body of the ProfileView
     var body: some View {
         
         VStack(spacing: 20) {

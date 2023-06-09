@@ -28,10 +28,19 @@ import CoreData
 struct AddHabitView: View {
     
     
+    // Binding for controlling the visibility of the AddHabitView.
     @Binding var showAddHabitView: Bool
+    
+    // Environment variable to access the managed object context.
     @Environment(\.self) var env
+    
+    // ObservedObject for managing the habit store.
     @ObservedObject var habitStore: HabitStore
+    
+    // State variable to control the display of an alert.
     @State private var showAlert = false
+    
+    // State variable to control the display of an alert for empty fields.
     @State private var showEmptyFieldsAlert = false
     
     
@@ -41,11 +50,13 @@ struct AddHabitView: View {
             
             VStack(spacing: 15) {
                 
+                // Text field for entering the habit title.
                 TextField("Title", text: $habitStore.habitTitle)
                     .padding(.horizontal)
                     .padding(.vertical, 10)
                     .background(Color("TFBG").opacity(0.4),in: RoundedRectangle(cornerRadius: 6, style: .continuous))
-                
+
+                // Text field for entering the habit description.
                 TextField("Title Description", text: $habitStore.habitDescription)
                     .padding(.horizontal)
                     .padding(.vertical, 10)
@@ -127,6 +138,7 @@ struct AddHabitView: View {
                         }
                         .frame(maxWidth: .infinity,alignment: .leading)
                         
+                        // Toggle switch for enabling or disabling the habit reminder.
                         Toggle(isOn: $habitStore.reminderIsOn) {}
                             .labelsHidden()
                     }
@@ -136,6 +148,7 @@ struct AddHabitView: View {
                     }
                 }
                 
+                // Button for saving the habit.
                 Button("Save Habit") {
                     
                     if habitStore.habitTitle.isEmpty || habitStore.habitDescription.isEmpty {
@@ -159,6 +172,7 @@ struct AddHabitView: View {
                     showAlert = true
                 }.alert(isPresented: $showAlert) {
                     
+                    // Alert for confirming the deletion of a habit.
                     Alert(
                         title: Text("Delete Habit"),
                         message: Text("Are you sure you want to delete this habit?"),
@@ -182,6 +196,7 @@ struct AddHabitView: View {
     }
     
     
+    // Schedule a local notification for the habit.
     func scheduleNotification(for habit: Habit) {
         
         let content = UNMutableNotificationContent()

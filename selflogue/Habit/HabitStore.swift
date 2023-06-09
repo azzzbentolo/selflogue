@@ -19,14 +19,21 @@ import CoreData
 class HabitStore: ObservableObject {
     
     
+    // The array of habits, published to notify observers of changes.
     @Published var habits: [Habit] = []
+    
+    // Properties for storing habit details.
     @Published var habitTitle: String = ""
     @Published var habitDescription: String = ""
     @Published var habitColor: String = "Color-1"
     @Published var addNewHabit: Bool = false
     @Published var weekDays: [String] = []
     @Published var notificationAccess: Bool = false
+    
+    // The habit being edited, if any.
     @Published var editHabit: Habit?
+    
+    // Properties for managing reminders.
     @Published var reminderIsOn: Bool = false {
         didSet {
             if let editHabit = editHabit {
@@ -46,16 +53,18 @@ class HabitStore: ObservableObject {
         }
     }
 
-    
+    // The managed object context for Core Data operations.
     private var managedObjectContext: NSManagedObjectContext
     
     
+    // Initializes the HabitStore with the provided managed object context.
     init(context: NSManagedObjectContext) {
         self.managedObjectContext = context
         fetchHabits()
     }
     
     
+    // Fetches the habits from Core Data and updates the `habits` array.
     private func fetchHabits() {
         DispatchQueue.main.async {
             let request: NSFetchRequest<Habit> = Habit.fetchRequest()
@@ -69,6 +78,7 @@ class HabitStore: ObservableObject {
     }
     
     
+    // Adds or updates a habit in Core Data.
     func addHabit(context: NSManagedObjectContext) async -> Bool {
         var habit: Habit!
         if let editHabit = editHabit {
@@ -95,6 +105,7 @@ class HabitStore: ObservableObject {
     }
 
     
+    // Deletes a habit from Core Data.
     func deleteHabit(habit: Habit) {
         managedObjectContext.delete(habit)
 
@@ -107,6 +118,7 @@ class HabitStore: ObservableObject {
     }
 
     
+    // Restores the edited habit's data to the properties for editing.
     func restoreEditData() {
         
         if let editHabit = editHabit {
@@ -121,6 +133,7 @@ class HabitStore: ObservableObject {
     }
     
     
+    // Resets the habit data properties to their default values.
     func resetHabitData() {
         
         self.habitTitle = ""
@@ -135,6 +148,7 @@ class HabitStore: ObservableObject {
     }
     
     
+    // Adds or updates a habit in Core Data and returns the habit object.
     func addHabit(context: NSManagedObjectContext) async -> Habit? {
         
         var habit: Habit!
@@ -165,6 +179,7 @@ class HabitStore: ObservableObject {
     }
 
     
+    // Updates the reminder for a habit using the provided habit ID.
     func updateReminder(habitId: String) {
         
         if reminderIsOn {
@@ -186,7 +201,7 @@ class HabitStore: ObservableObject {
     }
 
     
-    
+    // Deletes the notification for a habit.
     func deleteNotification(for habit: Habit) {
 
         guard let habitId = habit.id else {

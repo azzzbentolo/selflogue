@@ -1,10 +1,3 @@
-//
-//  UIColorExtension.swift
-//  selflogue
-//
-//  Created by Chew Jun Pin on 27/4/2023.
-//
-
 import Foundation
 import UIKit
 

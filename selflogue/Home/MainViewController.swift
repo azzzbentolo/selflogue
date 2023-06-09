@@ -1,63 +1,65 @@
-//
-//  MainViewController.swift
-//  selflogue
-//
-//  Created by Chew Jun Pin on 26/4/2023.
-//
-
 import UIKit
 import SwiftUI
 import FSCalendar
 
 
-/// MainViewController is a UIViewController subclass that serves as the main view controller of the application.
+/// `MainViewController` is a UIViewController subclass that serves as the main view controller of the application.
 /// It manages the main user interface, including the quote label, calendar view, and add logue button.
 ///
-/// MainViewController follows the MVC (Model-View-Controller) architecture.
-/// It acts as the controller, responsible for handling user interactions and managing the data flow between the model and the view.
+/// It follows the MVC (Model-View-Controller) architecture, where it acts as the controller in the architecture.
+/// It is responsible for handling user interactions, managing the data flow between the model and the view, and setting up the calendar, quote, and button appearances.
 ///
-/// The view hierarchy of MainViewController consists of several UI elements, including a UILabel, FSCalendar, and UIButton.
-/// It sets up the calendar, quote, and button appearances, and handles calendar delegate methods.
-///
-/// It communicates with the Quote class to fetch a random quote from the quotable API and display it on the quote label.
-/// It also interacts with ImagesManager to retrieve images for a selected date and present the image list view.
+/// `MainViewController` interacts with the `Quote` class to fetch a random quote from the quotable API.
+/// It also communicates with `ImagesManager` to retrieve images for a selected date and present the image list view.
 /// Additionally, it uses UserDefaults to load and display the username in the navigation title.
 ///
-/// Overall, MainViewController serves as the entry point of the application and manages the main user interface and interactions.
+/// `MainViewController` uses the FSCalendar library as a dependency to provide the calendar functionality.
+/// It conforms to FSCalendarDelegate and FSCalendarDataSource to provide and handle calendar data and events,
+/// as well as FSCalendarDelegateAppearance to customize the calendar appearance.
+///
+/// This view controller serves as the entry point of the application and manages the main user interface and interactions.
+///
 
 
 class MainViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
     
     
+    // UI elements for displaying the daily quote, calendar, and adding a new logue.
     @IBOutlet weak var quote: UILabel!
     @IBOutlet weak var calendar: FSCalendar!
     @IBOutlet weak var addLogueButton: UIButton!
+    var profileImageView: UIImageView!
     
     
+    // Constant color used for the theme of the application.
     let THEME_COL: UIColor = UIColor(red: 84, green: 65, blue: 177)
     
     
+    // Called after the controller's view is loaded into memory.
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        setUpCalendar()
-        setUpLineView()
-        setUpAddButton()
-        setUpProfileButton()
+        setUpCalendar() // Sets up the calendar view.
+        setUpLineView() // Sets up the line view.
+        setUpAddButton() // Sets up the add logue button.
+        setUpProfileButton() // Sets up the profile button.
+        updateAppearance() // Update view
         
     }
     
     
+    // Called before the view is about to appear on the screen.
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
         self.quote.text = ""
-        fetchQuote()
-        loadUsername()
+        fetchQuote() // Fetches a new quote.
+        loadUsername() // Loads the user's username.
+        updateAppearance() // Update view
         
     }
     
-    
+    // Fetches a new quote from the quotable API.
     func fetchQuote() {
         
         Task {
@@ -84,6 +86,7 @@ class MainViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
     }
     
     
+    // Sets up the appearance of the add logue button.
     func setUpAddButton() {
         
         addLogueButton.tintColor = .white
@@ -93,14 +96,17 @@ class MainViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
     }
     
     
+    // Sets up the appearance and functionality of the profile button.
     func setUpProfileButton() {
         
         let imageSize: CGFloat = 30
         
-        let profileImageView = UIImageView(image: UIImage(systemName: "gear"))
+        profileImageView = UIImageView(image: UIImage(systemName: "gear"))
         profileImageView.frame = CGRect(x: 0, y: 0, width: imageSize, height: imageSize)
         profileImageView.contentMode = .scaleAspectFit
-        profileImageView.tintColor = .black
+        
+        // Update the profileImageView's tintColor based on the current interface style
+        updateProfileImageViewTintColor()
         
         let profileButton = UIButton(type: .custom)
         profileButton.frame = CGRect(x: 100, y: 100, width: imageSize, height: imageSize)
@@ -119,6 +125,12 @@ class MainViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
     }
 
     
+    func updateProfileImageViewTintColor() {
+        profileImageView.tintColor = traitCollection.userInterfaceStyle == .dark ? .white : .black
+    }
+    
+    
+    // Handles the selection of a date on the calendar.
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         
         let images = imagesForDate(date)
@@ -127,8 +139,9 @@ class MainViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
         }
         
     }
-
     
+    
+    // Sets up the appearance and functionality of the calendar.
     func setUpCalendar() {
         
         calendar.dataSource = self
@@ -138,30 +151,42 @@ class MainViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
         calendar.weekdayHeight = 40
         
         let appearance = calendar.appearance
+        
         appearance.headerTitleColor = UIColor(red: 130, green: 130, blue: 130)
         appearance.headerTitleFont = UIFont(name: "Lato-Bold", size: 20)
-        
         appearance.weekdayTextColor = UIColor.black
         appearance.weekdayFont = UIFont(name: "Lato-Regular", size: 14)
-        appearance.caseOptions = FSCalendarCaseOptions.weekdayUsesUpperCase
+        appearance.caseOptions = .weekdayUsesUpperCase
         appearance.borderRadius = .zero
         appearance.headerMinimumDissolvedAlpha = 0
-        
         appearance.titleSelectionColor = UIColor.black
+        
+        // Customize appearance for dark mode
+        if traitCollection.userInterfaceStyle == .dark {
+            appearance.titleDefaultColor = .white
+            appearance.titleWeekendColor = .white
+            appearance.titlePlaceholderColor = .white
+            appearance.weekdayTextColor = .white
+            appearance.eventDefaultColor = .white
+            appearance.selectionColor = THEME_COL
+        }
         
     }
     
     
+    // Customizes the fill color of the selected date on the calendar.
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillSelectionColorFor date: Date) -> UIColor? {
         return .clear
     }
     
     
+    // Customizes the border color of the selected date on the calendar.
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, borderSelectionColorFor date: Date) -> UIColor? {
         return THEME_COL
     }
     
     
+    // Customizes the default fill color for dates on the calendar.
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillDefaultColorFor date: Date) -> UIColor? {
         
         let today = Date()
@@ -179,6 +204,7 @@ class MainViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
     }
     
     
+    // Sets up the line view.
     func setUpLineView() {
         
         let lineView = UIView(frame: CGRect(x: 0, y: 158, width: 500, height: 1.5))
@@ -189,28 +215,30 @@ class MainViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
     }
     
     
+    // Presents a view controller that displays a list of images for the selected date.
     func presentImageListView(for date: Date) {
         let vc = UIHostingController(rootView: ImagesListView(selectedDate: date))
         self.present(vc, animated: true, completion: nil)
     }
     
     
+    // Returns a list of image files for the selected date.
     private func imagesForDate(_ date: Date) -> [(String, (UIImage, String, Date))] {
-        
         return ImagesManager.shared.imageFiles.filter { $0.value.2.dateOnly() == date }
-        
     }
     
     
+    // Handles the tapping of the profile button, presenting the settings view.
     @objc func profileButtonTapped() {
         print("Button tapped")
         let settingsView = SettingsView()
-
+        
         let vc = UIHostingController(rootView: settingsView)
         self.present(vc, animated: true, completion: nil)
     }
     
     
+    // A subclass of UIView that passes touch events through to a button.
     class TouchThroughView: UIView {
         var button: UIButton?
         
@@ -223,6 +251,7 @@ class MainViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
     }
     
     
+    // Loads the user's username from UserDefaults and displays it in the navigation title.
     func loadUsername() {
         let defaults = UserDefaults.standard
         if let username = defaults.string(forKey: "username") {
@@ -231,16 +260,27 @@ class MainViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSo
     }
     
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
+            updateAppearance()
+            updateProfileImageViewTintColor()
+        }
+    }
     
+    
+    func updateAppearance() {
+        
+        let isDarkMode = traitCollection.userInterfaceStyle == .dark
+        
+        quote.textColor = isDarkMode ? .white : .black
+        calendar.appearance.headerTitleColor = UIColor(red: 130, green: 130, blue: 130)
+        calendar.appearance.weekdayTextColor = isDarkMode ? .white : .black
+        calendar.appearance.titleDefaultColor = isDarkMode ? .white : .black
+        calendar.appearance.titleWeekendColor = isDarkMode ? .white : .black
+        calendar.appearance.titlePlaceholderColor = isDarkMode ? .white : .black
+        calendar.appearance.eventDefaultColor = isDarkMode ? .white : .black
+        calendar.appearance.selectionColor = THEME_COL
+    }
 
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }

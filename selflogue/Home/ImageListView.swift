@@ -1,14 +1,31 @@
 import SwiftUI
 
 
+/// `ImagesListView` is a SwiftUI view responsible for displaying a list of images associated with a selected date. It integrates with the ImagesManager class to fetch and filter the images for the selected date.
+///
+/// The view utilizes the ObservedObject property wrapper to observe changes in the `imagesManager` instance.
+/// It also uses the State property wrapper to manage the currently selected image index.
+///
+/// The class encapsulates the logic for filtering and displaying images for a specific date. It utilizes private methods to handle the image filtering and formatting of the selected date. Hence, we can say that it follows OOP principle.
+///
+
+
+// This view is responsible for displaying images associated with a specific date.
+// It displays these images in a paged view, along with associated descriptions.
 struct ImagesListView: View {
     
     
+    // ImagesManager shared instance is observed for changes in imageFiles
     @ObservedObject var imagesManager = ImagesManager.shared
+    
+    // State for managing the currently selected image index
     @State private var selectedImageIndex = 0
+    
+    // The date for which images should be displayed
     var selectedDate: Date
     
     
+    // Filter images to display only those associated with the selected date
     private var imagesForDate: [(String, (UIImage, String, Date))] {
         return imagesManager.imageFiles.filter { $0.value.2.dateOnly() == selectedDate }
     }
@@ -58,6 +75,7 @@ struct ImagesListView: View {
     }
 
     
+    // Helper function to format date in "dd MMMM, yyyy" format
     func format(date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd MMMM, yyyy"

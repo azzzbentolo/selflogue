@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  selflogue
-//
-//  Created by Chew Jun Pin on 26/4/2023.
-
-
 import UIKit
 import UserNotifications
 import CoreData
@@ -15,8 +8,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     var window: UIWindow?
-    var shouldGoToOnboarding: Bool = false
     
+    // MARK: - Core Data
     
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "HabitTracker")
@@ -29,12 +22,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }()
     
     
+    // Saves changes in the application's managed object context before termination.
     func applicationWillTerminate(_ application: UIApplication) {
         self.saveContext()
     }
     
     
-    // MARK: - Core Data Saving support
+    // Saves changes in the application's managed object context if there are any changes.
     func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {
@@ -47,22 +41,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    
-    func resetData() {
-        let context = persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Habit")
-        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-
-        do {
-            try context.execute(batchDeleteRequest)
-            shouldGoToOnboarding = true
-        } catch {
-            print("Failed to delete data: \(error)")
-        }
-
-        saveContext()
-    }
-
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
